@@ -1,13 +1,11 @@
-#summary About me!.
+#summary About me!
 
-= Introduction =
+== About me! ==
 
-Add your content here.
+  Hi, I am Hakan. I was hoping to be in this department and in this university since the beginning of high school, and I am happy with my choice. I like reading, thinking, playing football and table tennis.
+  I hope we will get along with each other well and have nice times during group works. 
+    
 
+=== Contact Information ===
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+E-mail: hakan23demir@gmail.com
