@@ -1,7 +1,5 @@
 Pinar Kavak
 
-= Introduction =
-
 Hi, I am a Phd. student in computer engineering department. I took CMPE352 as non-credit for the Phd qualification examination. I think it will be nice to meet and work on this project with you. My research study is on genome assembly for next generation sequencing.
 
 I like mountaineering and rock climbing and also like very much to travel lots of new places that I haven't seen before.
