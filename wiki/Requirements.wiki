@@ -37,7 +37,10 @@ REQUIREMENTS VERSION 1
 
 1.3.1 System shall allow users to search within the published services.
 
-1.3.2 System shall allow search with person name, service offer and location keywords.
+1.3.2 System shall allow users to search within the services that will
+be published in near future and publishing time.
+
+1.3.3 System shall allow search with person name, service offer and location keywords.
 
 
 
