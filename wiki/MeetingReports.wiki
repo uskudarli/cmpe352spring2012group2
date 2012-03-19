@@ -1,27 +1,25 @@
-=*Report of Meeting #1*=
+=*Report of Meeting #3*=
 
-*Meeting Date:05.03.2012*
+*Meeting Date: 19.03.2012*
 
-*Meeting Duration:0,5 hour*
+*Meeting Duration: 1 hour*
 
-*Meeting Location:ETA  A3*
-
+*Meeting Location: ETA A4*
 
 *Issues&Decisions:*
-  # First meeting with the project team.
-  # Essentials of the domain analysis is discussed.
-  # Distribution of the tasks for 2. assignment is revised.
-  # The format of the presentation is determined.
-  # Another meeting is be fixed in order to revise the presentation and domain analysis document. (05.03.2012 @ 22.00) 
 
+  # How to generate scenarios are decided.
+  # Two different determined scenarios are developed.
+  # Use Case Analysis is performed on the decided scenarios.
+  # Requirements document will be updated with respect to the new changes. 
 
 =*Report of Meeting #2*=
 
-*Meeting Date:12.03.2012*
+*Meeting Date: 12.03.2012*
 
-*Meeting Duration:1 hour*
+*Meeting Duration: 1 hour*
 
-*Meeting Location:CMPE Lounge*
+*Meeting Location: CMPE Lounge*
 
 
 *Issues&Decisions:*
@@ -30,3 +28,19 @@
   # More requirements are discussed and determined in order to be more specific.
   # The format of the presentation is determined.
  
+
+=*Report of Meeting #1*=
+
+*Meeting Date: 05.03.2012*
+
+*Meeting Duration: 0,5 hour*
+
+*Meeting Location: ETA  A3*
+
+
+*Issues&Decisions:*
+  # First meeting with the project team.
+  # Essentials of the domain analysis is discussed.
+  # Distribution of the tasks for 2. assignment is revised.
+  # The format of the presentation is determined.
+  # Another meeting is be fixed in order to revise the presentation and domain analysis document. (05.03.2012 @ 22.00) 
