@@ -4,50 +4,52 @@ REQUIREMENTS VERSION 1
 1.FUNCTIONAL REQUIREMENTS
 
 
-1.1 SERVICE EXCHANGE
-
-1.1.1. Services should be offered and requested by system users.
- 
-1.1.2 Demanded services should be served by system users.
-
-1.1.2.1. Services should be able to exchange between system users.
-
+1.1 SERVICE EXCHANGE 
+1.1.1.	Services should be offered and requested by system users.
+1.1.2      Demanded services should be served by system users.
+1.1.2.1. Services should be able to exchange between system users. Service demanders don’t necessarily have to offer any social services to service providers who fulfill their request.
 1.1.2.2. Service providers should gain social credits.
-
-1.1.3. Services shall be searchable and browsable by system users.
- 
+1.1.3. Services shall be searchable and browsable by system users. 
 1.1.4. Service providers and receptors shall be rated.
+1.1.5 Social Services and Social Credits
+1.1.5.1 Any kind of legal(allowed by administrator) services shall be named as social services.
+1.1.5.2 All valid services shall be determined by the site administrator. Members should make a proposal to the administrator when they want/need new type of service.
+1.1.5.3 There shall be a social services types. Services shall be divided into subgroups according to their types.  
+1.1.5.4 All member shall have a certain amount  social credit points when they register the  system.( 25 points)
+1.1.5.5  Any member who use anything other than social credit points in exchange for social services shall be discarded from the site by the administrator.
+1.1.5.6  Service demanders should rate the service providers  from one to ten scale according to quality of the services after the service is done.
 
 
 1.2 USERS
 
 1.2.1 Registration
+1.2.1.1 There  shall be two types of system users: Member and Administrator
 
-1.2.1.1 System shall demand name, surname, e-mail, phone number, location from the new member at the registration time.
+1.2.1.2 System shall demand name, surname, e-mail, phone number, location from the new member at the registration time.
 
-1.2.1.2 System shall demand a service offer from the new members at the time of registration to the system.
+1.2.1.3 System shall demand a service offer from the new members at the time of registration to the system.
+1.2.2 Users should login the site by using e-mail address(or nickname) and password.
 
-1.2.2 Service Offers
+1.2.3.5 System shall allow each community member to publish their service offers and requests.
 
-1.2.2.1 System shall allow each community member to publish their service offers and requests.
+1.2.3.6 System shall give social credits to the users for services, which will be available on the profiles of the users.
 
-1.2.2.2 System shall give social credits to the users for services, which will be available on the profiles of the users.
+1.2.3.7 All services shall have a certain and same community credit points per hour. (5 points for 1 hour).
+1.2.3.8 Members shall not above 50 community credits points or below 0 community credit points. Users shall be responsible for adjusting their community credit points.
+1.2.3.3 System shall keep track of offered services and used services for each member, for establishing balance within the community.
 
-1.2.2.3 System shall count offered services and used services for each member, for establishing balance within the community.
+1.2.4 User Profiles
 
-1.2.3 User Profiles
-
-1.2.3.1 User Profiles shall include name, surname, e-mail address, published services by the user, recently used services of the user and users social credit. 
+1.2.4.1 User Profiles shall include name, surname, e-mail address, published services by the user, recently used services of the user and users social credit points. 
+1.2.4.2 Rating of the members shall be include in the user profiles.
 
 
 1.3 SEARCHING
 
 1.3.1 System shall allow users to search within the published services.
 
-1.3.2 System shall allow users to search within the services that will
-be published in near future and publishing time.
-
-1.3.3 System shall allow search with person name, service offer and location keywords.
+1.3.2 System shall allow search with person name, service offer, location and service types keywords.
+1.3.3 System shall propose social services to the users when system doesn’t find the suitable match for that search from the same social services type.
 
 
 
@@ -58,10 +60,7 @@ be published in near future and publishing time.
 
 2.1.1 System shall be a website.
 
-2.1.2 Users shall connect to the Internet for accessing our system 
-
 2.1.3 System shall have a graphical user interface
-
 2.1.4 System shall allow multiple user access at the same time.  
 
 
@@ -75,13 +74,14 @@ be published in near future and publishing time.
 2.3 SECURITY AND PRIVACY
 
 2.3.1 Personal information shall not be shared with third parties
-
 2.3.2 User passwords shall be stored by using a cryptography algorithm. 
 
 
 2.4 DEPENDABILITY 
 
 2.4.1 The web page shall be compatible with last versions of the Chrome, Firefox and IE browsers.
-
  
 2.4.2 The web page shall conform the W3C standards and must avoid usage of non-standard technologies.
+
+2.5 RELIABILITY
+Database shall be copied periodically in order to decrease mean downtime.  
