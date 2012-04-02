@@ -1,3 +1,19 @@
+=*Report of Meeting #6*=
+
+*Meeting Date: 02.04.2012*
+
+*Meeting Duration: 1 hour*
+
+*Meeting Location: ETA A4*
+
+*Participants: Eylül Taşyürek, Mustafa Ertürk, Hakan Demir*
+
+*Activities:*
+
+  # System Architecture is designed.
+  # Google Code Page is updated.
+
+
 =*Report of Meeting #5*=
 
 *Meeting Date: 26.03.2012*
