@@ -16,37 +16,37 @@ According to these criteria, 2 websites which are similar to our project is exam
 
 
 *1. USERS*
-	People who
-	Want to buy service
-	see the offers 
-	compare the offers 
-	and select the best offer
-	make an appointment to buy the service
-	Want to offer service
-	present their profile
-	make offers for demands
-	get the offer accepted
-	make an appointment to give the service
+#	People who
+#	Want to buy service
+#	see the offers 
+#	compare the offers 
+#	and select the best offer
+#	make an appointment to buy the service
+#	Want to offer service
+#	present their profile
+#	make offers for demands
+#	get the offer accepted
+#	make an appointment to give the service
 
 *2. DESIGN, USABILITY, ENVIRONMENT, SIZE, SUITABILITY*
 
-	Design: Simple, not complicated, efficient.
-	Usability: Easy to understand and use, user friendly.
-	Environment: Web environment, easily accessible from everywhere.
-	Size: Limited. Covers services just for Istanbul. 
-	Suitability: Suitable for any other demand-supply services.
+#	Design: Simple, not complicated, efficient.
+#	Usability: Easy to understand and use, user friendly.
+#	Environment: Web environment, easily accessible from everywhere.
+#	Size: Limited. Covers services just for Istanbul. 
+#	Suitability: Suitable for any other demand-supply services.
 
 *3. ADVANTAGES & DISADVANTAGES*
 
 ADVANTAGES:
-	Simple and efficient usage of the web-site for both service provider and service demander.
-	Trustworthy place to look for getting or giving services.
-	Time saving.
-	Accessible from everywhere via internet.
+#	Simple and efficient usage of the web-site for both service provider and service demander.
+#	Trustworthy place to look for getting or giving services.
+#	Time saving.
+#	Accessible from everywhere via internet.
 DISADVANTAGES:
-	Cannot see the offers without making a demand.
-	Limited. Just for Istanbul, does not include any other cities.
-	No photos, visual presentation could be better.
+#	Cannot see the offers without making a demand.
+#	Limited. Just for Istanbul, does not include any other cities.
+#	No photos, visual presentation could be better.
 
 A more detailed analysis of advantages and disadvantages are shown below. 
 	Strengths 
@@ -121,4 +121,3 @@ DISADVANTAGES:
 	Jetty7.0.2.v20100331 web server (Jetty is a pure Java-based HTTP client/server, WebSocket client/server and servlet container (Application server) developed as a free and open source project as part of the Eclipse Foundation.)
 	Java Server Pages ( JSP ) 
 	SQL databases
-
