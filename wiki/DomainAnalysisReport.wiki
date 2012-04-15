@@ -25,8 +25,7 @@ According to these criteria, 2 websites which are similar to our project is exam
 
 *1. USERS*
 
--People who
--Want to buy service
+People who *Want to buy service
 
 -	see the offers 
 
@@ -36,7 +35,7 @@ According to these criteria, 2 websites which are similar to our project is exam
 
 -	make an appointment to buy the service
 
--Want to offer service
+*Want to offer service
 
 -	present their profile
 
@@ -86,7 +85,7 @@ DISADVANTAGES:
 
 A more detailed analysis of advantages and disadvantages are shown below. 
 
--	Strengths 
+*	Strengths 
 
 -Simple and efficient usage of the web-site for both service provider and service demander.
  
@@ -96,19 +95,19 @@ A more detailed analysis of advantages and disadvantages are shown below.
 
 -Accessible from everywhere via internet. 
 
--	Weaknesses 
+*	Weaknesses 
 
 -Cannot see the offers without making a demand.
  
 -Safety issues(online shopping is not commonly used in Turkey) 
 
--	Opportunuties 
+*	Opportunuties 
 
 -There is no dominant competitor in the market and the number of the competitor is relatively small.
 
 -Limited. Just for Istanbul, does not include any other cities. We can be the first one provide this service to other cities.
 
--	Threats 
+*	Threats 
 
 -Although there is no much and dominant competitors in the market it is not an original idea.
 
