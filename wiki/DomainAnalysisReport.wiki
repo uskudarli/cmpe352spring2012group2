@@ -28,7 +28,7 @@ According to these criteria, 2 websites which are similar to our project is exam
 -People who
 -Want to buy service
 
-*	see the offers 
+#	see the offers 
 
 *	compare the offers 
 
