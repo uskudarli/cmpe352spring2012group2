@@ -1,68 +1,119 @@
 =DOMAIN ANALYSIS=
 
 	Domain analysis for social services community project is done by considering 4 important features. These are:
+
 1.	Customer and user profiles
+
 2.	Design, usability, environment, size and suitability
+
 3.	Advantages & Disadvantages
+
 4.	Technologies used in development
+
 
 According to these criteria, 2 websites which are similar to our project is examined. These websites are ‘Servisimo.com’ and ‘VolunteerMatch’. 
 
+
 ==SERVISIMO.COM==
+
 	Servisimo is a web site that connects service providers and people that demand service.
-	The main difference with our Project is that they have taken from the service providers. 
-	In addition to this, our project will provide the definitions of the services and social credit for services. Our project will also provide ratings about service providers and offerers, servisimo does not.
+
+	The main difference with our Project is that they have taken from the service providers. In addition to this, our project will provide the definitions of the services and social credit for services. Our project will also provide ratings about service providers and offerers, servisimo does not.
+
 
 
 
 *1. USERS*
-#	People who
-#	Want to buy service
-#	see the offers 
-#	compare the offers 
-#	and select the best offer
-#	make an appointment to buy the service
-#	Want to offer service
-#	present their profile
-#	make offers for demands
-#	get the offer accepted
-#	make an appointment to give the service
+
+-People who
+-Want to buy service
+
+*	see the offers 
+
+*	compare the offers 
+
+*	and select the best offer
+
+*	make an appointment to buy the service
+
+-Want to offer service
+
+*	present their profile
+
+*	make offers for demands
+
+*	get the offer accepted
+
+*	make an appointment to give the service
+
 
 *2. DESIGN, USABILITY, ENVIRONMENT, SIZE, SUITABILITY*
 
-#	Design: Simple, not complicated, efficient.
-#	Usability: Easy to understand and use, user friendly.
-#	Environment: Web environment, easily accessible from everywhere.
-#	Size: Limited. Covers services just for Istanbul. 
-#	Suitability: Suitable for any other demand-supply services.
+
+*	Design: Simple, not complicated, efficient.
+
+*	Usability: Easy to understand and use, user friendly.
+
+*	Environment: Web environment, easily accessible from everywhere.
+
+*	Size: Limited. Covers services just for Istanbul. 
+
+*	Suitability: Suitable for any other demand-supply services.
+
 
 *3. ADVANTAGES & DISADVANTAGES*
 
+
 ADVANTAGES:
-#	Simple and efficient usage of the web-site for both service provider and service demander.
-#	Trustworthy place to look for getting or giving services.
-#	Time saving.
-#	Accessible from everywhere via internet.
+
+*	Simple and efficient usage of the web-site for both service 
+provider and service demander.
+
+*	Trustworthy place to look for getting or giving services.
+
+*	Time saving.
+
+*	Accessible from everywhere via internet.
+
 DISADVANTAGES:
-#	Cannot see the offers without making a demand.
-#	Limited. Just for Istanbul, does not include any other cities.
-#	No photos, visual presentation could be better.
+
+*	Cannot see the offers without making a demand.
+
+*	Limited. Just for Istanbul, does not include any other cities.
+
+*	No photos, visual presentation could be better.
+
 
 A more detailed analysis of advantages and disadvantages are shown below. 
-	Strengths 
-	Simple and efficient usage of the web-site for both service provider and service demander. 
-	Trustworthy place to look for getting or giving services. 
-	Time and energy saving 
-	Accessible from everywhere via internet. 
-	Weaknesses 
-	Cannot see the offers without making a demand. 
-	Safety issues(online shopping is not commonly used in Turkey) 
-	Opportunuties 
-	There is no dominant competitor in the market and the number of the competitor is relatively small.
-	Limited. Just for Istanbul, does not include any other cities. We can be the first one provide this service to other cities.
-	Threats 
-	Although there is no much and dominant competitors in the market it is not an original idea.
-	It is not widely used and known. 
+
+-	Strengths 
+
+*Simple and efficient usage of the web-site for both service provider and service demander.
+ 
+*Trustworthy place to look for getting or giving services. 
+
+*Time and energy saving 
+
+*Accessible from everywhere via internet. 
+
+-	Weaknesses 
+
+*Cannot see the offers without making a demand.
+ 
+*Safety issues(online shopping is not commonly used in Turkey) 
+
+-	Opportunuties 
+
+*There is no dominant competitor in the market and the number of the competitor is relatively small.
+
+-Limited. Just for Istanbul, does not include any other cities. We can be the first one provide this service to other cities.
+
+-	Threats 
+
+*Although there is no much and dominant competitors in the market it is not an original idea.
+
+*It is not widely used and known. 
+
 
 
 *4. TECHNOLOGIES USED IN DEVELOPMENT*
