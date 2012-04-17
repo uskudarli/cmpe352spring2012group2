@@ -1,3 +1,0 @@
-System Architecture
-
-[http://cmpe352spring2012group2.googlecode.com/files/systemArchitecture.jpg]
