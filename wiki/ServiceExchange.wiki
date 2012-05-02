@@ -1,0 +1,3 @@
+#summary Use case diagram of Ece
+
+[http://cmpe352spring2012group2.googlecode.com/files/ServiceExchange.JPG]
