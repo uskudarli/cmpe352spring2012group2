@@ -1,4 +1,5 @@
 #summary Service Exchange Project Plan
 
 [http://cmpe352spring2012group2.googlecode.com/files/ServiceExchange.JPG]
+
 You can download the full version of the project plan from [http://cmpe352spring2012group2.googlecode.com/files/ServiceExchangeV2.pod this link]
