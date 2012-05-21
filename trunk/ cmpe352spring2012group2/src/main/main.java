@@ -4,6 +4,7 @@ import java.util.*;
 
 public class main {
 
+  //function for checking whether the input is prime or not
 	public boolean isPrime(int x)
 	{
 	if (x<2)
