@@ -1,4 +1,5 @@
 package main;
+import java.lang.Math;
 import java.util.*;
 
 public class main {
