@@ -37,7 +37,7 @@ REQUIREMENTS VERSION 1
 1.2.1 Registration
 1.2.1.1 There  shall be two types of system users: Member and Administrator
 
-1.2.1.2 System shall demand name, surname, e-mail, phone number, location from the new member at the registration time.
+1.2.1.2 System shall demand name, surname, e-mail, phone number, location from the new member and a password twice, at the registration time.
 
 1.2.2 Users should login the site by using e-mail address(or nickname) and password.
 
