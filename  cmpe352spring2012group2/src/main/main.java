@@ -7,9 +7,9 @@ public class main {
 	{
 	if (x<2)
 	return false;
-		for (int i=2; i < sqrt(x); i++)
+		for (int i=2; i < Math.sqrt(x); i++)
 		{
-			if (x%2==0)
+			if (x%i==0)
 				return false;
 		}
 		
