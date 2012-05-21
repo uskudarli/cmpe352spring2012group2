@@ -10,7 +10,8 @@ public class main {
 		if (x<2)
 			return false;
 		if (x=2)
-			return true;		
+			return true;	
+		//checking if x is dividible with numbers from 3 to Math.sqrt()			
 		for (int i=3; i < Math.sqrt(x); i=i+2)
 		{
 			if (x%i==0)
