@@ -39,7 +39,6 @@ REQUIREMENTS VERSION 1
 
 1.2.1.2 System shall demand name, surname, e-mail, phone number, location from the new member at the registration time.
 
-1.2.1.3 System shall demand a service offer from the new members at the time of registration to the system.
 1.2.2 Users should login the site by using e-mail address(or nickname) and password.
 
 1.2.3.5 System shall allow each community member to publish their service offers and requests.
