@@ -1,3 +1,21 @@
+=*Report of Meeting #8*=
+
+*Meeting Date: 02.10.2012*
+
+*Meeting Duration: 1 hour*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Saper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Met with the new team member, Sarper.
+  # Discussed the strategies that will be used during this semester while developing the project .
+  # Revised the project requirements. Some has been discarded and some have been added. 
+  # Arranged two subgroups, one for setting up the final requirements document and one for dedicing the milestones of the project.
+
+
 =*Report of Meeting #7*=
 
 *Meeting Date: 21.05.2012*
