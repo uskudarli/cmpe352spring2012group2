@@ -1,4 +1,4 @@
-1.FUNCTIONAL REQUIREMENTS
+1.  FUNCTIONAL REQUIREMENTS
 
 
 1.1 SERVICE EXCHANGE 
@@ -55,7 +55,7 @@
 1.3.3 System shall propose social services to the users when system doesn’t find the suitable match for that search from the same social services type.
 
 
-2.NON-FUNCTIONAL REQUIREMENTS
+2.  NON-FUNCTIONAL REQUIREMENTS
 
 2.1 USABILITY
 
