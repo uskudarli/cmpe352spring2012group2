@@ -1,4 +1,3 @@
-
 1.FUNCTIONAL REQUIREMENTS
 
 
@@ -19,9 +18,13 @@
 1.1.7 Social Services and Social Credits:
 
 1.1.7.1 Any kind of permitted services by administrator shall be named as social services.
+
 1.1.7.2 All valid services shall be determined by the site administrator. Members should make a proposal to the administrator when they want/need new type of service.
+
 1.1.7.3 There shall be a social services types. Services shall be divided into subgroups according to their types.  
+
 1.1.7.4 All member shall have a certain amount  social credit points when they register the  system.( 30 points)
+
 1.1.7.5  Any member who use anything other than social credit points in exchange for social services shall be discarded from the site by the administrator.
 
 1.2 USERS
@@ -55,6 +58,7 @@
 2.NON-FUNCTIONAL REQUIREMENTS
 
 2.1 USABILITY
+
 2.1.1 System shall be a website.
 
 2.1.2 System shall have a graphical user interface
@@ -62,19 +66,23 @@
 2.1.3 System shall allow multiple user access at the same time.  
 
 2.2  EFFICIENCY
+
 2.2.1 Web page shall be loaded at most 5 seconds.
 
 2.3 SECURITY AND PRIVACY
+
 2.3.1 Personal information shall not be shared with third parties
 
 2.3.2 User passwords shall be stored by using a cryptography algorithm. 
 
 2.4 DEPENDABILITY 
+
 2.4.1 The web site shall be compatible with last versions of the Chrome, Firefox and IE browsers.
  
 2.4.2 The web page shall conform the W3C standards and must avoid usage of non-standard technologies.
 
 2.4 RELIABILITY
+
 2.5.1 Database shall be copied periodically in order to decrease mean downtime.  
 
 2.5.2 The system shall be recovered from a possible database breakdown.
