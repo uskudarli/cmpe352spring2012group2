@@ -1,3 +1,19 @@
+=*Report of Meeting #9*=
+
+*Meeting Date: 09.10.2012*
+
+*Meeting Duration: 2 hour*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Prepared the development environment and the corresponding tutorial that describes our steps. First version is uploaded to Downloads section.
+  # It is decided that each group member will install the development environment to their PCs and connect to the googlecode page.  
+  # Discussed the strategies and the format of the database that will be used during this semester while developing the project .
+
 =*Report of Meeting #8*=
 
 *Meeting Date: 02.10.2012*
@@ -6,7 +22,7 @@
 
 *Meeting Location: CMPE Lounge*
 
-*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Saper Sertoğlu, Mustafa Ertürk*
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
 
 *Activities:*
 
