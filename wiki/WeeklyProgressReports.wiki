@@ -1,0 +1,22 @@
+= Weekly Progress Reports - Week 4 =
+
+We have completed the "Preparing the Development Environment" step in our project plan. Last week, we installed Tomcat, established connections between Tomcat and Eclipse and with the sql server that is provided. 
+
+We have created our database design in this week.  We decided to have 7 tables, named as
+  * User
+  * Appliers
+  * Categories
+  * OpenServices
+  * CompletedServices
+  * Places
+  * Tags
+
+Throughout this stage, we took the database design principles into account. Additionally, tables are related to each other by using structures like Foreign Keys.
+
+After completing the design, we constructed our database, which can be seen below: 
+
+[http://cmpe352spring2012group2.googlecode.com/files/Database_Tables.JPG]
+
+Content of the User Table can be seen below:
+
+[http://cmpe352spring2012group2.googlecode.com/files/User_Table.JPG]
