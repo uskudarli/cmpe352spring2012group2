@@ -20,3 +20,7 @@ After completing the design, we constructed our database, which can be seen belo
 Content of the User Table can be seen below:
 
 [http://cmpe352spring2012group2.googlecode.com/files/User_Table.JPG]
+
+Created a simple page and deployed it to the server to check database connection is working.
+
+http://titan.cmpe.boun.edu.tr:8081/InitialProjectGroup2/
