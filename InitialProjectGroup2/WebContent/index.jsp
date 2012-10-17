@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-ne bu ya
+
 <%
-out.println("geldim");
+
 Connection con = null;
 String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";;
 String db = "database2";
