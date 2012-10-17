@@ -26,7 +26,7 @@ ResultSet rs=st.executeQuery("select * from User");
 
 while(rs.next()) {
 String mail =rs.getString(1);
-String passwowd=rs.getString(2);
+String pass=rs.getString(2);
 String name=rs.getString(3);
 String surname=rs.getString(4);
 String credit=rs.getString(5);
@@ -34,7 +34,7 @@ String rating=rs.getString(6);
 String phone=rs.getString(7);
 String about=rs.getString(8);
 
-out.println("e-mail = "+mail+"\npassword = "+password+"\nname = "+name+"\nsurname = "+surname+"\ncredit = "+credit+"\nrating = "+rating+"\nphone = "+phone+"\nabout me ="+about);
+out.println("e-mail = "+mail+"\npassword = "+pass+"\nname = "+name+"\nsurname = "+surname+"\ncredit = "+credit+"\nrating = "+rating+"\nphone = "+phone+"\nabout me ="+about);
 
 }
 }catch(Exception e1){}
