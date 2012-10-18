@@ -1,3 +1,21 @@
+=*Report of Meeting #11*=
+
+*Meeting Date: 18.10.2012*
+
+*Meeting Duration: 40 minutes*
+
+*Meeting Location: ETA A4*
+
+*Participants: Suzan Üsküdarlı, Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Former location mechanism of the website was based on selecting towns and districts in the search section. It is decided that it would be better to use a GPS based location mechanism, that would give importance to the distance between the locations, rather than searching in a specific district that could result in insufficient search results. 
+  # Instead of having a single rating for the service provider, it is decided that each user will have two kinds of rating: One rating for the services that he/she provided and the other one for the services that he received.
+  # It is decided that the verification of the users is not necessary in our project.
+  # Use Case Scenarios will be updated in order to see the necessities of the system requirements and development phase in detail.
+
+
 =*Report of Meeting #10*=
 
 *Meeting Date: 16.10.2012*
