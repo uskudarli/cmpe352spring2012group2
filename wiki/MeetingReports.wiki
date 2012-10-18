@@ -1,3 +1,20 @@
+=*Report of Meeting #10*=
+
+*Meeting Date: 16.10.2012*
+
+*Meeting Duration: 3 hour*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # The database schema is created.
+  # Database is constructed in the server side.
+  # A simple page is created and deployed to the server in order to check whether database connection is working or not. 
+  # Next meeting is scheduled on Thursday, after class.
+
 =*Report of Meeting #9*=
 
 *Meeting Date: 09.10.2012*
