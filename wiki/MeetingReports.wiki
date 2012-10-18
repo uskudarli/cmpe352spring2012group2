@@ -1,8 +1,30 @@
+=*Report of Meeting #12*=
+
+*Meeting Date: 18.10.2012*
+
+*Meeting Duration: 45 minutes*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Outcomes of the meeting with the instructor is discussed.
+  # It is decided to update the database with respect to the new situation.
+  # Work distribution is done in order to finish our coming milestone: Creating Service Offering Operation.
+  * Hakan: Location based service, integrating with location of the user
+  * Samet: Creating service offer page
+  * Beste: Update use case scenarios
+  * Sinan: Establisling database connection of JSP functions for offered services
+  * Sarper: Creating user profile page
+  * Mustafa: Creating offered services web interface   
+
 =*Report of Meeting #11*=
 
 *Meeting Date: 18.10.2012*
 
-*Meeting Duration: 40 minutes*
+*Meeting Duration: 45 minutes*
 
 *Meeting Location: ETA A4*
 
