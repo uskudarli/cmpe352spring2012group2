@@ -9,7 +9,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 <body>
 
 <%
-
+String email = session.getAttribute( "email" ).toString();
 Connection con = null;
 String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";;
 String db = "database2";
@@ -22,7 +22,7 @@ con = DriverManager.getConnection(url+db,userName,password);
 try{
 Statement st = con.createStatement();
 
-ResultSet rs=st.executeQuery("SELECT * FROM `OpenServices` WHERE email=\"123\"");
+ResultSet rs=st.executeQuery("SELECT * FROM `OpenServices` WHERE email='"+email+"'");
 
 while(rs.next()) {
 String title =rs.getString(2);
@@ -32,7 +32,7 @@ String dateFrom=rs.getString(5);
 String dateTo=rs.getString(6);
 
 
-out.println("title= "+title+"\ndescription = "+description+"\nserviceId = "+serviceId+"\ncity = "+city+"\ndateFrom = "+dateFrom+"\ndateTo = "+dateTo);
+out.println("title= "+title+"\ndescription = "+description+"\nserviceId = "+serviceId+"\ndateFrom = "+dateFrom+"\ndateTo = "+dateTo);
 
 }
 }catch(Exception e1){}
