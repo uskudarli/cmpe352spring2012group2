@@ -4,12 +4,12 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Offered Services</title>
+<title>Show Appliers</title>
 </head>
 <body>
 
 <%
-String email = "email@email.com";//session.getAttribute( "email" ).toString();
+String value = request.getParameter("value");
 Connection con = null;
 String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
 String db = "database2";
@@ -22,28 +22,48 @@ con = DriverManager.getConnection(url+db,userName,password);
 try{
 Statement st = con.createStatement();
 
-ResultSet rs=st.executeQuery("SELECT * FROM `OpenServices` WHERE email='"+email+"'");
-
-while(rs.next()) {
-String title =rs.getString(2);
-String description=rs.getString(3);
-String serviceId=rs.getString(4);
-String dateFrom=rs.getString(5);
-String dateTo=rs.getString(6);
-
-
+ResultSet rs=st.executeQuery("SELECT User.name, User.surname, Appliers.serviceId FROM User INNER JOIN Appliers ON User.email=Appliers.email WHERE Appliers.serviceId='"+value+"'");
+if (rs.next()){
 %>
-<a href="showAppliers.jsp?value=<%=serviceId%>"><%="title= "+title+"\ndescription = "+description+"\nserviceId = "+serviceId+"\ndateFrom = "+dateFrom+"\ndateTo = "+dateTo %> </a>
-<br/>
+<table border="1">
+<tr>
+<td colspan="2">Servisi Isteyenler</td>
+</tr>
+<tr>
+<td>Adi</td>
+<td>Soyadi</td>
+</tr>
 <%
-
 }
-}catch(Exception e1){}
+rs.beforeFirst();
+while(rs.next()) {
+String name =rs.getString(1);
+String surName=rs.getString(2);
+%>
+
+<tr>
+<td><%=name %>
+</td>
+<td><%=surName %>
+</td>
+</tr>
+
+<%
+}
+rs.beforeFirst();
+if (!rs.next())
+{
+	out.println("Hic Kayit Bulunamadi.");
+}
+}catch(Exception e1){
+	e1.printStackTrace();
+}
 }
 catch (Exception e){
 e.printStackTrace();
 }
 
 %>
+</table>
 </body>
 </html>
