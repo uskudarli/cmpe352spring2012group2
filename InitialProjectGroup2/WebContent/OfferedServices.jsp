@@ -9,7 +9,7 @@
 <body>
 
 	<%
-		String email = "email@email.com";//session.getAttribute( "email" ).toString();
+		String email = session.getAttribute( "email" ).toString();
 		Connection con = null;
 		String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
 		String db = "database2";
@@ -17,7 +17,6 @@
 		String userName = "project2";
 		String password = "G6v0W7";
 
-		//String updtTitle = request.getParameter("updateTitle");
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url + db, userName, password);
@@ -42,10 +41,7 @@
 					dateTo = rs.getString(6);
 	%>
 
-	<a href="showAppliers.jsp?value=<%=serviceId%>"><%="title= " + title + "\ndescription = "
-								+ description + "\nserviceId = " + serviceId
-								+ "\ndateFrom = " + dateFrom + "\ndateTo = "
-								+ dateTo%>
+	<a href="showAppliers.jsp?value=<%=serviceId%>"><%=title %>
 	</a>
 	<br />
 	<form action="OfferedServices.jsp" method="post">
@@ -60,15 +56,15 @@
 			<td>Description:</td>
 			<td><textarea rows="5" cols="30" name="description<%=i%>"><%=description%>
 					<%
-						//System.out.println(description);
+						System.out.println(description);
 					%>
 				</textarea></td>
 			
 		</tr>
 
 		<tr>
-			<td>Service Id:</td>
-			<td><input type="text" name="serviceIdBox<%=i%>"
+			
+			<td><input type="hidden" name="serviceIdBox<%=i%>"
 				value="<%=serviceId%>"></td>
 
 		</tr>
