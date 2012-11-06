@@ -12,19 +12,19 @@
 		<ul>
 			<li>
 				<b>Username</b>
-				<input type="text" name="username" value="" maxlength=25 align="right">
+				<input type="text" name="username" value="email@email.com" maxlength=25 align="right">
 			
 			</li>
 			<li>
 				<b>Password</b>
-				<input type="password" name="password" value="" maxlength=25 align="right">
+				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
 			</li>
 			<li>
 				<input type="submit" value="NextPage">
 			</li>
 			
 		</ul>
-		<p> <b>Sample Username:</b> email@email.com <br> <b>Sampe Password:</b> myPassword </p>
+		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p>
 			
 	</form>
 </body>
