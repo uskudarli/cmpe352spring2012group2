@@ -1,3 +1,19 @@
+=*Report of Meeting #13*=
+
+*Meeting Date: 06.11.2012*
+
+*Meeting Duration: 45 minutes*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi*
+
+*Activities:*
+
+  # Project plan is revisited to see our schedule and where we are in the plan.
+  # Our weekly plan is discussed.  
+  # Work is distributed for this week. Samet will be responsible from service request page and update offer service page. Hakan will create an interface for search operation page, which will post the given search parameters to the search algorithm page. Sinan will update the service details for the service offered part. Beste will update weekly progress reports and start to work for the GUI of the web site, starting from next week. Sarper and Mustafa will work on the first prototype of the search page, which will accomplish search according to the tags with the given parameters within the offered services.  
+
 =*Report of Meeting #12*=
 
 *Meeting Date: 18.10.2012*
