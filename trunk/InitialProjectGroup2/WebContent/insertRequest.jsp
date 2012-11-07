@@ -16,7 +16,7 @@
  String date_start = request.getParameter("date_start");
  String date_end = request.getParameter("date_end");
  String gpsLocation = request.getParameter("gpsLocation");
- String applierQuota = request.getParameter("applierQuota");
+
  
  String[] tagArray = tags.split(",");
  String[] locations = gpsLocation.split(";");
@@ -31,13 +31,13 @@
  Class.forName(driver);
  con = DriverManager.getConnection(url+db,userName,password);
  Statement st = con.createStatement();
- st.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','supplier','"+applierQuota+"')  ");
+ st.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','demander')  ");
  ResultSet rs=st.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
  boolean check = rs.next();
  if(check){
-	 out.println("Service has been created");
+	 out.println("Service has been requested.");
  }else{
-	 out.println("There is something wrong with the service creation");
+	 out.println("There is something wrong with the service request");
  }
  int serviceId = rs.getInt(1);
  for(int i=0; i<tagArray.length; i++){

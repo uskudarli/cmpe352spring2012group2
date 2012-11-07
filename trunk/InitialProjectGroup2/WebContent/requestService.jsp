@@ -99,14 +99,14 @@ body {
 </script>
 </head>
 <body onload="initialize()">
-	<h1>Offer A Service</h1>
-	<form name="serviceDetails" action="insertOffer.jsp" method="post">
+	<h1>Request A Service</h1>
+	<form name="serviceDetails" action="insertRequest.jsp" method="post">
 		<br> Service Title : <input type="text" id="title" name="title"> <br>
 		Service Description :<br>
 		<textarea rows="5" cols="30" name="description"></textarea>
 		<br> Time Interval : <input type="text" id="date_start" name="date_start">
 		<input type="text" id="date_end" name="date_end"><br>
-		<br> Applier Quota : <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
+		
 		<script type="text/javascript">
 			var startDateTextBox = $('#date_start');
 			var endDateTextBox = $('#date_end');

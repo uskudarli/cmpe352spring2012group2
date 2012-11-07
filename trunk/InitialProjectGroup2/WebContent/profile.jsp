@@ -59,9 +59,12 @@
 					</ul>
 					<br>
 						<a href="createService.jsp">Click Here to Create a Service</a>
+					<br>
+						<a href="requestService.jsp">Click Here to Request a Service</a>
 					
 					<br>
 						<a href="OfferedServices.jsp">Click Here to See the Services That You Have Offered</a>
+					
 					
 							
 				<%
