@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
 </head>
 <body>
 	<p>Next Page</p>
@@ -78,5 +79,7 @@
 			out.print("Error! Wrong Username or Password ");
 		};
 		%>
+		<br><br><hr><div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © Boun Cmpe451 - Group 2</div>
 </body>
 </html>

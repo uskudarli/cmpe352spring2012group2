@@ -6,26 +6,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome</title>
 </head>
-<body>
+<body style="background-color:#EEEEEE;">
+<div id="header" style="background-color:#FFA500;">
+	<h1 style="margin-bottom:0;">Welcome to the Social Service Exchange Platform</h1></div>
 	<form action="profile.jsp" method="post">
-		<p>Welcome! Create account will be implemented later</p>
-		<ul>
-			<li>
-				<b>Username</b>
-				<input type="text" name="username" value="email@email.com" maxlength=25 align="right">
+		<p>Note that create account will be implemented later.</p>
+				
+				<br><b>Username</b>
+				<input type="text" name="username" value="email@email.com" maxlength=25 align="right">	
 			
-			</li>
-			<li>
-				<b>Password</b>
+				<br><b>Password</b>
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
-			</li>
-			<li>
-				<input type="submit" value="NextPage">
-			</li>
+		
 			
-		</ul>
+				<br><input type="submit" value="NextPage">		
+		
 		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p>
 			
 	</form>
+	
+	
+<hr><div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © Boun Cmpe451 - Group 2</div>
 </body>
 </html>
