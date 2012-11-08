@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>Offer a Service</title>
 <style type="text/css">
 html {
 	height: 100%
