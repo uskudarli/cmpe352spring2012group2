@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
 </head>
 <body>
-	<p>Next Page</p>
+	<h1 style="color:#660000;">Profile</h1>
 	<%
 		String username=request.getParameter("username");
 		String password = request.getParameter("password");
@@ -49,6 +49,16 @@
 				session.setAttribute( "phone", phone );
 				
 				%>
+				<div id="menupane" class="menu">
+					
+						<a href="createService.jsp">Create a Service</a>
+					
+						<a href="requestService.jsp">Request a Service</a>
+					
+					
+						<a href="OfferedServices.jsp">See the Services That You Have Offered</a>
+					
+					</div>
 					<ul>
 						<li> <%=name+" "+surname %> </li>
 						<li> <b>Social Credit: </b><%=credit %>
@@ -58,15 +68,6 @@
 					
 					
 					</ul>
-					<br>
-						<a href="createService.jsp">Click Here to Create a Service</a>
-					<br>
-						<a href="requestService.jsp">Click Here to Request a Service</a>
-					
-					<br>
-						<a href="OfferedServices.jsp">Click Here to See the Services That You Have Offered</a>
-					
-					
 							
 				<%
 			}
