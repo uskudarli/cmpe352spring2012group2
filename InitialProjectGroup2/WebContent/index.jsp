@@ -5,13 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
 </head>
 <body style="background-color:#EEEEEE;">
 <div id="header" style="background-color:#FFA500;">
 	<h1 style="margin-bottom:0;">Welcome to the Social Service Exchange Platform</h1></div>
 	<form action="profile.jsp" method="post">
-		<p>Note that create account will be implemented later.</p>
 				
+				<div class="center">
+				<p>Note that create account will be implemented later.</p>
 				<br><b>Username</b>
 				<input type="text" name="username" value="email@email.com" maxlength=25 align="right">	
 			
@@ -19,9 +21,9 @@
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
 		
 			
-				<br><input type="submit" value="NextPage">		
+				<br><input type="submit" value="NextPage" class="button">		
 		
-		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p>
+		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p></div>
 			
 	</form>
 	
