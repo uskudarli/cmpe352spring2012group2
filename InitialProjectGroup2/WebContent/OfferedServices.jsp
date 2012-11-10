@@ -126,6 +126,11 @@
 							}
 							System.out.println("buraya girdin mi?");
 							st1.executeUpdate("DELETE FROM `database2`.`OpenServices` WHERE `OpenServices`.`serviceId` = '"+ serviceId2 +"'");
+							%>
+							<script type="text/javascript">
+								location.reload(true);
+								</script>
+							<% 
 							st1.close();
 				}
 				catch (Exception e2){
@@ -160,6 +165,11 @@
 								"',dateFrom='"+request.getParameter("dateFromBox"+k)+"', dateTo='" +request.getParameter("dateToBox"+k)+"' where serviceId="+rs2.getString(4));
 						st1.executeUpdate("update `OpenServices` set title='"+request.getParameter("titlebox"+k)+"', description='"+request.getParameter("description"+k)+
 								"',dateFrom='"+request.getParameter("dateFromBox"+k)+"', dateTo='" +request.getParameter("dateToBox"+k)+"' where serviceId="+rs2.getString(4));
+						%>
+						<script type="text/javascript">
+							location.reload(true);
+							</script>
+						<% 
 					}
 					k++;
 					System.out.println("k for update: " +k);
@@ -175,7 +185,9 @@
 			e.printStackTrace();
 		}
 		
+		
 	%>
+	
 	</form>
 </body>
 </html>

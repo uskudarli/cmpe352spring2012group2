@@ -57,6 +57,8 @@
 					
 					
 						<a href="OfferedServices.jsp">See the Services That You Have Offered</a>
+						
+						<a href="searchPage.jsp">Search For a Service</a>
 					
 					</div>
 					<ul>
