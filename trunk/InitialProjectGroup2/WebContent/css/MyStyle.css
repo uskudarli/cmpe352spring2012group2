@@ -66,3 +66,14 @@ div.menu h4{
    border-top-color: #5c1b1b;
    background: #5c1b1b;
    }
+ .deneme
+ {
+ 	height : 100px;
+	width : 300px;
+ }
+ .searchTd
+ {
+ 	background-color:#FFA500;
+	clear:both;
+	text-align:center;
+ }

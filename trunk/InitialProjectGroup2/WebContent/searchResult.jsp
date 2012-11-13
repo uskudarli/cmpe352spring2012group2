@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Search Result</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 </head>
 <body>
 <p>search results will be here</p>

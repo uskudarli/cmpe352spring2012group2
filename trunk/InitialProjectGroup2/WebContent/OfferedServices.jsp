@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Offered Services</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 </head>
 <body>
 
@@ -47,8 +48,8 @@
 	<form action="OfferedServices.jsp" method="post">
 	<table>
 		<tr>
-			<td>Title:</td>
-			<td><input id="title" type="text" name="titlebox<%=i%>"
+			<td class="searchTd">Title:</td>
+			<td class="searchTd"><input id="title" type="text" name="titlebox<%=i%>"
 				value="<%=title%>"></td>
 		</tr>
 
@@ -86,10 +87,6 @@
 			<td><input type="submit" name="updateTitle<%=i%>" value="Update"></td>
 			<td><input type="submit" name="deleteTitle<%=i%>" value="Delete"></td>
 		</tr>
-		
-		    
-
-
 	</table>
 	<%
 					i++;

@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Request a Service</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 <style type="text/css">
 html {
 	height: 100%
