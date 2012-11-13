@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Offer a Service</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 <style type="text/css">
 html {
 	height: 100%
@@ -100,15 +101,18 @@ body {
 </script>
 </head>
 <body onload="initialize()">
-	<h1>Offer A Service</h1>
+	<h2>Offer A Service</h2>
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">
-		<br> Service Title : <input type="text" id="title" name="title"> <br>
+	<div class="searchTd">
+	    Service Title <br> : <input type="text" id="title" name="title"> <br>
 		Service Description :<br>
-		<textarea rows="5" cols="30" name="description"></textarea>
-		<br> Time Interval : <input type="text" id="date_start" name="date_start">
-		<input type="text" id="date_end" name="date_end"><br>
-		<br> Applier Quota : <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
+		<textarea rows="3" cols="30" name="description"></textarea>
+		<br> Time Interval <br> : <input type="text" id="date_start" name="date_start">
+		<input type="text" id="date_end" name="date_end">
+		<br> Applier Quota <br> : <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
+		</div>
 		<script type="text/javascript">
+		
 			var startDateTextBox = $('#date_start');
 			var endDateTextBox = $('#date_end');
 
@@ -153,12 +157,12 @@ body {
 				}
 			});
 		</script>
-
-		Tags : <input id="tags" name="tags"/><br>
+        
+		Tags : <input id="tags" name="tags"/>
 
 		<script type="text/javascript">
 			$('#tags').tagsInput({
-				'height' : '100px',
+				'height' : '80px',
 				'width' : '300px',
 				'interactive' : true,
 				'defaultText' : 'add a tag',
@@ -173,13 +177,12 @@ body {
 	</form>
 	Select locations for your service from the map below:
 
-	<div id="map_canvas" style="width: 40%; height: 30%"></div>
-	
-	<br> Find an address :
+	<div id="map_canvas" style="width: 100%; height: 30%"></div>
+	<div class="searchTd">
+	Find an address :
 	<input type="text" id="address">
 	<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()">
-
+		</div>
 </body>
-
 </html>
