@@ -5,6 +5,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Show Appliers</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 </head>
 <body>
 
@@ -53,7 +54,7 @@ String surName=rs.getString(2);
 rs.beforeFirst();
 if (!rs.next())
 {
-	out.println("Hic Kayit Bulunamadi.");
+	out.println("Bu servisi talep eden hickimse yok.");
 }
 }catch(Exception e1){
 	e1.printStackTrace();
