@@ -6,25 +6,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Offered Services</title>
 </head>
-<script type="text/javascript"
-		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA94hmfvGHgxgYNdzO0tTWfk8haLWUopGo&sensor=false">
-	</script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-1.8.2.min.js">
-	</script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js">
-	</script>
-	<script type="text/javascript" src="javascript/jquery-ui-timepicker-addon.js"></script>
-	<script type="text/javascript" src="javascript/jquery-ui-sliderAccess.js"></script>
-	<script	src="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.js"></script>
-	<link rel="stylesheet" media="all" type="text/css"
-		href="http://code.jquery.com/ui/1.8.23/themes/smoothness/jquery-ui.css" />
-	<link rel="stylesheet" media="all" type="text/css"
-		href="css/jquery-ui-timepicker-addon.css" />
-	<link rel="stylesheet"
-		href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css">
-		
+	
 		<script type="text/javascript">
 		function show(index) {
 			if (document.getElementById("content"+index).style.display=="block") {
@@ -143,25 +125,25 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 		</tr>
 		
 		
-			
+		<!-- 	
 		<tr>
 		<td>Tags:</td>
 		<td>
 		<%-- <textarea rows="5" cols="30" id="tags" name="tags<%=i%>"><%=tag%>
 		
 		</textarea> --%>
-		<input id="tags" name="tags<%=i%>"/><br>
+		<input id="tags" name="tags<%=i%>"/><br>  
 		
 		
 		
 		</td>
 		
-		</tr>
+		</tr>  -->
 		
 		
 
 		
-		
+		<!-- 
 		<%
 			j=0;
 		    while(rs1.next()){
@@ -179,7 +161,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 		</tr>
 			<%
 			j++;
-			}%>
+			}%>   -->
 		
 		<tr>
 		<td><input type="submit" name="updateTitle<%=i%>" value="Update"></td>
@@ -222,12 +204,13 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 				System.out.println("service ID2 : " +serviceId2);
 				}
 				k++;
-				System.out.println("k: " +k);
+				//System.out.println("k: " +k);
 			}
-			System.out.println("buraya girdin mi?");
-			st1.executeUpdate("DELETE FROM `database2`.`OpenServices` WHERE `OpenServices`.`serviceId` = '"+ serviceId2 +"'");
-			int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
+			/* System.out.println("buraya girdin mi?");
+			//st1.executeUpdate("DELETE FROM `database2`.`OpenServices` WHERE `OpenServices`.`serviceId` = '"+ serviceId2 +"'");
+			//int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
 			st1.executeUpdate("DELETE FROM `database2`.`Tags` WHERE `Tags`.`serviceId` = '"+ serviceId2 +"'");
+			*/
 			%>
 			<script type="text/javascript">
 			location.reload(true);
@@ -272,11 +255,11 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 				"',dateFrom='"+request.getParameter("dateFromBox"+k)+"', dateTo='" +request.getParameter("dateToBox"+k)+"' where serviceId="+rs2.getString(4));
 				
 				
-				int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
+				/* int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
 				System.out.println("number of places rows="+numberOfPlaceRows);
 				 for(int m=0; m<numberOfPlaceRows; m++){
 					st1.executeUpdate("INSERT INTO `database2`.`Place` (`serviceId`, `latitude`, `longtitude`, `radius`) VALUES ('"+ serviceId2 +"', '"+request.getParameter("latitudeBox"+k+"_"+m+"_0")+"', '"+request.getParameter("longitudeBox"+k+"_"+m+"_1")+"', '"+request.getParameter("radiusBox"+k+"_"+m+"_2")+"')");
-				}
+				}*/
 				 %>
 				 <script type="text/javascript">
 				 location.reload(true);
