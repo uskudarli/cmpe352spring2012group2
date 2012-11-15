@@ -117,7 +117,7 @@ body {
 			var endDateTextBox = $('#date_end');
 
 			startDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-d",
+				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (endDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
@@ -137,7 +137,7 @@ body {
 				}
 			});
 			endDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-d",
+				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (startDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
