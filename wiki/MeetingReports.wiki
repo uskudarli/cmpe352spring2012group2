@@ -1,3 +1,20 @@
+=*Report of Meeting #14*=
+
+*Meeting Date: 15.11.2012*
+
+*Meeting Duration: 45 minutes*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Outcomes of the class is discussed.
+  # Work is redistributed among team members according to our needs to be finished until Tuesday.
+  # In addition to the everybody's tasks, each member will work on the algorithm for search/semantics. 
+  # Next meeting is scheduled for Tuesday.
+
 =*Report of Meeting #13*=
 
 *Meeting Date: 06.11.2012*
