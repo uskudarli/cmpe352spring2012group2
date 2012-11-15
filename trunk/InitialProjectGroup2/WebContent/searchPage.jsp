@@ -98,8 +98,10 @@
 	<td class="searchTd" colspan="1" >Step 1: Enter Tags for Service </td>
 	</tr>
 	<tr>
-	<td width="100%" class="searchTd">
-		<textarea class="deneme" title="Step 1: Enter Tags for Service ">
+	<td width="100%" class="searchTd" >
+		<textarea class="deneme" name="tags" id="tags" title="Step 1: Enter Tags for Service ">
+		
+		
 		</textarea><br>
 
 	</td>
@@ -114,7 +116,7 @@
 			var endDateTextBox = $('#date_end');
 
 			startDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-d",
+				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (endDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
@@ -134,7 +136,7 @@
 				}
 			});
 			endDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-d",
+				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (startDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
