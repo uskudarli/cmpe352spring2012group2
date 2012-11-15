@@ -11,10 +11,10 @@ public class SearchQuery {
 	public Set<Integer> getResults(String tags,String startDate,String endDate,String gpsLocations) throws Exception{
 		Set <Integer> searchResults = new HashSet <Integer>();
 		DBConnection db=new DBConnection();
-		if(tags==null)
-			tags="*";
-		String[] tagList=tags.split("\\s+");
 		
+		String[] tagList=tags.split("\\s+");
+		if(tagList.length==0)
+			tagList[0]="*";
 		String query="SELECT DISTINCT Tags.serviceId, OpenServices.dateFrom, OpenServices.dateTo "+
 				"FROM OpenServices INNER JOIN Tags ON OpenServices.serviceId=Tags.serviceId WHERE Tags.tag='"+tagList[0]+"' ";
 		for(int i=1;i<tagList.length;i++){
