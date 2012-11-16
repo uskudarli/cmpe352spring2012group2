@@ -28,7 +28,6 @@
 		href="css/jquery-ui-timepicker-addon.css" />
 	<link rel="stylesheet"
 		href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css">
-		<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
 	
 	<script type="text/javascript">
 	var map;
@@ -93,30 +92,33 @@
 </head>
 <body onload="initialize()">
 	<form name="searchPage" action="searchResult.jsp" method="post">
-	<table width="100%" border = "0">
+	<table border = "0">
 	<tr>
-	<td class="searchTd" colspan="1" >Step 1: Enter Tags for Service </td>
-	</tr>
-	<tr>
-	<td width="100%" class="searchTd" >
-		<textarea class="deneme" name="tags" id="tags" title="Step 1: Enter Tags for Service ">
-		
-		
-		</textarea><br>
-
+	<td width="60%">
+		Step 1: Enter Tags for Service <input id="tags" name="tags"/><br>
+		<script type="text/javascript">
+			$('#tags').tagsInput({
+				'height' : '100px',
+				'width' : '300px',
+				'interactive' : true,
+				'defaultText' : 'add a tag',
+				'removeWithBackspace' : true,
+				'minChars' : 0,
+				'maxChars' : 20, //if not provided there is no limit,
+				'placeholderColor' : '#666666'
+			});
+		</script>
 	</td>
-	</tr>
-	<tr>
-	<td class="searchTd">
+	<td>
 		Step 2: Enter Time Interval of Service 
-		<br/> <br/> From <input type="text" id="date_start" name="date_start"> <br/>
+		<br> <br> From <input type="text" id="date_start" name="date_start">
 		Until <input type="text" id="date_end" name="date_end"><br>
 		<script type="text/javascript">
 			var startDateTextBox = $('#date_start');
 			var endDateTextBox = $('#date_end');
 
 			startDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-dd",
+				dateFormat: "yy-mm-d",
 				onClose : function(dateText, inst) {
 					if (endDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
@@ -136,7 +138,7 @@
 				}
 			});
 			endDateTextBox.datetimepicker({
-				dateFormat: "yy-mm-dd",
+				dateFormat: "yy-mm-d",
 				onClose : function(dateText, inst) {
 					if (startDateTextBox.val() != '') {
 						var testStartDate = startDateTextBox
@@ -159,23 +161,20 @@
 	</td>
 	</tr>
 	<tr>
-	<td width="100%">
+	<td width="60%">
 		<br> Step 3: Select location for Service <br>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
 	</td>
-	<td width="100%">
+	<td>
 		<br><input type="submit" value="Search">
 	</td>
 	</tr>
 	</table>
 	</form>
-	<div id="map_canvas" style="width: 100%; height: 40%"></div>
-	<div class="searchTd">
+	<div id="map_canvas" style="width: 40%; height: 30%"></div>
 		<br> Find an address :
-
 		<input type="text" id="address">
 		<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()">
-	</div>
 </body>
 </html>
