@@ -8,8 +8,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
 </head>
 <body style="background-color:#EEEEEE;">
-<div id="header" style="background-color:#FFA500;">
-	<h1 style="margin-bottom:0;">Welcome to the Social Service Exchange Platform</h1></div>
+<div id="header" style="background-color:#333;">
+	<h1 style="margin-bottom:0;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div>
 	<form action="profile.jsp" method="post">
 				
 				<div class="center">
@@ -27,8 +27,9 @@
 			
 	</form>
 	
+<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	
-<hr><div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-Copyright © Boun Cmpe451 - Group 2</div>
+<!--  <hr><div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © Boun Cmpe451 - Group 2</div> -->
 </body>
 </html>

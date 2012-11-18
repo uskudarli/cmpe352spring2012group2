@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Request a Service</title>
-<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
+<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 <style type="text/css">
 html {
 	height: 100%
@@ -101,7 +101,13 @@ body {
 </script>
 </head>
 <body onload="initialize()">
-	<h1>Request A Service</h1>
+	<div id="header" class="darkmenu">
+	 			<ul class="darkPink">
+					<li><a href="#">Home</a></li>
+					<li><a href="profile.jsp">Profile</a></li>
+				</ul>
+		</div>
+	<h2>Request A Service</h2>
 	<form name="serviceDetails" action="insertRequest.jsp" method="post">
 		<br> Service Title : <input type="text" id="title" name="title"> <br>
 		Service Description :<br>
@@ -170,7 +176,7 @@ body {
 			});
 		</script>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" class="button">
 	</form>
 	Select locations for your service from the map below:
 
