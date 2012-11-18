@@ -10,10 +10,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyleProfile.css">
 </head>
 <body>
-	<h1 style="color:#660000;">Profile</h1>
 	<%
 		String username=request.getParameter("username");
 		String password = request.getParameter("password");
@@ -49,27 +48,47 @@
 				session.setAttribute( "phone", phone );
 				
 				%>
-				<div id="menupane" class="menu">
-					
-						<a href="createService.jsp">Create a Service</a>
-					
-						<a href="requestService.jsp">Request a Service</a>
-					
-					
-						<a href="OfferedServices.jsp">See the Services That You Have Offered</a>
 						
-						<a href="searchPage.jsp">Search For a Service</a>
-					
-					</div>
+<!-- <div id="header"><h1>Header</h1></div> -->
+<div id="header" class="darkmenu">
+	 			<ul class="darkPink">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Profile</a></li>
+				</ul>
+			</div>
+			
+<h1>Profile</h1>
+<div id="wrapper">
+<div id="content">
+					<p style="font-size:24px;"><b>Hello <%=name+" "+surname%></b></p>
 					<ul>
-						<li> <%=name+" "+surname %> </li>
-						<li> <b>Social Credit: </b><%=credit %>
-						<li> <b>Rating: </b><%=rating %>
+						<!-- <li> <b><%=name+" "+surname %></b> -->
+						<!--  <li> <b>Social Credit: </b><%=credit %> -->
+						<!-- <li> <b>Rating: </b><%=rating %> -->
 						<li> <b>Mobile Phone:</b><%=phone %>
 						<li> <b>Personal Information:</b><%=about%>
 					
-					
 					</ul>
+</div>
+</div>
+
+<div id="navigation">
+<div id="menupane" class="menu">
+					
+						<a href="createService.jsp">Create a Service</a>
+						<a href="requestService.jsp">Request a Service</a>
+						<a href="OfferedServices.jsp">See the Services That You Have Offered</a>						
+						<a href="searchPage.jsp">Search For a Service</a>
+					
+					</div>
+</div>
+
+
+<div id="extra">
+<p style="font-size:21px;"><b>Social Credit:    <i><%=credit %></i><br>Rating:    <i><%=rating %></i></b></p>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
+					
 							
 				<%
 			}
@@ -82,7 +101,6 @@
 			out.print("Error! Wrong Username or Password ");
 		};
 		%>
-		<br><br><hr><div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
-Copyright © Boun Cmpe451 - Group 2</div>
+		
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Offer a Service</title>
-<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
+<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 <style type="text/css">
 html {
 	height: 100%
@@ -101,16 +101,23 @@ body {
 </script>
 </head>
 <body onload="initialize()">
+	<div id="header" class="darkmenu">
+	 			<ul class="darkPink">
+					<li><a href="#">Home</a></li>
+					<li><a href="profile.jsp">Profile</a></li>
+				</ul>
+		</div>
 	<h2>Offer A Service</h2>
+	
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">
 	<div class="searchTd">
-	    Service Title <br> : <input type="text" id="title" name="title"> <br>
-		Service Description :<br>
+	    Service Title: <br>  <input type="text" id="title" name="title"> <br>
+		Service Description:<br>
 		<textarea rows="3" cols="30" name="description"></textarea>
-		<br> Time Interval <br> : <input type="text" id="date_start" name="date_start">
+		<br> Time Interval: <br> <input type="text" id="date_start" name="date_start">
 		<input type="text" id="date_end" name="date_end">
-		<br> Applier Quota <br> : <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
-		</div>
+		<br> Applier Quota: <br> <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
+		
 		<script type="text/javascript">
 		
 			var startDateTextBox = $('#date_start');
@@ -171,9 +178,9 @@ body {
 				'maxChars' : 20, //if not provided there is no limit,
 				'placeholderColor' : '#666666'
 			});
-		</script>
+		</script></div>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit" class="button">
 	</form>
 	Select locations for your service from the map below:
 
@@ -184,5 +191,7 @@ body {
 	<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()">
 		</div>
+		
+<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>

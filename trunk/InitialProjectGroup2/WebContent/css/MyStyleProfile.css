@@ -1,0 +1,165 @@
+/*p {color:#660000;}*/
+h1 {font-size:36px;color:#2F4F4F;}
+h2 {font-size:30px;}
+body
+{
+background-color:#EEEEEE;
+}
+html,body {margin:0;padding:0}
+body {font: 76% arial,sans-serif}
+p {margin:0 10px 10px;padding:10px}
+a {display:block;color: #981793;padding:10px}
+.center
+{
+text-align:center;
+}
+/*Menu in the profile page*/
+div#menuPane{
+	position: absolute;
+	left: 25px;
+	top: 25px;
+	width: 25%;
+}
+
+div.menu {
+	display: block;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	border: 2px solid #FF6600;
+}
+
+div.menu a {
+	display: block;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: 1px;
+	margin: 0px;
+	color: black;
+	border-top: 1px solid #FF6600;
+}
+
+div.menu a:link{
+	background: #FF6600;
+}
+
+div.menu a:visited{
+	background: #FF6600;
+}
+div.menu a:hover{
+	background: #FFA500;
+	letter-spacing: 2px;
+}
+
+div.menu h4{ 
+	padding: 2px;
+	margin: 0px;
+}
+
+/*button part*/
+.button {
+   background: #FF6600;
+   color: white;
+   font-size: 16px;
+   font-family: Georgia, serif;
+   
+   }
+.button:hover {
+   border-top-color: #782828;
+   background: #782828;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #5c1b1b;
+   background: #5c1b1b;
+   }
+.deneme
+ {
+ 	height : 100px;
+	width : 300px;
+ }
+ .searchTd
+ {
+ 	background-color:#FFA500;
+	clear:both;
+	text-align:center;
+ }
+
+div#header h1{height:80px;line-height:80px;margin:0;
+  padding-left:10px;background: #FF8539;color: #79B30B}
+
+/*three modules for the profile part*/
+div#navigation{background:#B9CAFF} 
+div#navigation{float:left;width:250px;margin-left:-100%}
+ 
+div#content p{line-height:1.4}
+div#content{margin: 0 33% 0 250px}
+div#wrapper{float:left;width:100%}
+
+div#extra{background:#B9CAFF}
+div#extra{float:left;width:33%;margin-left:-33%}
+
+/*footer part*/
+div#footer{background: #333;color: #FFF}
+div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
+div#footer{clear:left;width:100%}
+
+/*Header Part*/
+.darkmenu {
+	width:960px;
+	height:80px;
+	background: #333;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	margin:0 auto;
+	clear:both;
+	margin-bottom:20px;
+	margin-top:0px;
+}
+.darkPink {
+	position: relative;
+	height: 62px;
+	width: 700px;
+	overflow: hidden;
+	float:left;
+}
+.darkPink li {
+	float: left;
+	list-style: none;
+	width: 110px;
+	height:52px;
+	position: relative;
+	top:7px;
+}
+
+.darkPink li.back {
+	width: 100px;
+	margin-left:0px;
+	height: 65px;
+	z-index: 8;
+	position: absolute;
+}
+
+.darkPink li a  {
+	font-size: 16px ;
+	font-family:"Myriad Pro", sans-serif;
+	font-weight: normal;
+	text-decoration: none;
+	width:110px;
+	color: #d8d8d8;
+	outline: none;
+	text-align: center;
+	letter-spacing: 0;
+	z-index: 10;
+	display: block;
+	float: left;
+	top:18px;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+}
+
+.darkPink li a:hover{
+	color:#fff;
+}
