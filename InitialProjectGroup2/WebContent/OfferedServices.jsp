@@ -4,6 +4,18 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.8.2.min.js">
+</script>
+<script type="text/javascript"
+	src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js">
+</script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script	src="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.js"></script>
+<link rel="stylesheet"
+	href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css">
+
 <title>Offered Services</title>
 </head>
 	
@@ -39,7 +51,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 		String dateTo="";
 		String latitude="";
 		String longitude="";
-		int radius;
+		int radius=0;
 		String tag="";
 		int i = 0;
 		int j = 0;
@@ -76,8 +88,8 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 
 <br />
 <form action="OfferedServices.jsp" method="post">
-
-<input type="button"onclick="show(<%=i%>)"  value="<%=title%>">
+Service Number <%=i+1%> :
+<input type="button"onclick="show(<%=i%>)"  value="<%=title%>" style="width:250px">
         <div id="content<%=i%>" style="display:none" >
 <table>
 
@@ -123,33 +135,27 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 		<td><input class="hasDatepicker"  type="text" id="dateToBox" name="dateToBox<%=i%>" value="<%=dateTo%>"></td>
 		
 		</tr>
-		
-		
-		<!-- 	
+		 	
+		<!-- 
 		<tr>
 		<td>Tags:</td>
 		<td>
-		<%-- <textarea rows="5" cols="30" id="tags" name="tags<%=i%>"><%=tag%>
-		
-		</textarea> --%>
-		<input id="tags" name="tags<%=i%>"/><br>  
-		
-		
-		
+		<input type="text" id="tags" name="tags" class="tags" style="display: none;"/>
+		<script>
+		$(function(){
+			$('#tags').tagsInput();
+		});
+		</script>
 		</td>
-		
-		</tr>  -->
-		
-		
-
-		
+		</tr>
+		 -->
 		<!-- 
 		<%
-			j=0;
+			/*j=0;
 		    while(rs1.next()){
 				latitude=rs1.getString(2);
 				longitude=rs1.getString(3);
-				radius=rs1.getInt(4);%>
+				radius=rs1.getInt(4);*/%>
 		<tr>
 		<td>Latitude:</td>
 		<td><input type="text" id="latitudeBox" name="latitudeBox<%=i%>_<%=j%>_0" value="<%=latitude%>"></td>
@@ -160,8 +166,27 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 		
 		</tr>
 			<%
+			//j++;
+			//}%>   
+			 -->
+		<%
+			j=0;
+		    while(rs1.next()){
+				latitude=rs1.getString(2);
+				longitude=rs1.getString(3);
+				radius=rs1.getInt(4);
+				System.out.println(latitude+"ali"+longitude);%>	
+				
+				
+				<tr>
+				<td>
+				<input type="button" id="location<%=i%>_<%=j%>" name="<%=latitude%>_<%=longitude%>_<%=radius%>" value="Location">
+				</td>
+				<td><input type="submit" name="deleteLocation<%=i%>_<%=j%>>" value="Delete Location"></td>
+				</tr>
+				<%
 			j++;
-			}%>   -->
+			}%>   
 		
 		<tr>
 		<td><input type="submit" name="updateTitle<%=i%>" value="Update"></td>
@@ -206,9 +231,9 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
 				k++;
 				//System.out.println("k: " +k);
 			}
-			/* System.out.println("buraya girdin mi?");
-			//st1.executeUpdate("DELETE FROM `database2`.`OpenServices` WHERE `OpenServices`.`serviceId` = '"+ serviceId2 +"'");
-			//int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
+			// System.out.println("buraya girdin mi?");
+			st1.executeUpdate("DELETE FROM `database2`.`OpenServices` WHERE `OpenServices`.`serviceId` = '"+ serviceId2 +"'");
+			/*int numberOfPlaceRows = st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"+ serviceId2 +"'");
 			st1.executeUpdate("DELETE FROM `database2`.`Tags` WHERE `Tags`.`serviceId` = '"+ serviceId2 +"'");
 			*/
 			%>
