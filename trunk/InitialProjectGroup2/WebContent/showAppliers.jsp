@@ -28,11 +28,11 @@ if (rs.next()){
 %>
 <table border="1">
 <tr>
-<td colspan="2">Servisi Isteyenler</td>
+<td colspan="2">Appliers</td>
 </tr>
 <tr>
-<td>Adi</td>
-<td>Soyadi</td>
+<td>Name</td>
+<td>Surname</td>
 </tr>
 <%
 }
@@ -54,7 +54,7 @@ String surName=rs.getString(2);
 rs.beforeFirst();
 if (!rs.next())
 {
-	out.println("Bu servisi talep eden hickimse yok.");
+	out.println("Nobody has applied for this service.");
 }
 }catch(Exception e1){
 	e1.printStackTrace();

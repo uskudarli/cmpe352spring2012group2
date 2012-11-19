@@ -8,7 +8,7 @@
 	
 
 
-<title>Offered Services</title>
+<title>Requested Services</title>
 </head>
 
 <script type="text/javascript">
@@ -21,10 +21,10 @@
 	}
 </script>
 <body>
-	<form action="OfferedServices.jsp" method="post">
+	<form action="requestedServices.jsp" method="post">
 		<table border="1">
 			<tr>
-				<td>Offered Services</td>
+				<td>Requested Services</td>
 			</tr>
 			<tr>
 				<td>Service Title</td>
@@ -32,7 +32,6 @@
 				<td>Service Start Date</td>
 				<td>Service End Date</td>
 				<td>Service Tags</td>
-				<td>Appliers</td>
 			</tr>
 
 
@@ -66,7 +65,7 @@
 
 						ResultSet rs = st
 								.executeQuery("SELECT * FROM `OpenServices` WHERE (email='"
-										+ email + "' and demanderOrSupplier='supplier')  ");
+										+ email + "' and demanderOrSupplier='demander')  ");
 
 						while (rs.next()) {
 							title = rs.getString(2);
@@ -80,7 +79,7 @@
 											+ serviceId + "'");
 							String tag = "";
 							while (rs2.next()) {
-								tag += rs2.getString(1)+ ",";
+								tag += rs2.getString(1)+ " ";
 							}
 							tag=tag.substring(0,tag.length()-1);
 			%>
@@ -95,8 +94,6 @@
 				<td><%=dateFrom%></td>
 				<td><%=dateTo%></td>
 				<td><%=tag%></td>
-				<td><a href="showAppliers.jsp?value=<%=serviceId%>">Appliers</a>
-				</td>
 				<td><input type="submit" name="deleteTitle<%=i%>"
 					value="Delete">
 				</td>
