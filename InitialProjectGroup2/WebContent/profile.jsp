@@ -77,7 +77,8 @@
 					
 						<a href="createService.jsp">Create a Service</a>
 						<a href="requestService.jsp">Request a Service</a>
-						<a href="OfferedServices.jsp">See the Services That You Have Offered</a>						
+						<a href="OfferedServices.jsp">Offered Services</a>
+						<a href="requestedServices.jsp">Requested Services</a>							
 						<a href="searchPage.jsp">Search For a Service</a>
 					
 					</div>
