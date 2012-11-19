@@ -15,7 +15,7 @@
 				<div class="center">
 				<p>Note that create account will be implemented later.</p>
 				<br><b>Username</b>
-				<input type="text" name="username" value="gauss@mathematician.com" maxlength=25 align="right">	
+				<input type="text" name="username" value="einstein@physicist.com" maxlength=25 align="right">	
 			
 				<br><b>Password</b>
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
