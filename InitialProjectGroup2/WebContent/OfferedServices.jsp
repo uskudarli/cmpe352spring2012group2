@@ -136,7 +136,7 @@ Service Number <%=i+1%> :
 		
 		</tr>
 		 	
-		<!-- 
+		
 		<tr>
 		<td>Tags:</td>
 		<td>
@@ -148,7 +148,7 @@ Service Number <%=i+1%> :
 		</script>
 		</td>
 		</tr>
-		 -->
+		 
 		<!-- 
 		<%
 			/*j=0;
