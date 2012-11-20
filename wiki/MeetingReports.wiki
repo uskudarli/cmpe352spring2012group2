@@ -1,3 +1,19 @@
+=*Report of Meeting #15*=
+
+*Meeting Date: 20.11.2012*
+
+*Meeting Duration: 60 minutes*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Mustafa Ertürk*
+
+*Activities:*
+
+  # Reviewed the previous work
+  # Examined project plan for future work division
+  # New works are assigned to members. Please check issues.
+
 =*Report of Meeting #14*=
 
 *Meeting Date: 15.11.2012*
