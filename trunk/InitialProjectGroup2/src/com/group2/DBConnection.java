@@ -25,11 +25,27 @@ public class DBConnection {
 	      }  
 	}
 	public ResultSet executeQuery(String query) throws SQLException{
+		if(!statement.isClosed())
+			statement.close();
+		
 		statement=connection.createStatement();
 		return statement.executeQuery(query);
 		
 	}
+	public void executeUpdate(String update)throws SQLException{
+		if(statement!=null && !statement.isClosed())
+			statement.close();
+		statement=connection.createStatement();
+		
+		statement.executeUpdate(update);
+
+		
+	}
+	public void closeConnection() throws SQLException{
+		connection.close();
+	}
+}
 	
 
 
-}
+

@@ -26,6 +26,23 @@
 		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p></div>
 			
 	</form>
+	<form action="register.jsp" method="post">
+		<div class="center">
+			<h2>Quick Register</h2>
+			<br><b>Type e-mail address&nbsp;</b>
+			<input type="text" name="username"  maxlength=25 align="right">	
+			<br><b>Re-Type e-mail address&nbsp;</b>
+			<input type="text" name="re-username"  maxlength=25 align="right">	
+			
+			<br><b>Password&nbsp;</b>
+			<input type="password" name="password" maxlength=25 align="right">
+			<br><b> Re-Type Password&nbsp;</b>
+			<input type="password" name="re-password" maxlength=25 align="right">
+			<br>
+			<input type="submit" method="post" value="Register">
+		</div>
+		
+	</form>
 	
 <br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	
