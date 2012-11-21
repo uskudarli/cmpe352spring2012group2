@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-	
-
 
 <title>Offered Services</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
-
+<h1>Offered Services</h1>
+<div id="footer_top"><p></p></div>
 <script type="text/javascript">
 	function show(index) {
 		if (document.getElementById("content" + index).style.display == "block") {
@@ -22,7 +22,7 @@
 </script>
 <body>
 	<form action="OfferedServices.jsp" method="post">
-		<table border="1">
+		<table border="3">
 			<tr>
 				<td>Offered Services</td>
 			</tr>
@@ -97,15 +97,11 @@
 				<td><%=tag%></td>
 				<td><a href="showAppliers.jsp?value=<%=serviceId%>">Appliers</a>
 				</td>
-				<td><input type="submit" name="deleteTitle<%=i%>"
-					value="Delete">
+				<td><div class="button"><input type="submit" name="deleteTitle<%=i%>"
+					value="Delete"></div>
 				</td>
 			</tr>
-
-
-
-
-		
+	
 
 		<%
 			i++;
@@ -166,5 +162,8 @@
 		%>
 </table>
 	</form>
+	<div id="footer_top"><p></p></div>
+	
+	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>

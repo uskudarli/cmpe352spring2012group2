@@ -7,7 +7,7 @@ background-color:#EEEEEE;
 }
 html,body {margin:0;padding:0}
 body {font: 76% arial,sans-serif}
-p {margin:0 10px 10px;padding:10px}
+p {text-align: center}
 a {display:block;color: #981793;padding:10px}
 .center
 {
@@ -26,7 +26,7 @@ div.menu {
 	font-size: 14px;
 	margin: 0;
 	padding: 0;
-	border: 2px solid #FF6600;
+	border: 2px solid #000000;
 }
 
 div.menu a {
@@ -37,18 +37,19 @@ div.menu a {
 	letter-spacing: 1px;
 	margin: 0px;
 	color: black;
-	border-top: 1px solid #FF6600;
+	border-top: 1px solid #000000;
 }
 
 div.menu a:link{
-	background: #FF6600;
+	background: #00000;
 }
 
 div.menu a:visited{
 	background: #FF6600;
 }
 div.menu a:hover{
-	background: #FFA500;
+	background: #FFFFFF;
+	text-color: #FFFFFF;
 	letter-spacing: 2px;
 }
 
@@ -59,15 +60,15 @@ div.menu h4{
 
 /*button part*/
 .button {
-   background: #FF6600;
+   background: #000000;
    color: white;
    font-size: 16px;
    font-family: Georgia, serif;
    
    }
 .button:hover {
-   border-top-color: #782828;
-   background: #782828;
+   border-top-color: #FFFFFF;
+   background: #00FFFF;
    color: #ccc;
    }
 .button:active {
@@ -79,9 +80,41 @@ div.menu h4{
  	height : 100px;
 	width : 300px;
  }
+ #submit
+ {
+   width: 1400px; 
+ }
+ #applier
+ {
+   width: 1415;
+ }
+ 
+ #tags
+ {
+   height: 80px;
+    min-height: 80px;
+    width: 300px;
+   margin-left: 550px;
+ }
+ 
+ #element_tags {
+    height: 80px;
+    margin-left: 554px;
+    min-height: 80px;
+    width: 300px;
+}
+ 
+  #description
+ {
+   width: 1035px;
+ }
+ #tags_
+ {
+   width: 1425px;
+ }
  .searchTd
  {
- 	background-color:#FFA500;
+ 	background-color:#6E6E6E;
 	clear:both;
 	text-align:center;
  }
@@ -102,8 +135,12 @@ div#extra{float:left;width:33%;margin-left:-33%}
 
 /*footer part*/
 div#footer{background: #333;color: #FFF}
-div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
-div#footer{clear:left;width:100%}
+div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;margin-top:1%;}
+div#footer{clear:left;width:100%;}
+
+div#footer_top{background: #333;color: #FFF}
+div#footer_top p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
+div#footer_top{clear:left;width:100%;}
 
 /*Header Part*/
 .darkmenu {
