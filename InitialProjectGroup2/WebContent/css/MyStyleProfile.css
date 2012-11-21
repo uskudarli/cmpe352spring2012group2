@@ -112,6 +112,35 @@ div.menu h4{
  {
    width: 1425px;
  }
+ 
+  #elementtags {
+    height: 80px;
+    margin-left: 144px;
+    min-height: 80px;
+    width: 300px;
+}
+
+#elementtime {
+    height: 80px;
+    margin-left: 44px;
+    margin-right: 150px;
+    margin-top: -60px;
+    margin-bottom: 10px;
+    min-height: 80px;
+    width: 300px;
+}
+ 
+ .location
+ {
+    background-color:#6E6E6E;
+	clear:both;
+ }
+ .searchPage
+ {
+ 	background-color:#6E6E6E;
+	clear:both;
+	text-align:center;
+ }
  .searchTd
  {
  	background-color:#6E6E6E;

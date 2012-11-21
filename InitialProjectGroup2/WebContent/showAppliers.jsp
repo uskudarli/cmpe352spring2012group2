@@ -5,10 +5,10 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Show Appliers</title>
-<link rel="stylesheet" type="text/css" href="./css/MyStyle.css">
+<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
 <body>
-
+<h1>Show Appliers</h1><hr>
 <%
 String value = request.getParameter("value");
 Connection con = null;
@@ -26,7 +26,7 @@ Statement st = con.createStatement();
 ResultSet rs=st.executeQuery("SELECT User.name, User.surname, Appliers.serviceId FROM User INNER JOIN Appliers ON User.email=Appliers.email WHERE Appliers.serviceId='"+value+"'");
 if (rs.next()){
 %>
-<table border="1">
+<table border="3">
 <tr>
 <td colspan="2">Appliers</td>
 </tr>
@@ -66,5 +66,6 @@ e.printStackTrace();
 
 %>
 </table>
+<hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>

@@ -111,7 +111,7 @@ body {
 	
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">
 	<div class="searchTd">
-	    Service Title:  <input type="text" id="title" name="title" size="42"> <br>
+	    <hr>Service Title:  <input type="text" id="title" name="title" size="42"> <br>
 	    <div id="description" class="searchTd">
 		Service Description:<br>
 		</div>
@@ -119,7 +119,7 @@ body {
 		<textarea rows="3" cols="31" name="description"></textarea>
 		</div>
 		<br> Time Interval:  <input type="text" id="date_start" name="date_start" size="19">
-		<input type="text" id="date_end" name="date_end" size=19>
+		<input type="text" id="date_end" name="date_end" size="19">
 		<div id="applier" class="searchTd">
 		<br> Applier Quota: <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota" size="42"><br>
 		</div></div>
@@ -169,7 +169,7 @@ body {
 							endDateTextBox.datetimepicker('getDate'));
 				}
 			});
-		</script>
+		</script><hr>
 		<div id="element_tags" class="searchTd">
 		
         		Tags : <input id="tags" name="tags"/>
@@ -199,7 +199,7 @@ body {
 	<input type="text" id="address">
 	<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()">
-		</div>
+		</div><hr>
 		<div id="submit" class="searchTd">
 		<input type="submit" value="Submit" class="button">
 		</div>
