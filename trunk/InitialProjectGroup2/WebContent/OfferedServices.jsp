@@ -9,8 +9,8 @@
 <title>Offered Services</title>
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
-<h1>Offered Services</h1>
-<div id="footer_top"><p></p></div>
+<h1>Offered Services</h1><hr>
+<div id="footer_top"><p></p></div><hr>
 <script type="text/javascript">
 	function show(index) {
 		if (document.getElementById("content" + index).style.display == "block") {
@@ -161,7 +161,7 @@
 			}
 		%>
 </table>
-	</form>
+	</form><hr>
 	<div id="footer_top"><p></p></div>
 	
 	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>

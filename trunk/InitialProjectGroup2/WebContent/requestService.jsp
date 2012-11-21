@@ -109,11 +109,15 @@ body {
 		</div>
 	<h2>Request A Service</h2>
 	<form name="serviceDetails" action="insertRequest.jsp" method="post">
-		<br> Service Title : <input type="text" id="title" name="title"> <br>
+	<div class="searchTd">
+		<hr> Service Title : <input type="text" id="title" name="title" size="42"> <br>
+		<div id="description" class="searchTd">
 		Service Description :<br>
-		<textarea rows="5" cols="30" name="description"></textarea>
-		<br> Time Interval : <input type="text" id="date_start" name="date_start">
-		<input type="text" id="date_end" name="date_end"><br>
+		</div>
+		<div id="tags_" class="searchTd">
+		<textarea rows="5" cols="30" name="description"></textarea></div>
+		<br> Time Interval : <input type="text" id="date_start" name="date_start" size="19">
+		<input type="text" id="date_end" name="date_end" size="19"><br></div>
 		
 		<script type="text/javascript">
 			var startDateTextBox = $('#date_start');
@@ -160,6 +164,8 @@ body {
 				}
 			});
 		</script>
+		<hr>
+		<div id="element_tags" class="searchTd">
 
 		Tags : <input id="tags" name="tags"/><br>
 
@@ -175,18 +181,22 @@ body {
 				'placeholderColor' : '#666666'
 			});
 		</script>
+		</div>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	<input type="submit" value="Submit" class="button">
+	
 	</form>
 	Select locations for your service from the map below:
 
-	<div id="map_canvas" style="width: 40%; height: 30%"></div>
-	
-	<br> Find an address :
+	<div id="map_canvas" style="width: 100%; height: 30%"></div>
+	<div class="searchTd">
+	Find an address :
 	<input type="text" id="address">
 	<input type="button" value="Find" id="addressFind"
-		onClick="codeAddress()">
+		onClick="codeAddress()"></div><hr>
+		<div id="submit" class="searchTd">
+		<input type="submit" value="Submit" class="button">
+		</div>
+		<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 
 </body>
-
 </html>
