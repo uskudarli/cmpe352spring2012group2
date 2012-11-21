@@ -1,3 +1,5 @@
+<%@page import="java.net.URLDecoder"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -15,8 +17,12 @@
 <body>
 	<%
 		String username=request.getParameter("username");
+		if(username==null)
+			username=(String)request.getSession().getAttribute("email");
+	
 		String password = request.getParameter("password");
-		
+		if(password==null)
+			password=(String)request.getSession().getAttribute("password");
 		Connection con= null;
 		String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
 		String db = "database2";
@@ -30,6 +36,7 @@
 			Statement st=con.createStatement();
 			ResultSet rs= st.executeQuery("Select * from User where email='"+username+"'");
 			if(rs.next() && rs.getString(2).equals(password) ){
+				
 				String mail =rs.getString(1);
 				String pass=rs.getString(2);
 				String name=rs.getString(3);
@@ -38,7 +45,7 @@
 				String rating=rs.getString(6);
 				String phone=rs.getString(7);
 				String about=rs.getString(8);
-
+				about = URLDecoder.decode(about,"UTF-8");
 				session.setAttribute( "email", mail );
 				session.setAttribute( "password", pass );
 				session.setAttribute( "name", name );
@@ -46,7 +53,10 @@
 				session.setAttribute( "credit", credit );
 				session.setAttribute( "rating", rating );
 				session.setAttribute( "phone", phone );
+				session.setAttribute( "about", about );
 				
+				if(name.equals("NULL"))
+					request.getRequestDispatcher("completeRegistration.jsp").forward(request, response);
 				%>
 						
 <!-- <div id="header"><h1>Header</h1></div> -->
