@@ -49,24 +49,25 @@ div.menu h4{
 	margin: 0px;
 }
 div#footer{background: #333;color: #FFF}
-div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
+div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;text-align: center;}
 div#footer{clear:left;width:100%}
 
 .button {
-   background: #FF6600;
+   background: #000000;
    color: white;
+   margin-left:67px;
    font-size: 16px;
    font-family: Georgia, serif;
    
    }
 .button:hover {
-   border-top-color: #782828;
-   background: #782828;
+   border-top-color: #00000;
+   background: #04B4AE;
    color: #ccc;
    }
 .button:active {
-   border-top-color: #5c1b1b;
-   background: #5c1b1b;
+   border-top-color: #1B5C58;
+   background: #1B5C58;
    }
  .deneme
  {
