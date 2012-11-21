@@ -82,7 +82,8 @@ div.menu h4{
  }
  #submit
  {
-   width: 1400px; 
+   width: 105%; 
+   margin-top: 4%;
  }
  #applier
  {
@@ -99,18 +100,18 @@ div.menu h4{
  
  #element_tags {
     height: 80px;
-    margin-left: 554px;
+    margin-left: 40%;
     min-height: 80px;
     width: 300px;
 }
  
   #description
  {
-   width: 1035px;
+   width: 75%;
  }
  #tags_
  {
-   width: 1425px;
+   width: 105%;
  }
  
   #elementtags {
@@ -124,7 +125,7 @@ div.menu h4{
     height: 80px;
     margin-left: 44px;
     margin-right: 150px;
-    margin-top: -60px;
+    margin-top: -5px;
     margin-bottom: 10px;
     min-height: 80px;
     width: 300px;
