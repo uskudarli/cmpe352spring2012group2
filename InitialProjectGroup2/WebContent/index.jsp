@@ -17,7 +17,7 @@
 				<br><b>Username</b>
 				<input type="text" name="username" value="einstein@physicist.com" maxlength=25 align="right">	
 			
-				<br><b>Password</b>
+				<br><b>Password&nbsp;</b>
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
 		
 			
