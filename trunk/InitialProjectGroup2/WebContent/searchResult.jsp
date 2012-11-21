@@ -173,6 +173,50 @@
 			<%
 				}
 			}
+			//date and tags parameters entered
+			else if(tags.length() != 0 && date_start.length() != 0 && date_end.length() != 0 && gpsLocation.length() == 0){
+				Statement st = con.createStatement();
+				Statement st2 = con.createStatement();
+				Statement st3 = con.createStatement();
+				
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag IN("+tags+") GROUP BY serviceId ");
+
+				while (rs.next()) {
+					serviceId = rs.getInt(1);
+					boolean flag=false;
+					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE (serviceId='" + serviceId + "' AND dateFrom < '"+date_start+"' AND dateTo > '"+date_end+"' )");
+					while(rs2.next()){
+						flag=true;
+						serviceTitle = rs2.getString(2);
+						serviceDescription = rs2.getString(3);
+						serviceDateFrom = rs2.getString(5);
+						serviceDateTo = rs2.getString(6);
+						serviceDemanderOrSupplier = rs2.getString(7);
+						serviceApplierQuota = rs2.getString(8);	
+					}
+					
+					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
+					serviceTags="";
+					while (rs3.next()) {
+						serviceTags += rs3.getString(1)+ ",";
+					}
+					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
+					if(flag){
+			%>
+				<tr>
+					<td><%=serviceTitle%></td>
+					<td><%=serviceDescription%></td>
+					<td><%=serviceDateFrom%></td>
+					<td><%=serviceDateTo%></td>
+					<td><%=serviceTags%></td>
+					<td><%=serviceDemanderOrSupplier%></td>
+					<td><%=serviceApplierQuota%></td>
+					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+				</tr>
+			<%
+					}
+				}
+			}
 			//only location parameter is entered
 			else if(tags.length() == 0 && date_start.length() == 0 && date_end.length() == 0 && gpsLocation.length() != 0){
 				Statement st = con.createStatement();
