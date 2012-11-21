@@ -9,7 +9,10 @@
 
 
 <title>Requested Services</title>
+<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
+<h1>Requested Services</h1>
+<div id="footer_top"><p></p></div>
 
 <script type="text/javascript">
 	function show(index) {
@@ -22,7 +25,7 @@
 </script>
 <body>
 	<form action="requestedServices.jsp" method="post">
-		<table border="1">
+		<table border="3">
 			<tr>
 				<td>Requested Services</td>
 			</tr>
@@ -163,5 +166,8 @@
 		%>
 </table>
 	</form>
+	<div id="footer_top"><p></p></div>
+	
+	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>

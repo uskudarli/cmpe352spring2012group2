@@ -111,12 +111,18 @@ body {
 	
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">
 	<div class="searchTd">
-	    Service Title: <br>  <input type="text" id="title" name="title"> <br>
+	    Service Title:  <input type="text" id="title" name="title" size="42"> <br>
+	    <div id="description" class="searchTd">
 		Service Description:<br>
-		<textarea rows="3" cols="30" name="description"></textarea>
-		<br> Time Interval: <br> <input type="text" id="date_start" name="date_start">
-		<input type="text" id="date_end" name="date_end">
-		<br> Applier Quota: <br> <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota"><br>
+		</div>
+		<div id="tags_" class="searchTd">
+		<textarea rows="3" cols="31" name="description"></textarea>
+		</div>
+		<br> Time Interval:  <input type="text" id="date_start" name="date_start" size="19">
+		<input type="text" id="date_end" name="date_end" size=19>
+		<div id="applier" class="searchTd">
+		<br> Applier Quota: <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota" size="42"><br>
+		</div></div>
 		
 		<script type="text/javascript">
 		
@@ -164,9 +170,10 @@ body {
 				}
 			});
 		</script>
-        
-		Tags : <input id="tags" name="tags"/>
-
+		<div id="element_tags" class="searchTd">
+		
+        		Tags : <input id="tags" name="tags"/>
+        		
 		<script type="text/javascript">
 			$('#tags').tagsInput({
 				'height' : '80px',
@@ -178,9 +185,11 @@ body {
 				'maxChars' : 20, //if not provided there is no limit,
 				'placeholderColor' : '#666666'
 			});
-		</script></div>
+			
+		</script>
+		</div>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	<input type="submit" value="Submit" class="button">
+	
 	</form>
 	Select locations for your service from the map below:
 
@@ -191,7 +200,10 @@ body {
 	<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()">
 		</div>
+		<div id="submit" class="searchTd">
+		<input type="submit" value="Submit" class="button">
+		</div>
 		
-<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
+<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>
