@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Search for a Service!</title>
+	<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	<style type="text/css">
 		html { height: 100% }
 		body { height: 100%; margin: 0; padding: 0 }
@@ -90,12 +91,14 @@
 </script>
 
 </head>
+<h2>Search For A Service</h2><hr>
 <body onload="initialize()">
 	<form name="searchPage" action="searchResult.jsp" method="post">
 	<table border = "0">
 	<tr>
 	<td width="60%">
-		Step 1: Enter Tags for Service <input id="tags" name="tags"/><br>
+	<div id="elementtags" class="searchPage">
+		Step 1: Enter Tags for Service <hr><input id="tags" name="tags"/><br>
 		<script type="text/javascript">
 			$('#tags').tagsInput({
 				'height' : '100px',
@@ -108,11 +111,13 @@
 				'placeholderColor' : '#666666'
 			});
 		</script>
+		</div>
 	</td>
-	<td>
-		Step 2: Enter Time Interval of Service 
-		<br> <br> From <input type="text" id="date_start" name="date_start">
-		Until <input type="text" id="date_end" name="date_end"><br>
+	<td><br><br><br><br><br><br><br>
+	<div id="elementtime" class="searchPage">
+		Step 2: Enter Time Interval of Service <hr>
+	     From: <input type="text" id="date_start" name="date_start" size="30">
+		<br>&nbsp;Until: <input type="text" id="date_end" name="date_end" size="30"><br></div>
 		<script type="text/javascript">
 			var startDateTextBox = $('#date_start');
 			var endDateTextBox = $('#date_end');
@@ -162,19 +167,23 @@
 	</tr>
 	<tr>
 	<td width="60%">
-		<br> Step 3: Select location for Service <br>
+	<br>
+		 Step 3: Select location for Service <br>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	</td>
-	<td>
-		<br><input type="submit" value="Search">
 	</td>
 	</tr>
 	</table>
+	<div id="submit" class="searchTd">
+		<input type="submit" value="Search" class="button">
+		</div><hr>
 	</form>
-	<div id="map_canvas" style="width: 40%; height: 30%"></div>
-		<br> Find an address :
+	<div id="map_canvas" style="width: 100%; height: 30%"></div>
+	<div class="searchTd">
+		 Find an address :
 		<input type="text" id="address">
 		<input type="button" value="Find" id="addressFind"
-		onClick="codeAddress()">
+		onClick="codeAddress()"></div><hr>
+		
+		<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>
