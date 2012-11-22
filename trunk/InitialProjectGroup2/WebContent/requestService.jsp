@@ -183,6 +183,9 @@ body {
 		</script>
 		</div>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
+		<div id="submit" class="searchTd">
+		<input type="submit" value="Submit" class="button">
+		</div><hr>
 	
 	</form>
 	Select locations for your service from the map below:
@@ -193,9 +196,7 @@ body {
 	<input type="text" id="address">
 	<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()"></div><hr>
-		<div id="submit" class="searchTd">
-		<input type="submit" value="Submit" class="button">
-		</div>
+		
 		<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 
 </body>
