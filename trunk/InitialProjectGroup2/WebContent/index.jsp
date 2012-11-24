@@ -13,7 +13,7 @@
 	<form action="profile.jsp" method="post">
 				
 				<div class="center">
-				<p>Note that create account will be implemented later.</p>
+				
 				<br><b>Username</b>
 				<input type="text" name="username" value="einstein@physicist.com" maxlength=25 align="right">	
 			
@@ -31,8 +31,7 @@
 			<h2>Quick Register</h2>
 			<br><b>Type e-mail address&nbsp;</b>
 			<input type="text" name="username"  maxlength=25 align="right">	
-			<br><b>Re-Type e-mail address&nbsp;</b>
-			<input type="text" name="re-username"  maxlength=25 align="right">	
+			
 			
 			<br><b>Password&nbsp;</b>
 			<input type="password" name="password" maxlength=25 align="right">
