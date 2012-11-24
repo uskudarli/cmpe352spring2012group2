@@ -66,6 +66,11 @@ body {
 		var radius;
 		radius = prompt("Enter a radius in kilometers", "0");
 		if(radius){
+			var intRegex = /^\d+$/;
+			if(!intRegex.test(radius)) {
+			   alert("Radius must be a non-negative number!");
+			  	return;
+			}
 		document.getElementById("gpsLocation").value += location.lat() + "-";
 		document.getElementById("gpsLocation").value += location.lng() + "-";
 		document.getElementById("gpsLocation").value += radius + ";";
