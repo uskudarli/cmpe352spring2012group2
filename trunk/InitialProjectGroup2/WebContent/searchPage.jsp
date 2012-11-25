@@ -51,18 +51,26 @@
 		});
 	}
 
-	function addMarker(location) {
+function addMarker(location) {
+		
+		var radius;
+		radius = prompt("Enter a radius in kilometers", "0");
+		if(radius){
+			var intRegex = /^\d+$/;
+			if(!intRegex.test(radius)) {
+			   alert("Radius must be a non-negative number!");
+			  	return;
+			}
+		document.getElementById("gpsLocation").value += location.lat() + "-";
+		document.getElementById("gpsLocation").value += location.lng() + "-";
+		document.getElementById("gpsLocation").value += radius + ";";
 		var marker = new google.maps.Marker({
 			position : location,
 			map : map
 		});
 		markersArray.push(marker);
-		var radius = 0;
-		radius = prompt("Enter a radius in kilometers", "0");
-		document.getElementById("gpsLocation").value += location.lat() + "-";
-		document.getElementById("gpsLocation").value += location.lng() + "-";
-		document.getElementById("gpsLocation").value += radius + ";";
 		alert("New location info has been added!");
+		}
 	}
 	function clearOverlays() {
 		if (markersArray) {
