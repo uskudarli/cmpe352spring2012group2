@@ -7,22 +7,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Search Result</title>
 	</head>
-	
-	<script type="text/javascript">
-		function distance(lat1, lon1, lat2, lon2){
-			var R = 6371; // km
-			var dLat = (lat2-lat1).toRad();
-			var dLon = (lon2-lon1).toRad();
-			var lat1 = lat1.toRad();
-			var lat2 = lat2.toRad();
-
-			var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-			        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-			var d = R * c;
-			return d;
-		}
-	</script>
 
 	<body>
 		<form>
@@ -225,6 +209,9 @@
 				
 				ResultSet rs = st.executeQuery("SELECT * FROM `Place` ");
 				
+				String printedServiceIds = "";
+				String currentServiceId = "";
+				
 				while (rs.next()) {
 					double R = 6371; // km
 					double lat1 = Double.parseDouble(rs.getString(2));
@@ -242,7 +229,11 @@
 					double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 					double distance = R * c;
 					
-					if(distance < rs.getInt(4)+Integer.parseInt(radius) ){
+					
+					currentServiceId = "'" + Integer.toString(rs.getInt(1)) + "'";
+
+					if(distance < rs.getInt(4)+Integer.parseInt(radius) && !printedServiceIds.contains(currentServiceId)){
+						printedServiceIds += "'" + currentServiceId + "'";
 						serviceId = rs.getInt(1);
 						ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 						while(rs2.next()){
