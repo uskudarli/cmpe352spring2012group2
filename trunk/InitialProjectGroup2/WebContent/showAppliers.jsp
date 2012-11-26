@@ -23,7 +23,7 @@ con = DriverManager.getConnection(url+db,userName,password);
 try{
 Statement st = con.createStatement();
 
-ResultSet rs=st.executeQuery("SELECT User.name, User.surname, Appliers.serviceId FROM User INNER JOIN Appliers ON User.email=Appliers.email WHERE Appliers.serviceId='"+value+"'");
+ResultSet rs=st.executeQuery("SELECT User.name, User.surname, User.email, Appliers.serviceId FROM User INNER JOIN Appliers ON User.email=Appliers.email WHERE Appliers.serviceId='"+value+"'");
 if (rs.next()){
 %>
 <table border="3">
@@ -40,10 +40,11 @@ rs.beforeFirst();
 while(rs.next()) {
 String name =rs.getString(1);
 String surName=rs.getString(2);
+String email=rs.getString(3);
 %>
 
 <tr>
-<td><%=name %>
+<td><a href="applierProfile.jsp?qid=<%=email%>"><%=name %>
 </td>
 <td><%=surName %>
 </td>
