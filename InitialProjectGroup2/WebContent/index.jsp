@@ -9,11 +9,13 @@
 </head>
 <body style="background-color:#EEEEEE;">
 <div id="header" style="background-color:#333;">
-	<h1 style="margin-bottom:0;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div>
-	<form action="profile.jsp" method="post">
-				
-				<div class="center">
-				
+	<h1 style="margin-bottom:0;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
+	<table border = "0">
+	<tr>
+	<td width="60%">
+	<form action="profile.jsp" method="post" id="login">
+			<div class="center">	
+				<h2>Login</h2>
 				<br><b>Username</b>
 				<input type="text" name="username" value="einstein@physicist.com" maxlength=25 align="right">	
 			
@@ -21,14 +23,15 @@
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
 		
 			
-				<br><input type="submit" value="NextPage" class="button">		
+				<br><input type="submit" value="Login" class="button">		
 		
 		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p></div>
 			
-	</form>
-	<form action="register.jsp" method="post">
+	</form></td>
+	<td>
+	<form action="register.jsp" method="post" id="registration">
 		<div class="center">
-			<h2>Quick Register</h2>
+			<h2>Sign Up</h2>
 			<br><b>Type e-mail address&nbsp;</b>
 			<input type="text" name="username"  maxlength=25 align="right">	
 			
@@ -38,10 +41,11 @@
 			<br><b> Re-Type Password&nbsp;</b>
 			<input type="password" name="re-password" maxlength=25 align="right">
 			<br>
-			<input type="submit" method="post" value="Register">
+			<input type="submit" method="post" value="Register" class="button">
 		</div>
 		
-	</form>
+	</form></td></tr>
+	</table>
 	
 <br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	
