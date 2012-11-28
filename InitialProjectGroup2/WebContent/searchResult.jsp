@@ -6,23 +6,24 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Search Result</title>
+		<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	</head>
 
 	<body>
-		<form>
+		<form action="searchResult.jsp" method="post"><div class="TableFormat">
 			<table border="1">
 				<tr>
 					<td>Search Results</td>
 				</tr>
 				<tr>
-					<td>Service Title</td>
-					<td>Service Description</td>
-					<td>Service Start Date</td>
-					<td>Service End Date</td>
-					<td>Service Tags</td>
-					<td>Service Type</td>
-					<td>Service Quota</td>
-					<td>Service Owner</td>
+					<td><h3>Service Title</h3></td>
+					<td><h3>Service Description</h3></td>
+					<td><h3>Service Start Date</h3></td>
+					<td><h3>Service End Date</h3></td>
+					<td><h3>Service Tags</h3></td>
+					<td><h3>Service Type</h3></td>
+					<td><h3>Service Quota</h3></td>
+					<td><h3>Service Owner</h3></td>
 				</tr>
 			<% 
 			String tags = request.getParameter("tags");
@@ -471,5 +472,6 @@
 			%>
 			</table>
 		</form>
+		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	</body>
 </html>
