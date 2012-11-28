@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
 <h1>Offered Services</h1><hr>
-<div id="footer_top"><p></p></div><hr>
+<!--  <div id="footer_top"><p></p></div><hr> -->
 <script type="text/javascript">
 	function show(index) {
 		if (document.getElementById("content" + index).style.display == "block") {
@@ -21,11 +21,8 @@
 	}
 </script>
 <body>
-	<form action="OfferedServices.jsp" method="post">
+	<form action="OfferedServices.jsp" method="post"><div class="TableFormat" >
 		<table border="3">
-			<tr>
-				<td>Offered Services</td>
-			</tr>
 			<tr>
 				<td>Service Title</td>
 				<td>Service Description</td>
@@ -84,10 +81,6 @@
 							}
 							tag=tag.substring(0,tag.length()-1);
 			%>
-
-
-
-
 
 			<tr>
 				<td><%=title%></td>
@@ -160,9 +153,9 @@
 				e.printStackTrace();
 			}
 		%>
-</table>
+</table></div>
 	</form><hr>
-	<div id="footer_top"><p></p></div>
+	<!--  <div id="footer_top"><p></p></div> -->
 	
 	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
