@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
 <h1>Requested Services</h1><hr>
-<div id="footer_top"><p></p></div><hr>
+<!-- <div id="footer_top"><p></p></div><hr>  -->
 
 <script type="text/javascript">
 	function show(index) {
@@ -24,11 +24,8 @@
 	}
 </script>
 <body>
-	<form action="requestedServices.jsp" method="post">
+	<form action="requestedServices.jsp" method="post"><div class="TableFormat">
 		<table border="3">
-			<tr>
-				<td>Requested Services</td>
-			</tr>
 			<tr>
 				<td>Service Title</td>
 				<td>Service Description</td>
@@ -36,7 +33,6 @@
 				<td>Service End Date</td>
 				<td>Service Tags</td>
 			</tr>
-
 
 			<%
 				String email = session.getAttribute("email").toString();
@@ -86,10 +82,7 @@
 							}
 							tag=tag.substring(0,tag.length()-1);
 			%>
-
-
-
-
+			
 
 			<tr>
 				<td><%=title%></td>
@@ -97,15 +90,11 @@
 				<td><%=dateFrom%></td>
 				<td><%=dateTo%></td>
 				<td><%=tag%></td>
-				<td><input type="submit" name="deleteTitle<%=i%>"
-					value="Delete">
+				<td><div class="button"><input type="submit" name="deleteTitle<%=i%>"
+					value="Delete"></div>
 				</td>
 			</tr>
-
-
-
-
-		
+					
 
 		<%
 			i++;
@@ -164,9 +153,9 @@
 				e.printStackTrace();
 			}
 		%>
-</table>
+</table></div>
 	</form>
-	<hr><div id="footer_top"><p></p></div>
+	<hr><!--  <div id="footer_top"><p></p></div> -->
 	
 	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
