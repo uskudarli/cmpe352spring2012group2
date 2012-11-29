@@ -33,8 +33,7 @@
 		<div class="center">
 			<h2>Sign Up</h2>
 			<br><b>Type e-mail address&nbsp;</b>
-			<input type="text" name="username"  maxlength=25 align="right">	
-			
+			<input type="text" name="username"  maxlength=25 align="right">				
 			
 			<br><b>Password&nbsp;</b>
 			<input type="password" name="password" maxlength=25 align="right">

@@ -12,6 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyleProfile.css">
 </head>
 <body>
@@ -60,12 +61,23 @@
 				%>
 						
 <!-- <div id="header"><h1>Header</h1></div> -->
-<div id="header" class="darkmenu">
-	 			<ul class="darkPink">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Profile</a></li>
-				</ul>
-			</div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="#">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
 			
 <h1>Profile</h1>
 <div id="wrapper">

@@ -24,8 +24,10 @@ try{
 Statement st = con.createStatement();
 
 ResultSet rs=st.executeQuery("SELECT User.name, User.surname, User.email, Appliers.serviceId FROM User INNER JOIN Appliers ON User.email=Appliers.email WHERE Appliers.serviceId='"+value+"'");
-if (rs.next()){
-%>
+
+boolean IsRowExist=rs.next();
+if (IsRowExist){
+%><div class="TableFormat">
 <table border="3">
 <tr>
 <td colspan="2">Appliers</td>
@@ -66,7 +68,7 @@ e.printStackTrace();
 }
 
 %>
-</table>
+</table></div>
 <hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>

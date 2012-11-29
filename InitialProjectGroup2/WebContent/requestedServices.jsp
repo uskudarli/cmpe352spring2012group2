@@ -5,13 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-	
-
-
 <title>Requested Services</title>
+
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
-<h1>Requested Services</h1><hr>
 <!-- <div id="footer_top"><p></p></div><hr>  -->
 
 <script type="text/javascript">
@@ -24,15 +22,25 @@
 	}
 </script>
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="profile.jsp">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
+<h1>Requested Services</h1><hr>
 	<form action="requestedServices.jsp" method="post"><div class="TableFormat">
-		<table border="3">
-			<tr>
-				<td>Service Title</td>
-				<td>Service Description</td>
-				<td>Service Start Date</td>
-				<td>Service End Date</td>
-				<td>Service Tags</td>
-			</tr>
 
 			<%
 				String email = session.getAttribute("email").toString();
@@ -66,7 +74,21 @@
 								.executeQuery("SELECT * FROM `OpenServices` WHERE (email='"
 										+ email + "' and demanderOrSupplier='demander')  ");
 
-						while (rs.next()) {
+						boolean IsRowExist=rs.next();
+						
+						if(IsRowExist){%>
+							<table border="3">
+							<tr>
+							<td>Service Title</td>
+							<td>Service Description</td>
+							<td>Service Start Date</td>
+							<td>Service End Date</td>
+							<td>Service Tags</td>
+							</tr><% }
+						else{ %>
+							<p>You don't have any requested services yet.</p>
+						<% }
+						while (IsRowExist) {
 							title = rs.getString(2);
 							description = rs.getString(3);
 							serviceId = rs.getInt(4);
@@ -97,7 +119,8 @@
 					
 
 		<%
-			i++;
+				i++;
+				IsRowExist=rs.next();
 					}
 					st.close();
 				} catch (Exception e1) {
