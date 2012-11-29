@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Offer a Service</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 <style type="text/css">
 html {
@@ -109,12 +110,23 @@ body {
 </script>
 </head>
 <body onload="initialize()">
-	<div id="header" class="darkmenu">
-	 			<ul class="darkPink">
-					<li><a href="#">Home</a></li>
-					<li><a href="profile.jsp">Profile</a></li>
-				</ul>
-		</div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="profile.jsp">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
 	<h2>Offer A Service</h2>
 	
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">

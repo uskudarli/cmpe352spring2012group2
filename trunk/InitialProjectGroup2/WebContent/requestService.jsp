@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Request a Service</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 <style type="text/css">
 html {
@@ -109,13 +110,24 @@ body {
 </script>
 </head>
 <body onload="initialize()">
-	<div id="header" class="darkmenu">
-	 			<ul class="darkPink">
-					<li><a href="#">Home</a></li>
-					<li><a href="profile.jsp">Profile</a></li>
-				</ul>
-		</div>
-	<h2>Request A Service</h2>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="profile.jsp">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
+	<h1>Request A Service</h1>
 	<form name="serviceDetails" action="insertRequest.jsp" method="post">
 	<div class="searchTd">
 		<hr> Service Title : <input type="text" id="title" name="title" size="42"> <br>

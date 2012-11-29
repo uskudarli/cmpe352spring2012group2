@@ -7,9 +7,10 @@
 
 
 <title>Offered Services</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
+
 </head>
-<h1>Offered Services</h1><hr>
 <!--  <div id="footer_top"><p></p></div><hr> -->
 <script type="text/javascript">
 	function show(index) {
@@ -21,17 +22,25 @@
 	}
 </script>
 <body>
-	<form action="OfferedServices.jsp" method="post"><div class="TableFormat" >
-		<table border="3">
-			<tr>
-				<td>Service Title</td>
-				<td>Service Description</td>
-				<td>Service Start Date</td>
-				<td>Service End Date</td>
-				<td>Service Tags</td>
-				<td>Appliers</td>
-			</tr>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="index.jsp">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br><h1>Offered Services</h1><hr>
 
+	<form action="OfferedServices.jsp" method="post"><div class="TableFormat" >
 
 			<%
 				String email = session.getAttribute("email").toString();
@@ -63,9 +72,26 @@
 
 						ResultSet rs = st
 								.executeQuery("SELECT * FROM `OpenServices` WHERE (email='"
-										+ email + "' and demanderOrSupplier='supplier')  ");
-
-						while (rs.next()) {
+										+ email + "' and demanderOrSupplier='supplier')  "); 
+										
+						boolean IsRowExist=rs.next();
+						
+						if(IsRowExist){%>
+						
+						<table border="3">
+							<tr>
+							<td>Service Title</td>
+							<td>Service Description</td>
+							<td>Service Start Date</td>
+							<td>Service End Date</td>
+							<td>Service Tags</td>
+							<td>Appliers</td>
+							</tr>
+						<% }
+						else{ %>
+							<p>You don't have offered any services yet.</p>
+						<% }
+						while (IsRowExist) {
 							title = rs.getString(2);
 							description = rs.getString(3);
 							serviceId = rs.getInt(4);
@@ -80,7 +106,8 @@
 								tag += rs2.getString(1)+ ",";
 							}
 							tag=tag.substring(0,tag.length()-1);
-			%>
+			
+						%>
 
 			<tr>
 				<td><%=title%></td>
@@ -97,7 +124,8 @@
 	
 
 		<%
-			i++;
+				i++;
+				IsRowExist=rs.next();
 					}
 					st.close();
 				} catch (Exception e1) {

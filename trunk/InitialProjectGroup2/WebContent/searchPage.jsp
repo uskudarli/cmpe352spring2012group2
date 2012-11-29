@@ -5,6 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Search for a Service!</title>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	<style type="text/css">
 		html { height: 100% }
@@ -99,8 +100,25 @@ function addMarker(location) {
 </script>
 
 </head>
-<h2>Search For A Service</h2><hr>
 <body onload="initialize()">
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="profile.jsp">Home</a>
+            	</li>
+              <li class="">
+              	<a href="profile.jsp">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
+<h1>Search For A Service</h1><hr>
 	<form name="searchPage" action="searchResult.jsp" method="post">
 	<table border = "0">
 	<tr>

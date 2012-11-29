@@ -61,6 +61,6 @@
 		dbConnection.closeConnection();
 		}
 	%>
-<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>	
+<br><br><hr><div id="footer"><p>Copyright Boun Cmpe451 - Group 2</p></div>	
 </body>
 </html>
