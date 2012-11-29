@@ -103,14 +103,20 @@
 							
 				<%
 			}
-			else
-				out.print("Error! Wrong Username or Password ");
-			
-		
+			else{
+				%>
+			<div>
+				<h1 style="margin-left:2 em;font-size:16px;font-family: Tahoma, Geneva, sans-serif;color:#2F4F4F;"> Error! Wrong Username or Password. </h1>
+				<br><br><a href="index.jsp">Return to Main Page.</a>
+			</div>						
+			<%}
 		}catch(Exception e){
-			e.printStackTrace();
-			out.print("Error! Wrong Username or Password ");
-		};
+			e.printStackTrace();%>
+			<div>
+				<h1 style="margin-left:2 em;font-size:16px;font-family: Tahoma, Geneva, sans-serif;color:#2F4F4F;"> Error! Wrong Username or Password. </h1>
+				<br><br><a href="index.jsp">Return to Main Page.</a>
+			</div>
+		<%};
 		%>
 		
 </body>
