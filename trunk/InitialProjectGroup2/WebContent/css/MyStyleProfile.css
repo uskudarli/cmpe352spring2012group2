@@ -164,13 +164,12 @@ div#extra{background:#B9CAFF}
 div#extra{float:left;width:33%;margin-left:-33%}
 
 /*footer part*/
-div#footer{background: #333;color: #FFF}
-div#footer p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;margin-top:1%;}
-div#footer{clear:left;width:100%;}
+div#footer p{margin:0;font-size: 11px;}
+div#footer{clear:left;width:100%}
 
-div#footer_top{background: #333;color: #FFF}
+/*div#footer_top{background: #333;color: #FFF}
 div#footer_top p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
-div#footer_top{clear:left;width:100%;}
+div#footer_top{clear:left;width:100%;}*/
 
 /*Header Part*/
 .darkmenu {

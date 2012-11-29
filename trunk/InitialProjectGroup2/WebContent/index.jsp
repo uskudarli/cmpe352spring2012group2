@@ -9,7 +9,7 @@
 </head>
 <body style="background-color:#EEEEEE;">
 <div id="header" style="background-color:#333;">
-	<h1 style="margin-bottom:0;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
+	<h1 style="padding: 10px;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
 	<table border = "0">
 	<tr>
 	<td width="60%">
@@ -23,7 +23,7 @@
 				<input type="password" name="password" value="myPassword" maxlength=25 align="right">
 		
 			
-				<br><input type="submit" value="Login" class="button">		
+				<br><input type="submit" value="Login" class="button" style="margin:auto">		
 		
 		<p> <b>Sample Username:</b> email@email.com <br> <b>Sample Password:</b> myPassword </p></div>
 			
@@ -41,7 +41,7 @@
 			<br><b> Re-Type Password&nbsp;</b>
 			<input type="password" name="re-password" maxlength=25 align="right">
 			<br>
-			<input type="submit" method="post" value="Register" class="button">
+			<input type="submit" method="post" value="Register" class="button" style="margin:auto">
 		</div>
 		
 	</form></td></tr>

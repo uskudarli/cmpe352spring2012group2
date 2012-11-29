@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyle.css">
+<title>Complete Registration</title>
 </head>
 <body>
-	<form action="Complete" method="post">
-	<div >
+<div id="header" style="background-color:#333;">
+	<h1 style="padding: 10px;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
+	<form action="Complete" method="post" id="login">
+	<div  style="margin:auto">
 		<b>Please provide necessary information to finish your registration.</b>
 	<%
 		if(session.getAttribute("name").equals("NULL)"))
@@ -27,10 +30,11 @@
 			
 		if(session.getAttribute("about").equals(" "))			
 			%>
-				<br><b>About Me</b><textarea cols="25" rows="5" name="about">	</textarea>
-				<br><br><input type="submit" value="Send">	
+				<br><b>About Me</b><textarea cols="30" rows="5" name="about">	</textarea>
+				<br><input type="submit" value="Send" class="button" style="margin:auto">	
 		
 	</div>
 	</form>
+	<br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 </body>
 </html>
