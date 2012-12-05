@@ -10,7 +10,7 @@
 <body>
 <div id="header" style="background-color:#333;">
 	<h1 style="padding: 10px;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
-	<form action="Complete" method="post" id="login">
+	<form action="Complete.jsp" method="post" id="login">
 	<div  style="margin:auto">
 		<b>Please provide necessary information to finish your registration.</b>
 	<%
