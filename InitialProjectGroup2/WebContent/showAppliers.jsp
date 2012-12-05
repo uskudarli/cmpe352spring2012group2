@@ -35,6 +35,8 @@ if (IsRowExist){
 <tr>
 <td>Name</td>
 <td>Surname</td>
+<td>Accept</td>
+<td>Reject</td>
 </tr>
 <%
 }
@@ -50,8 +52,23 @@ String email=rs.getString(3);
 </td>
 <td><%=surName %>
 </td>
+	
+	<td><form action="accept.jsp" method="get">
+	<input type="hidden" name="applierId" value=<%=email %>>
+	<input type="hidden" name="processId" value=<%=value %>>
+	
+	<input type ="submit" value="Accept">
+	</form>
+	</td>
+	<td><form action="reject.jsp" method="get">
+	<input type="hidden" name="applierId" value=<%=email %>>
+	<input type="hidden" name="processId" value=<%=value %>>
+	
+	<input type ="submit" value="Reject">
+	</form>
+	</td>
 </tr>
-
+	
 <%
 }
 rs.beforeFirst();

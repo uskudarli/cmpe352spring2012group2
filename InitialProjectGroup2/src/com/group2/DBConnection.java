@@ -25,7 +25,7 @@ public class DBConnection {
 	      }  
 	}
 	public ResultSet executeQuery(String query) throws SQLException{
-		if(!statement.isClosed())
+		if(statement!=null && !statement.isClosed())
 			statement.close();
 		
 		statement=connection.createStatement();
