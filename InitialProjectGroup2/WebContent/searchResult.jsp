@@ -232,7 +232,7 @@
 					
 					
 					currentServiceId = "'" + Integer.toString(rs.getInt(1)) + "'";
-
+					
 					if(distance < rs.getInt(4)+Integer.parseInt(radius) && !printedServiceIds.contains(currentServiceId)){
 						printedServiceIds += "'" + currentServiceId + "'";
 						serviceId = rs.getInt(1);
