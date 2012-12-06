@@ -13,7 +13,7 @@
   # Project plan is revisited to see where we are.
   # Our problems in the project and how to implement some operations are discussed.
   # Work is distributed to be completed until next week, if possible Tuesday.
-   # In order to see our progress and keep up with the project plan, next meeting is scheduled for Tuesday.
+  # In order to see our progress and keep up with the project plan, next meeting is scheduled for Tuesday.  
   * Samet & Hakan : continue semantic search
   * Hakan : Layout and DB connection of service status page
   * Beste : Logout operation, continue css, code review
