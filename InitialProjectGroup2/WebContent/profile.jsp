@@ -66,12 +66,12 @@
         <div class="container">
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active">
-                <a href="#">Home</a>
-            	</li>
-              <li class="">
-              	<a href="profile.jsp">Profile</a>
-              </li>
+              <li class="active"><a href="#">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
             </ul>
           </div>
         </div>
@@ -95,14 +95,11 @@
 </div>
 
 <div id="navigation">
-<div id="menupane" class="menu">
-					
+<div id="menupane" class="menu">					
 						<a href="createService.jsp">Create a Service</a>
 						<a href="requestService.jsp">Request a Service</a>
 						<a href="OfferedServices.jsp">Offered Services</a>
-						<a href="requestedServices.jsp">Requested Services</a>							
-						<a href="searchPage.jsp">Search For a Service</a>
-					
+						<a href="requestedServices.jsp">Requested Services</a>												
 					</div>
 </div>
 

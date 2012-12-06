@@ -5,8 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Search for a Service!</title>
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
+
 	<style type="text/css">
 		html { height: 100% }
 		body { height: 100%; margin: 0; padding: 0 }
@@ -30,6 +29,8 @@
 		href="css/jquery-ui-timepicker-addon.css" />
 	<link rel="stylesheet"
 		href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css">
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	
 	<script type="text/javascript">
 	var map;
@@ -106,12 +107,12 @@ function addMarker(location) {
         <div class="container">
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="">
-                <a href="profile.jsp">Home</a>
-            	</li>
-              <li class="">
-              	<a href="profile.jsp">Profile</a>
-              </li>
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class="active"><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
             </ul>
           </div>
         </div>
