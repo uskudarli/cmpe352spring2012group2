@@ -115,12 +115,12 @@ body {
         <div class="container">
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="">
-                <a href="profile.jsp">Home</a>
-            	</li>
-              <li class="">
-              	<a href="profile.jsp">Profile</a>
-              </li>
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
             </ul>
           </div>
         </div>
