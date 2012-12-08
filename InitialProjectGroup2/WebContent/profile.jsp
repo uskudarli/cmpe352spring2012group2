@@ -99,7 +99,8 @@
 						<a href="createService.jsp">Create a Service</a>
 						<a href="requestService.jsp">Request a Service</a>
 						<a href="OfferedServices.jsp">Offered Services</a>
-						<a href="requestedServices.jsp">Requested Services</a>												
+						<a href="requestedServices.jsp">Requested Services</a>
+						<a href="serviceStatus.jsp">Service Status</a>												
 					</div>
 </div>
 
