@@ -12,9 +12,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Appliers Profile</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyleProfile.css">
 </head>
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br>
 	<%
 		String username = "";
 		if(request.getParameter("qid")!=null)
@@ -54,19 +72,11 @@
 				if(name.equals("NULL"))
 					request.getRequestDispatcher("completeRegistration.jsp").forward(request, response);
 				%>
-						
-<!-- <div id="header"><h1>Header</h1></div> -->
-<div id="header" class="darkmenu">
-	 			<ul class="darkPink">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Profile</a></li>
-				</ul>
-			</div>
 			
-<h1>Profile</h1>
+<h1><%=name+" "+surname%></h1>
 <div id="wrapper">
-<div id="content">
-					<p style="font-size:24px;"><b>Hello <%=name+" "+surname%></b></p>
+
+					<!--  <p style="font-size:24px;"><b><%=name+" "+surname%></b></p> -->
 					<ul>
 						<!-- <li> <b><%=name+" "+surname %></b> -->
 						<!--  <li> <b>Social Credit: </b><%=credit %> -->
@@ -75,7 +85,7 @@
 						<li> <b>Personal Information:</b><%=about%>
 					
 					</ul>
-</div>
+
 </div>
 
 <div id="extra">
