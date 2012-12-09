@@ -30,7 +30,6 @@
 	<link rel="stylesheet"
 		href="http://xoxco.com/projects/code/tagsinput/jquery.tagsinput.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	
 	<script type="text/javascript">
 	var map;
@@ -119,11 +118,9 @@ function addMarker(location) {
       </div>
     </div>
 <br><br><br>
-<h1>Search For A Service</h1><hr>
+<div class="container"><h1>Search For A Service</h1><hr> 
 	<form name="searchPage" action="searchResult.jsp" method="post">
-	<table border = "0">
-	<tr>
-	<td width="60%">
+	
 	<div id="elementtags" class="searchPage">
 		Step 1: Enter Tags for Service <hr><input id="tags" name="tags"/><br>
 		<script type="text/javascript">
@@ -139,8 +136,7 @@ function addMarker(location) {
 			});
 		</script>
 		</div>
-	</td>
-	<td><br><br><br><br><br><br><br>
+
 	<div id="elementtime" class="searchPage">
 		Step 2: Enter Time Interval of Service <hr>
 	     From: <input type="text" id="date_start" name="date_start" size="30">
@@ -190,27 +186,22 @@ function addMarker(location) {
 				}
 			});
 		</script>
-	</td>
-	</tr>
-	<tr>
-	<td width="60%">
-	<br>
 		 Step 3: Select location for Service <br>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
-	</td>
-	</tr>
-	</table>
 	<div id="submit" class="searchTd">
-		<input type="submit" value="Search" class="button">
-		</div><hr>
-	</form>
-	<div id="map_canvas" style="width: 100%; height: 30%"></div>
-	<div class="searchTd">
+		
+		</div><hr><input type="submit" value="Search" class="button">
+	</div></form> 
+	<div id="map_canvas" style="width: 50%; height: 30%; margin:auto"></div>
+	
+	<div class="container"><div class="searchTd"><br>
 		 Find an address :
 		<input type="text" id="address">
 		<input type="button" value="Find" id="addressFind"
 		onClick="codeAddress()"></div><hr>
 		
-		<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
+	
+		
+		<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div></div>
 </body>
 </html>

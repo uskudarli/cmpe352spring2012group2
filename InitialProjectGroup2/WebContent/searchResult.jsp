@@ -6,10 +6,28 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Search Result</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	</head>
 
 	<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class="active"><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+	<br><br><br>
 		<form action="searchResult.jsp" method="post"><div class="TableFormat">
 			<table border="1">
 				<tr>

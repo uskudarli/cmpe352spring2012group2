@@ -6,9 +6,27 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Status of your Services</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 	</head>
 	<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
 		<form action="searchResult.jsp" method="post"><div class="TableFormat">
 			<% Connection con = null;
 			String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
@@ -26,13 +44,13 @@
 			String serviceDemanderOrSupplier = "";
 			%>
 			<table border="1">
+				
+					<h3>Pending Services</h3>
+				
 				<tr>
-					<td>Pending Services</td>
-				</tr>
-				<tr>
-					<td><h3>Service Title</h3></td>
-					<td><h3>Service Description</h3></td>
-					<td><h3>Service Type</h3></td>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Type</td>
 				</tr>
 			<% 				
 			Statement st = con.createStatement();
@@ -58,15 +76,15 @@
 			<%
 			}
 			%>
-			</table>
+			</table><br>
 			<table border="1">
+				
+					<h3>Accepted Services</h3>
+				
 				<tr>
-					<td>Accepted Services</td>
-				</tr>
-				<tr>
-					<td><h3>Service Title</h3></td>
-					<td><h3>Service Description</h3></td>
-					<td><h3>Service Type</h3></td>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Type</td>
 				</tr>
 			<% 							
 			rs = st.executeQuery(" SELECT serviceId FROM `AcceptedServices` WHERE email='"+ userEmail +"' ");
@@ -91,15 +109,15 @@
 			counter1++;
 			}
 			%>
-			</table>
+			</table><br>
 			<table border="1">
+				
+					<h3>Rejected Services</h3>
+			
 				<tr>
-					<td>Rejected Services</td>
-				</tr>
-				<tr>
-					<td><h3>Service Title</h3></td>
-					<td><h3>Service Description</h3></td>
-					<td><h3>Service Type</h3></td>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Type</td>
 				</tr>
 			<% 							
 			rs = st.executeQuery(" SELECT serviceId FROM `RejectedServices` WHERE email='"+ userEmail +"' ");
@@ -122,15 +140,15 @@
 			<%
 			}
 			%>
-			</table>
+			</table><br>
 			<table border="1">
+				
+					<h3>Completed Services</h3>
+				
 				<tr>
-					<td>Completed Services</td>
-				</tr>
-				<tr>
-					<td><h3>Service Title</h3></td>
-					<td><h3>Service Description</h3></td>
-					<td><h3>Service Type</h3></td>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Type</td>
 				</tr>
 			<% 							
 			rs = st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
@@ -151,7 +169,7 @@
 			counter2++;
 			}
 			%>
-			</table>
+			</table><br><br></div>
 		</form>
 		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	</body>
