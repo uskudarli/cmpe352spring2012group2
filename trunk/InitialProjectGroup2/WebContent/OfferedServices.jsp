@@ -165,6 +165,8 @@
 								+ serviceId2 + "'");
 						st1.executeUpdate("DELETE FROM `database2`.`Place` WHERE `Place`.`serviceId` = '"
 								+ serviceId2 + "'");
+						st1.executeUpdate("DELETE FROM `database2`.`Appliers` WHERE `Appliers`.`serviceId` = '"
+								+ serviceId2 + "'");
 		%>
 		<script type="text/javascript">
 			location.reload(true);
