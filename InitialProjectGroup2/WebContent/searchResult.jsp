@@ -30,18 +30,18 @@
 	<br><br><br>
 		<form action="searchResult.jsp" method="post"><div class="TableFormat">
 			<table border="1">
+				
+					<h3>Search Results</h3>
+				
 				<tr>
-					<td>Search Results</td>
-				</tr>
-				<tr>
-					<td><h3>Service Title</h3></td>
-					<td><h3>Service Description</h3></td>
-					<td><h3>Service Start Date</h3></td>
-					<td><h3>Service End Date</h3></td>
-					<td><h3>Service Tags</h3></td>
-					<td><h3>Service Type</h3></td>
-					<td><h3>Service Quota</h3></td>
-					<td><h3>Service Owner</h3></td>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Start Date</td>
+					<td>Service End Date</td>
+					<td>Service Tags</td>
+					<td>Service Type</td>
+					<td>Service Quota</td>
+					<td>Service Owner</td>
 				</tr>
 			<% 
 			String tags = request.getParameter("tags");

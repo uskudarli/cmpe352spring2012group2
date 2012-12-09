@@ -138,7 +138,7 @@ function addMarker(location) {
 		</div>
 
 	<div id="elementtime" class="searchPage">
-		Step 2: Enter Time Interval of Service <hr>
+		<hr>Step 2: Enter Time Interval of Service <hr>
 	     From: <input type="text" id="date_start" name="date_start" size="30">
 		<br>&nbsp;Until: <input type="text" id="date_end" name="date_end" size="30"><br></div>
 		<script type="text/javascript">
@@ -186,11 +186,11 @@ function addMarker(location) {
 				}
 			});
 		</script>
-		 Step 3: Select location for Service <br>
+		 <hr>Step 3: Select location for Service<hr> <br>
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
 	<div id="submit" class="searchTd">
 		
-		</div><hr><input type="submit" value="Search" class="button">
+		</div><input type="submit" value="Search" class="button">
 	</div></form> 
 	<div id="map_canvas" style="width: 50%; height: 30%; margin:auto"></div>
 	
