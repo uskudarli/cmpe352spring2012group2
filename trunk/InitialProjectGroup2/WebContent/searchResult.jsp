@@ -1,6 +1,14 @@
 <%@page import="com.sun.xml.internal.fastinfoset.util.StringArray"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
+<%@ page import="net.jeremybrooks.knicker.AccountApi" %>	
+<%@ page import="net.jeremybrooks.knicker.WordApi" %>	
+<%@ page import="net.jeremybrooks.knicker.dto.Related" %>	
+<%@ page import="net.jeremybrooks.knicker.dto.TokenStatus;" %>	
+	
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -43,7 +51,15 @@
 					<td>Service Quota</td>
 					<td>Service Owner</td>
 				</tr>
-			<% 
+			<%
+			System.setProperty("WORDNIK_API_KEY", "32deba78c0b807c64100704664b0d7ce54e542653ebe5a017");
+			TokenStatus status = AccountApi.apiTokenStatus();
+			if (status.isValid()) {
+			    System.out.println("API key is valid.");
+			} else {
+			    System.out.println("API key is invalid!");
+			    System.exit(1);
+			}
 			String tags = request.getParameter("tags");
 			String date_start = request.getParameter("date_start");
 			String date_end = request.getParameter("date_end");
@@ -103,8 +119,25 @@
 				Statement st = con.createStatement();
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
+				for(String tag : parsedTags){
+				List<Related> def = WordApi.related(tag);
+				for (Related d : def) {
+				    List<String> wordList = d.getWords();
+				    for(String word : wordList){
+				    	tags+=",'"+word+"'";
+				    }
+				}
+				}
+				/*test purpose*/
+				//System.out.println(tags);
 				
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag IN("+tags+") GROUP BY serviceId ");
+				tags = tags.replaceAll("','","|");
+				
+				/*test purpose*/
+				//System.out.println(tags);
+				
+				
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -181,8 +214,17 @@
 				Statement st = con.createStatement();
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
-				
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag IN("+tags+") GROUP BY serviceId ");
+				for(String tag : parsedTags){
+					List<Related> def = WordApi.related(tag);
+					for (Related d : def) {
+					    List<String> wordList = d.getWords();
+					    for(String word : wordList){
+					    	tags+=",'"+word+"'";
+					    }
+					}
+					}
+				tags = tags.replaceAll("','","|");
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -291,8 +333,17 @@
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
 				Statement st4 = con.createStatement();
-				
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag IN("+tags+") GROUP BY serviceId ");
+				for(String tag : parsedTags){
+					List<Related> def = WordApi.related(tag);
+					for (Related d : def) {
+					    List<String> wordList = d.getWords();
+					    for(String word : wordList){
+					    	tags+=",'"+word+"'";
+					    }
+					}
+					}
+				tags = tags.replaceAll("','","|");
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -421,8 +472,17 @@
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
 				Statement st4 = con.createStatement();
-				
-				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag IN("+tags+") AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
+				for(String tag : parsedTags){
+					List<Related> def = WordApi.related(tag);
+					for (Related d : def) {
+					    List<String> wordList = d.getWords();
+					    for(String word : wordList){
+					    	tags+=",'"+word+"'";
+					    }
+					}
+					}
+				tags = tags.replaceAll("','","|");
+				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP" +tags+" AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
