@@ -75,14 +75,14 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 						<form action="accept.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
 							<input type="hidden" name="processId" value=<%=serviceId %>>	
-							<input type ="submit" value="Accept">
+							<input type ="submit" value="Accept" class="btn btn-success">
 						</form>
 					</td>
 					<td>
 						<form action="reject.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
 							<input type="hidden" name="processId" value=<%=serviceId %>>	
-							<input type ="submit" value="Reject">
+							<input type ="submit" value="Reject" class="btn btn-danger">
 						</form>
 					</td>
 				</tr>
@@ -113,7 +113,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 						<form action="serviceCompleted.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>	
-							<input type ="submit" value="Completed">
+							<input type ="submit" value="Completed" class="btn btn-primary">
 						</form>
 					</td>
 				</tr>
@@ -176,6 +176,8 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			}
 			%>
 			</table><br><br></div>
+			
+			<br><a href="OfferedServices.jsp"><strong>&#8249;-- Return to Offered Services</strong></a>
 		
 		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	</body>
