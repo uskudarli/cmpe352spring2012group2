@@ -106,7 +106,7 @@
 						<form action="serviceCompleted.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
 							<input type="hidden" name="applierId" value=<%=userEmail %>>	
-							<input type ="submit" value="Completed">
+							<input type ="submit" value="Completed" class="btn btn-primary">
 						</form>
 					</td>
 				</tr>

@@ -112,8 +112,8 @@
 				<td><%=dateFrom%></td>
 				<td><%=dateTo%></td>
 				<td><%=tag%></td>
-				<td><div class="button"><input type="submit" name="deleteTitle<%=i%>"
-					value="Delete"></div>
+				<td><div><input type="submit" name="deleteTitle<%=i%>"
+					value="Delete" class="btn btn-inverse"></div>
 				</td>
 			</tr>
 					

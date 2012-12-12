@@ -190,7 +190,7 @@ function addMarker(location) {
 		<input type="hidden" id="gpsLocation" name="gpsLocation">
 	<div id="submit" class="searchTd">
 		
-		</div><input type="submit" value="Search" class="button">
+		</div><input type="submit" value="Search" class="btn btn-primary">
 	</div></form> 
 	<div id="map_canvas" style="width: 50%; height: 30%; margin:auto"></div>
 	

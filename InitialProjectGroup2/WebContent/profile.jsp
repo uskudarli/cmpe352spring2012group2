@@ -77,9 +77,8 @@
         </div>
       </div>
     </div>
-<br><br><br>
-			
-<h1>Profile</h1>
+<br><br><br><br><br><br>
+
 <div id="wrapper">
 <div id="content">
 					<p style="font-size:24px;"><b>Hello <%=name+" "+surname%></b></p>
@@ -96,7 +95,7 @@
 
 <div id="navigation">
 <div id="menupane" class="menu">					
-						<a href="createService.jsp">Create a Service</a>
+						<a href="createService.jsp">Offer a Service</a>
 						<a href="requestService.jsp">Request a Service</a>
 						<a href="OfferedServices.jsp">Offered Services</a>
 						<a href="requestedServices.jsp">Requested Services</a>

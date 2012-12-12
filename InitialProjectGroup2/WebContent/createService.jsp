@@ -6,21 +6,10 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Offer a Service</title>
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 <style type="text/css">
-html {
-	height: 100%
-}
-
-body {
-	height: 100%;
-	margin: 0;
-	padding: 0
-}
-
-#map_canvas {
-	height: 100%
-}
+	html {height: 100%}
+	body {height: 100%;margin: 0;padding: 0}
+	#map_canvas {height: 100%}
 </style>
 <script type="text/javascript"
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA94hmfvGHgxgYNdzO0tTWfk8haLWUopGo&sensor=false">
@@ -127,21 +116,21 @@ body {
       </div>
     </div>
 <br><br><br>
-	<h2>Offer A Service</h2>
+	<div class="container"><h1>Offer a Service</h1>
 	
 	<form name="serviceDetails" action="insertOffer.jsp" method="post">
 	<div class="searchTd">
-	    <hr>Service Title:  <input type="text" id="title" name="title" size="42"> <br>
-	    <div id="description" class="searchTd">
-		Service Description:<br>
+	    <hr>Service Title:<hr><input type="text" id="title" name="title" size="42"> <br>
+	    <hr><div id="description" class="searchTd">
+		Service Description:<hr>
 		</div>
 		<div id="tags_" class="searchTd">
-		<textarea rows="3" cols="31" name="description"></textarea>
+		<textarea rows="5" cols="30" name="description"></textarea>
 		</div>
-		<br> Time Interval:  <input type="text" id="date_start" name="date_start" size="19">
+		<br><hr> Time Interval: <hr> <input type="text" id="date_start" name="date_start" size="19">
 		<input type="text" id="date_end" name="date_end" size="19">
 		<div id="applier" class="searchTd">
-		<br> Applier Quota: <input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota" size="42"><br>
+		<hr> Applier Quota: <hr><input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota" size="42"><br>
 		</div></div>
 		
 		<script type="text/javascript">
@@ -192,7 +181,7 @@ body {
 		</script><hr>
 		<div id="element_tags" class="searchTd">
 		
-        		Tags : <input id="tags" name="tags"/>
+        		Tags : <hr><input id="tags" name="tags"/>
         		
 		<script type="text/javascript">
 			$('#tags').tagsInput({
@@ -208,16 +197,16 @@ body {
 			
 		</script>
 		</div>
-		<input type="hidden" id="gpsLocation" name="gpsLocation">
+		<input type="hidden" id="gpsLocation" name="gpsLocation"><br>
 		<div id="submit" class="searchTd">
-		<input type="submit" value="Submit" class="button">
-		</div><hr>
+		<input type="submit" value="Submit" class="btn btn-primary">
+		</div>
 	
-	</form>
-	Select locations for your service from the map below:
+	</div></form>
+	<div class="container"><hr>Select locations for your service from the map below:<hr><br></div>
 
-	<div id="map_canvas" style="width: 100%; height: 30%"></div>
-	<div class="searchTd">
+	<div id="map_canvas" style="width: 50%; height: 30%; margin:auto"></div><br>
+	<div class="container"><div class="searchTd">
 	Find an address :
 	<input type="text" id="address">
 	<input type="button" value="Find" id="addressFind"
@@ -226,6 +215,6 @@ body {
 		
 		
 		
-<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
+<div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div></div>
 </body>
 </html>

@@ -117,7 +117,7 @@
 				<td><%=tag%></td>
 				<td><a href="showAppliers.jsp?value=<%=serviceId%>">Appliers</a>
 				</td>
-				<td><div class="button"><input type="submit" name="deleteTitle<%=i%>"
+				<td><div><input type="submit" class="btn btn-inverse" name="deleteTitle<%=i%>"
 					value="Delete"></div>
 				</td>
 			</tr>

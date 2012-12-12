@@ -1,5 +1,13 @@
 /*p {color:#660000;}*/
-h1 {font-size:36px;color:#2F4F4F;}
+h1 {margin: 10px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 20px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+  line-height: 40px;
+  font-size: 38.5px;
+}
 h2 {font-size:30px;}
 body
 {
