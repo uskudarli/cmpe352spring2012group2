@@ -138,7 +138,7 @@
 				//System.out.println(tags);
 				
 				
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -229,7 +229,7 @@
 					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -352,7 +352,7 @@
 					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
+				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
@@ -495,7 +495,7 @@
 					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP" +tags+" AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
+				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
