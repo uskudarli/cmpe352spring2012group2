@@ -105,7 +105,7 @@
 					<td>
 						<form action="serviceCompleted.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
-							<input type="hidden" name="userId" value=<%=userEmail %>>	
+							<input type="hidden" name="applierId" value=<%=userEmail %>>	
 							<input type ="submit" value="Completed">
 						</form>
 					</td>
@@ -169,7 +169,7 @@
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
-							<input type="hidden" name="userId" value=<%=userEmail %>>	
+							<input type="hidden" name="applierId" value=<%=userEmail %>>	
 							<input type ="submit" value="Rate">
 						</form>
 					</td>
