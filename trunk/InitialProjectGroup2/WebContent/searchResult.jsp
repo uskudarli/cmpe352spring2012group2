@@ -124,6 +124,7 @@
 				for (Related d : def) {
 				    List<String> wordList = d.getWords();
 				    for(String word : wordList){
+				    	if(word.split(" ").length==1)
 				    	tags+=",'"+word+"'";
 				    }
 				}
@@ -132,7 +133,7 @@
 				//System.out.println(tags);
 				
 				tags = tags.replaceAll("','","|");
-				
+				tags = tags.replaceAll("'","");
 				/*test purpose*/
 				//System.out.println(tags);
 				
@@ -221,11 +222,13 @@
 					for (Related d : def) {
 					    List<String> wordList = d.getWords();
 					    for(String word : wordList){
+					    	if(word.split(" ").length==1)
 					    	tags+=",'"+word+"'";
 					    }
 					}
 					}
 				tags = tags.replaceAll("','","|");
+				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
 
 				while (rs.next()) {
@@ -342,11 +345,13 @@
 					for (Related d : def) {
 					    List<String> wordList = d.getWords();
 					    for(String word : wordList){
+					    	if(word.split(" ").length==1)
 					    	tags+=",'"+word+"'";
 					    }
 					}
 					}
 				tags = tags.replaceAll("','","|");
+				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP "+tags+" GROUP BY serviceId ");
 
 				while (rs.next()) {
@@ -483,11 +488,13 @@
 					for (Related d : def) {
 					    List<String> wordList = d.getWords();
 					    for(String word : wordList){
+					    	if(word.split(" ").length==1)
 					    	tags+=",'"+word+"'";
 					    }
 					}
 					}
 				tags = tags.replaceAll("','","|");
+				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP" +tags+" AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
 
 				while (rs.next()) {
