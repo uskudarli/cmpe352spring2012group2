@@ -27,7 +27,7 @@
       </div>
     </div>
     <br><br><br><br>
-		<form action="searchResult.jsp" method="post"><div class="TableFormat">
+		<div class="TableFormat">
 			<% Connection con = null;
 			String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
 			String db = "database2";
@@ -88,7 +88,6 @@
 				</tr>
 			<% 							
 			rs = st.executeQuery(" SELECT serviceId FROM `AcceptedServices` WHERE email='"+ userEmail +"' ");
-			int counter1=0;
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
 				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
@@ -103,10 +102,15 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
-					<td><div class="button"><input type="submit" name="serviceCompleted<%=counter1%>" value="Completed"></div></td>
+					<td>
+						<form action="serviceCompleted.jsp" method="post">
+							<input type="hidden" name="serviceId" value=<%=serviceId %>>
+							<input type="hidden" name="userId" value=<%=userEmail %>>	
+							<input type ="submit" value="Completed">
+						</form>
+					</td>
 				</tr>
 			<%
-			counter1++;
 			}
 			%>
 			</table><br>
@@ -152,7 +156,6 @@
 				</tr>
 			<% 							
 			rs = st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
-			int counter2=0;
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
 				serviceTitle = rs.getString(2);
@@ -163,14 +166,19 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
-					<td><div class="button"><input type="submit" name="rateService<%=counter2%>" value="Rate"></div></td>
+					<td>
+						<form action="rateService.jsp" method="post">
+							<input type="hidden" name="serviceId" value=<%=serviceId %>>
+							<input type="hidden" name="userId" value=<%=userEmail %>>	
+							<input type ="submit" value="Rate">
+						</form>
+					</td>
 				</tr>
 			<%
-			counter2++;
 			}
 			%>
 			</table><br><br></div>
-		</form>
+		
 		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	</body>
 </html>
