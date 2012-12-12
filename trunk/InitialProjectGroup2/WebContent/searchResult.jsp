@@ -144,6 +144,7 @@
 
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs2.next()){
+						serviceEmail = rs2.getString(1);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -167,7 +168,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 				}
@@ -181,6 +182,7 @@
 				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom ) ");
 
 				while (rs.next()) {
+					serviceEmail = rs.getString(1);
 					serviceId = rs.getInt(4);
 					serviceTitle = rs.getString(2);
 					serviceDescription = rs.getString(3);
@@ -204,7 +206,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 				}
@@ -232,6 +234,7 @@
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE (serviceId='" + serviceId + "' AND '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom )");
 					while(rs2.next()){
 						flag=true;
+						serviceEmail = rs2.getString(1);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -256,7 +259,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 					}
@@ -298,6 +301,7 @@
 						serviceId = rs.getInt(1);
 						ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 						while(rs2.next()){
+							serviceEmail = rs2.getString(1);
 							serviceTitle = rs2.getString(2);
 							serviceDescription = rs2.getString(3);
 							serviceDateFrom = rs2.getString(5);
@@ -320,7 +324,7 @@
 							<td><%=serviceTags%></td>
 							<td><%=serviceDemanderOrSupplier%></td>
 							<td><%=serviceApplierQuota%></td>
-							<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+							<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 						</tr>
 				<%
 					}
@@ -369,6 +373,7 @@
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
 							ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 							while(rs4.next()){
+								serviceEmail = rs4.getString(1);
 								serviceTitle = rs4.getString(2);
 								serviceDescription = rs4.getString(3);
 								serviceDateFrom = rs4.getString(5);
@@ -397,7 +402,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 					}
@@ -433,6 +438,7 @@
 						double distance = R * c;
 						
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
+							serviceEmail = rs.getString(1);
 							serviceTitle = rs.getString(2);
 							serviceDescription = rs.getString(3);
 							serviceDateFrom = rs.getString(5);
@@ -460,7 +466,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 					}
@@ -508,6 +514,7 @@
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
 							ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 							while(rs4.next()){
+								serviceEmail = rs4.getString(1);
 								serviceTitle = rs4.getString(2);
 								serviceDescription = rs4.getString(3);
 								serviceDateFrom = rs4.getString(5);
@@ -536,7 +543,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="showOwner.jsp?value=<%=serviceId%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 				</tr>
 			<%
 					}
