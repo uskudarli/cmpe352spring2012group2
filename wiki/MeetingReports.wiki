@@ -1,3 +1,18 @@
+=*Report of Meeting #19*=
+
+*Meeting Date: 13.12.2012*
+
+*Meeting Duration: 30 minutes*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu, Mustafa Ertürk*
+
+*Activities:*
+
+  # Previous work is reviewed and outcomes of the class is discussed.
+  # Work is distributed among team members according to our needs.
+
 =*Report of Meeting #18*=
 
 *Meeting Date: 11.12.2012*
