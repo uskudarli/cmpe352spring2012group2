@@ -36,7 +36,7 @@
       </div>
     </div>
 	<br><br><br>
-		<form action="searchResult.jsp" method="post"><div class="TableFormat">
+		<div class="TableFormat">
 			<table border="1">
 				
 					<h3>Search Results</h3>
@@ -50,6 +50,7 @@
 					<td>Service Type</td>
 					<td>Service Quota</td>
 					<td>Service Owner</td>
+					<td>Apply for Service</td>
 				</tr>
 			<%
 			System.setProperty("WORDNIK_API_KEY", "32deba78c0b807c64100704664b0d7ce54e542653ebe5a017");
@@ -170,7 +171,14 @@
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
 					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
-				</tr>
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+	
+					</td>
+			</tr>
 			<%
 				}
 			}
@@ -208,7 +216,14 @@
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
 					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
-				</tr>
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+	
+					</td>
+		</tr>
 			<%
 				}
 			}
@@ -263,6 +278,14 @@
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
 					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+	
+					</td>
+					
 				</tr>
 			<%
 					}
@@ -328,6 +351,14 @@
 							<td><%=serviceDemanderOrSupplier%></td>
 							<td><%=serviceApplierQuota%></td>
 							<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+							<td>
+								<form action="ApplyForService.jsp" method="post">
+								<input type="submit" value="Apply">
+								<input type="hidden" name="processId" value=<%=serviceId %>>	
+								</form>
+	
+							</td>
+
 						</tr>
 				<%
 					}
@@ -408,6 +439,14 @@
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
 					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+	
+					</td>
+
 				</tr>
 			<%
 					}
@@ -464,6 +503,7 @@
 					if(flag){
 			%>
 				<tr>
+					<form action="ApplyForService.jsp" method="post">
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDateFrom%></td>
@@ -471,7 +511,14 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>	
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+	
+					</td>
 				</tr>
 			<%
 					}
@@ -551,6 +598,13 @@
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
 					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=serviceId %>>	
+						</form>
+							
+					</td>
 				</tr>
 			<%
 					}
@@ -563,7 +617,7 @@
 			}
 			%>
 			</table>
-		</form>
+		
 		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 	</body>
 </html>
