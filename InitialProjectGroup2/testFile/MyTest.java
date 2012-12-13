@@ -69,7 +69,7 @@ public class MyTest extends JspTestCase{
 	}
 	
 	
-	public void beginInsertRequest(WebRequest request) {
+	public void beginInsertRequest_Offer(WebRequest request) {
 		
 		request.addParameter("title", "Making bread");
 		request.addParameter("description", "with gas water and flour");
