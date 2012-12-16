@@ -1,10 +1,7 @@
 <%@page import="com.sun.xml.internal.fastinfoset.util.StringArray"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
-<%@ page import="net.jeremybrooks.knicker.AccountApi" %>	
-<%@ page import="net.jeremybrooks.knicker.WordApi" %>	
-<%@ page import="net.jeremybrooks.knicker.dto.Related" %>	
-<%@ page import="net.jeremybrooks.knicker.dto.TokenStatus;" %>	
+
 	
 
 
@@ -53,14 +50,7 @@
 					<td>Apply for Service</td>
 				</tr>
 			<%
-			System.setProperty("WORDNIK_API_KEY", "32deba78c0b807c64100704664b0d7ce54e542653ebe5a017");
-			TokenStatus status = AccountApi.apiTokenStatus();
-			if (status.isValid()) {
-			    System.out.println("API key is valid.");
-			} else {
-			    System.out.println("API key is invalid!");
-			    System.exit(1);
-			}
+			
 			String tags = request.getParameter("tags");
 			String date_start = request.getParameter("date_start");
 			String date_end = request.getParameter("date_end");
@@ -120,25 +110,10 @@
 				Statement st = con.createStatement();
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
-				for(String tag : parsedTags){
-				List<Related> def = WordApi.related(tag);
-				for (Related d : def) {
-				    List<String> wordList = d.getWords();
-				    for(String word : wordList){
-				    	if(word.split(" ").length==1)
-				    	tags+=",'"+word+"'";
-				    }
-				}
-				}
-				/*test purpose*/
-				//System.out.println(tags);
+				
 				
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				/*test purpose*/
-				//System.out.println(tags);
-				
-				
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
 
 				while (rs.next()) {
@@ -181,6 +156,20 @@
 			</tr>
 			<%
 				}
+				%>
+				<tr>
+				<td>
+				 <form action="relatedResults.jsp" method="post" >
+		
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
+			
+					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+	
+		
+				</form>
+				</td>
+				 </tr>
+				<% 
 			}
 			//only date parameters entered
 			else if(tags.length() == 0 && date_start.length() != 0 && date_end.length() != 0 && gpsLocation.length() == 0){
@@ -232,16 +221,6 @@
 				Statement st = con.createStatement();
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
-				for(String tag : parsedTags){
-					List<Related> def = WordApi.related(tag);
-					for (Related d : def) {
-					    List<String> wordList = d.getWords();
-					    for(String word : wordList){
-					    	if(word.split(" ").length==1)
-					    	tags+=",'"+word+"'";
-					    }
-					}
-					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
@@ -290,6 +269,20 @@
 			<%
 					}
 				}
+				%>
+				<tr>
+				<td>
+				 <form action="relatedResults.jsp" method="post" >
+		
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
+			
+					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+	
+		
+				</form>
+				</td>
+				 </tr>
+				<% 
 			}
 			//only location parameter is entered
 			else if(tags.length() == 0 && date_start.length() == 0 && date_end.length() == 0 && gpsLocation.length() != 0){
@@ -371,16 +364,6 @@
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
 				Statement st4 = con.createStatement();
-				for(String tag : parsedTags){
-					List<Related> def = WordApi.related(tag);
-					for (Related d : def) {
-					    List<String> wordList = d.getWords();
-					    for(String word : wordList){
-					    	if(word.split(" ").length==1)
-					    	tags+=",'"+word+"'";
-					    }
-					}
-					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
@@ -451,6 +434,20 @@
 			<%
 					}
 				}
+				%>
+				<tr>
+				<td>
+				 <form action="relatedResults.jsp" method="post" >
+		
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
+			
+					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+	
+		
+				</form>
+				</td>
+				 </tr>
+				<% 
 			}
 			//date and location parameters entered
 			else if(tags.length() == 0 && date_start.length() != 0 && date_end.length() != 0 && gpsLocation.length() != 0){
@@ -503,7 +500,7 @@
 					if(flag){
 			%>
 				<tr>
-					<form action="ApplyForService.jsp" method="post">
+					
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDateFrom%></td>
@@ -530,16 +527,6 @@
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
 				Statement st4 = con.createStatement();
-				for(String tag : parsedTags){
-					List<Related> def = WordApi.related(tag);
-					for (Related d : def) {
-					    List<String> wordList = d.getWords();
-					    for(String word : wordList){
-					    	if(word.split(" ").length==1)
-					    	tags+=",'"+word+"'";
-					    }
-					}
-					}
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
@@ -609,6 +596,20 @@
 			<%
 					}
 				}
+				%>
+				<tr>
+				<td>
+				 <form action="relatedResults.jsp" method="post" >
+		
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
+			
+					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+	
+		
+				</form>
+				</td>
+				 </tr>
+				<% 
 			}
 			else{
 			%>
