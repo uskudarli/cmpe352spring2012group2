@@ -158,17 +158,16 @@
 				}
 				%>
 				<tr>
-				<td>
+				<td colspan="9">
 				 <form action="relatedResults.jsp" method="post" >
-		
-					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
-			
-					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+					
+					<p style="text-align:left;"><b>Would you like to see the related results with the given tag(s)?</b></p>
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">			
+					<input type="submit" method="post" value="Related Results" class="btn btn-primary">
 	
-		
 				</form>
 				</td>
-				 </tr>
+				</tr>
 				<% 
 			}
 			//only date parameters entered
@@ -271,17 +270,16 @@
 				}
 				%>
 				<tr>
-				<td>
+				<td colspan="9">
 				 <form action="relatedResults.jsp" method="post" >
-		
-					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
-			
-					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+					
+					<p style="text-align:left;"><b>Would you like to see the related results with the given tag(s)?</b></p>
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">			
+					<input type="submit" method="post" value="Related Results" class="btn btn-primary">
 	
-		
 				</form>
 				</td>
-				 </tr>
+				</tr>
 				<% 
 			}
 			//only location parameter is entered
@@ -436,17 +434,16 @@
 				}
 				%>
 				<tr>
-				<td>
+				<td colspan="9">
 				 <form action="relatedResults.jsp" method="post" >
-		
-					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
-			
-					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+					
+					<p style="text-align:left;"><b>Would you like to see the related results with the given tag(s)?</b></p>
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">			
+					<input type="submit" method="post" value="Related Results" class="btn btn-primary">
 	
-		
 				</form>
 				</td>
-				 </tr>
+				</tr>
 				<% 
 			}
 			//date and location parameters entered
@@ -598,17 +595,16 @@
 				}
 				%>
 				<tr>
-				<td>
+				<td colspan="9">
 				 <form action="relatedResults.jsp" method="post" >
-		
-					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">
-			
-					<input type="submit" method="post" value="Related Results" class="button" style="margin:auto">
+					
+					<p style="text-align:left;"><b>Would you like to see the related results with the given tag(s)?</b></p>
+					<input type="hidden" name="tags" value="<%=tags %>"  maxlength=25 align="right">			
+					<input type="submit" method="post" value="Related Results" class="btn btn-primary">
 	
-		
 				</form>
 				</td>
-				 </tr>
+				</tr>
 				<% 
 			}
 			else{
