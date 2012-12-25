@@ -1,3 +1,4 @@
+<%@page import="com.mysql.jdbc.ResultSetRow"%>
 <%@page import="com.sun.xml.internal.fastinfoset.util.StringArray"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
@@ -86,10 +87,15 @@
 					<td>Service Description</td>
 					<td>Service Type</td>
 				</tr>
-			<% 							
-			rs = st.executeQuery(" SELECT serviceId FROM `AcceptedServices` WHERE email='"+ userEmail +"' ");
+			<%
+			int applierApproved = 0;
+			int serviceProviderApproved = 0;
+			String serviceProviderApprovedString = "";
+			rs = st.executeQuery(" SELECT * FROM `AcceptedServices` WHERE email='"+ userEmail +"' ");
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
+				applierApproved = rs.getInt(3);
+				serviceProviderApproved = rs.getInt(4);
 				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 				while(rs2.next()){
 					serviceTitle = rs2.getString(2);
@@ -102,12 +108,20 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
-					<td>
+					<td><%if(applierApproved==0){
+						serviceProviderApprovedString=""+serviceProviderApproved;%>
 						<form action="serviceCompleted.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
 							<input type="hidden" name="applierId" value=<%=userEmail %>>	
+							<input type="hidden" name="serviceProviderApproved" value=<%=serviceProviderApprovedString %>>	
 							<input type ="submit" value="Completed" class="btn btn-primary">
+							
 						</form>
+						<%} 
+						else if(serviceProviderApproved == 0){
+						%>
+							Pending approval from Service Provider
+						<%} %>
 					</td>
 				</tr>
 			<%
@@ -155,13 +169,18 @@
 					<td>Service Type</td>
 				</tr>
 			<% 							
-			rs = st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
+			//rs = null;// st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
+			rs = st.executeQuery(" SELECT serviceId FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
+
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
-				serviceTitle = rs.getString(2);
-				serviceDescription = rs.getString(3);
-				serviceDemanderOrSupplier = rs.getString(4);				
-			%>
+				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
+				while(rs2.next()){
+					serviceTitle = rs2.getString(2);
+					serviceDescription = rs2.getString(3);
+					serviceDemanderOrSupplier = rs2.getString(7);
+				}
+							%>
 				<tr>
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
@@ -174,7 +193,7 @@
 						</form>
 					</td>
 				</tr>
-			<%
+			<% 
 			}
 			%>
 			</table><br><br></div>

@@ -100,21 +100,34 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 					<td>Complete</td>
 				</tr>
 			<% 							
-			rs = st.executeQuery("SELECT User.name, User.surname, User.email FROM User INNER JOIN AcceptedServices ON User.email=AcceptedServices.email WHERE AcceptedServices.serviceId='"+serviceId+"'");
+			rs = st.executeQuery("SELECT User.name, User.surname, User.email, AcceptedServices.applierApproved, AcceptedServices.serviceProviderApproved FROM User INNER JOIN AcceptedServices ON User.email=AcceptedServices.email WHERE AcceptedServices.serviceId='"+serviceId+"'");
+			int applierApproved;
+			int serviceProviderApproved;
+			String applierApprovedString="";
 			while (rs.next()) {
 				applierName = rs.getString(1);
 				applierSurname = rs.getString(2);
-				applierEmail = rs.getString(3);				
+				applierEmail = rs.getString(3);	
+				applierApproved = rs.getInt(4);
+				serviceProviderApproved = rs.getInt(5);
 			%>
 				<tr>
 					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
-					<td>
-						<form action="serviceCompleted.jsp" method="post">
+					<td><%if(serviceProviderApproved==0){
+						applierApprovedString=""+applierApproved;%>
+						
+						<form action="serviceCompletedP.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>	
+							<input type="hidden" name="applierApproved" value=<%=applierApprovedString %>>
 							<input type ="submit" value="Completed" class="btn btn-primary">
 						</form>
+						<%} 
+						else if(applierApproved == 0){
+						%>
+							Pending approval from Applier
+						<%} %>
 					</td>
 				</tr>
 			<%
