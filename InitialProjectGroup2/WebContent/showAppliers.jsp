@@ -180,7 +180,8 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
-							<input type="hidden" name="serviceId" value=<%=serviceId %>>	
+							<input type="hidden" name="serviceId" value=<%=serviceId %>>
+							<input type="hidden" name="pageName" value=<%="showAppliers" %>>	
 							<input type ="submit" value="Rate">
 						</form>
 					</td>
