@@ -35,7 +35,7 @@
 			String driver = "com.mysql.jdbc.Driver";
 			String userName = "project2";
 			String password = "G6v0W7";
-			
+			String serviceOwnerId = "";
 			Class.forName(driver);
 			con = DriverManager.getConnection(url + db, userName, password);
 			String userEmail = session.getAttribute("email").toString();
@@ -176,6 +176,7 @@
 				serviceId = rs.getInt(1);
 				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 				while(rs2.next()){
+					 serviceOwnerId = rs2.getString(1);
 					serviceTitle = rs2.getString(2);
 					serviceDescription = rs2.getString(3);
 					serviceDemanderOrSupplier = rs2.getString(7);
@@ -188,7 +189,8 @@
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
-							<input type="hidden" name="applierId" value=<%=userEmail %>>	
+							<input type="hidden" name="applierId" value=<%=serviceOwnerId %>>
+							<input type="hidden" name="pageName" value=<%="serviceStatus" %>>	
 							<input type ="submit" value="Rate">
 						</form>
 					</td>
