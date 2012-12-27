@@ -17,6 +17,7 @@ String query="";
 ResultSet rs;
 String serviceId = request.getParameter("serviceId");
 String partner = request.getParameter("applierId");
+System.out.println("partnertim = "+partner);
 String pageName = request.getParameter("pageName");
 
 if(pageName.equals("showAppliers")){
@@ -32,7 +33,7 @@ if(pageName.equals("showAppliers")){
 		<input type="hidden" name="query1" value="<%="update CompletedServices set comment = " %>">
 		<input type="hidden" name="query2" value="<%="update CompletedServices set rating = " %>">
 		<input type="hidden" name="serviceId" value=<%=serviceId %>>
-		
+		<input type="hidden" name="partnerId" value=<%=partner %>>
 		<input type ="submit" value="Vote!" class="btn btn-primary">
 		</form>
 		<% 
@@ -54,6 +55,7 @@ if(pageName.equals("showAppliers")){
 		<input type="hidden" name="query1" value="<%="update CompletedServices set partnerComment = " %>">
 		<input type="hidden" name="query2" value="<%="update CompletedServices set partnerRating = " %>">
 		<input type="hidden" name="serviceId" value=<%=serviceId %>>
+		<input type="hidden" name="partnerId" value=<%=partner %>>
 		<input type ="submit" value="Vote!" class="btn btn-primary">
 		</form>
 		<% 

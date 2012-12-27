@@ -16,10 +16,25 @@ String query2 = request.getParameter("query2");
 String serviceId = request.getParameter("serviceId");
 String comment = request.getParameter("comment");
 String rating = request.getParameter("rating");
+String partnerId = request.getParameter("partnerId");
 query1+="'"+comment+"' where serviceId = '"+serviceId+"'";
 query2+="'"+rating+"' where serviceId = '"+serviceId+"'";
 db.executeUpdate(query1);
 db.executeUpdate(query2);
+
+
+String query = "select rating, ratingCount from User where email = '"+partnerId+"'";
+ResultSet rs = db.executeQuery(query);
+rs.next();
+float rate = rs.getFloat(1);
+int numberOfRates = rs.getInt(2);
+rate = (numberOfRates*rate+Float.parseFloat(rating))/(numberOfRates+1);
+numberOfRates++;
+query = "update User set rating = '"+rate+"' , ratingCount = '"+numberOfRates+"' where email = '"+partnerId+"'";
+db.executeUpdate(query);
+
+
+
 db.closeConnection();
 
 
