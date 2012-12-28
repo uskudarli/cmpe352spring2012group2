@@ -1,3 +1,4 @@
+<%@page import="com.group2.DBConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="java.sql.*" import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,18 +41,11 @@
  String[] tagArray = tags.split(",");
  String[] locations = gpsLocation.split(";");
  
- Connection con = null;
- String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";;
- String db = "database2";
- String driver = "com.mysql.jdbc.Driver";
- String userName ="project2";
- String password="G6v0W7";
+ 
  try{
- Class.forName(driver);
- con = DriverManager.getConnection(url+db,userName,password);
- Statement st = con.createStatement();
- st.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','supplier','"+applierQuota+"')  ");
- ResultSet rs=st.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
+	 DBConnection db = new DBConnection();
+ db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','supplier','"+applierQuota+"')  ");
+ ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
  boolean check = rs.next();
  if(check){
 	 out.println("Service has been created");
@@ -60,12 +54,13 @@
  }
  int serviceId = rs.getInt(1);
  for(int i=0; i<tagArray.length; i++){
-	 st.executeUpdate("insert into Tags values('"+serviceId+"','"+tagArray[i]+"')");
+	 db.executeUpdate("insert into Tags values('"+serviceId+"','"+tagArray[i]+"')");
  }
  for(int i=0; i<locations.length; i++){
 	 String[] detailedLocationInfo = locations[i].split("-");
-	 st.executeUpdate("insert into Place values('"+serviceId+"','"+detailedLocationInfo[0]+"','"+detailedLocationInfo[1]+"','"+detailedLocationInfo[2]+"')");
+	 db.executeUpdate("insert into Place values('"+serviceId+"','"+detailedLocationInfo[0]+"','"+detailedLocationInfo[1]+"','"+detailedLocationInfo[2]+"')");
  }
+ db.closeConnection();
  }
  catch (Exception e){
  out.println(e.getMessage());

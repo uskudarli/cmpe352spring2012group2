@@ -4,7 +4,7 @@
 <%@ page import="net.jeremybrooks.knicker.AccountApi" %>	
 <%@ page import="net.jeremybrooks.knicker.WordApi" %>	
 <%@ page import="net.jeremybrooks.knicker.dto.Related" %>	
-<%@ page import="net.jeremybrooks.knicker.dto.TokenStatus;" %>	
+<%@ page import="net.jeremybrooks.knicker.dto.TokenStatus;" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>

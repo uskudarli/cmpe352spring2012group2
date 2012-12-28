@@ -4,7 +4,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-
+<%@page import="com.group2.DBConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,18 +24,10 @@
 		String password = request.getParameter("password");
 		if(password==null)
 			password=(String)request.getSession().getAttribute("password");
-		Connection con= null;
-		String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
-		String db = "database2";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName ="project2";
-		String databasePassword="G6v0W7";
+		
 		try{
-			Class.forName(driver);
-			
-			con = DriverManager.getConnection(url+db,userName,databasePassword);
-			Statement st=con.createStatement();
-			ResultSet rs= st.executeQuery("Select * from User where email='"+username+"'");
+			DBConnection db = new DBConnection();
+			ResultSet rs= db.executeQuery("Select * from User where email='"+username+"'");
 			if(rs.next() && rs.getString(2).equals(password) ){
 				
 				String mail =rs.getString(1);
@@ -119,6 +111,7 @@
 				<br><br><a href="index.jsp">Return to Main Page.</a>
 			</div>						
 			<%}
+			db.closeConnection();
 		}catch(Exception e){
 			e.printStackTrace();%>
 			<div>
@@ -126,6 +119,7 @@
 				<br><br><a href="index.jsp">Return to Main Page.</a>
 			</div>
 		<%};
+		
 		%>
 		
 </body>
