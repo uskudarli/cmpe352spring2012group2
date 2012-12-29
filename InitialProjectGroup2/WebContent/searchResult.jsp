@@ -99,6 +99,27 @@
 			String serviceLatitude = "";
 			String serviceLongitude = "";
 			int serviceRadius;
+			double[][] distanceArray;
+			%>
+			<%!
+			void insertionSort(double[][] arr, int length) {
+			      int i, j;
+			      double tmp1, tmp2;
+			      for (i = 1; i < length; i++) {
+			            j = i;
+			            while (j > 0 && arr[j - 1][1] > arr[j][1]) {
+			                  tmp1 = arr[j][0];
+			                  tmp2 = arr[j][1];
+			                  arr[j][0] = arr[j - 1][0];
+			                  arr[j][1] = arr[j - 1][1];
+			                  arr[j - 1][0] = tmp1;
+			                  arr[j - 1][1] = tmp2;
+			                  j--;
+			            }
+			      }
+			}
+			%>
+			<%
 			//none of the parameters entered
 			if(tags.length() == 0 && date_start.length() == 0 && date_end.length() == 0 && gpsLocation.length() == 0){
 			%>
@@ -292,7 +313,10 @@
 				
 				String printedServiceIds = "";
 				String currentServiceId = "";
-				
+				rs.last();
+				distanceArray = new double[rs.getRow()][2];
+				rs.beforeFirst();
+				int i=0;
 				while (rs.next()) {
 					double R = 6371; // km
 					double lat1 = Double.parseDouble(rs.getString(2));
@@ -316,44 +340,50 @@
 					if(distance < rs.getInt(4)+Integer.parseInt(radius) && !printedServiceIds.contains(currentServiceId)){
 						printedServiceIds += "'" + currentServiceId + "'";
 						serviceId = rs.getInt(1);
-						ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
-						while(rs2.next()){
-							serviceEmail = rs2.getString(1);
-							serviceTitle = rs2.getString(2);
-							serviceDescription = rs2.getString(3);
-							serviceDateFrom = rs2.getString(5);
-							serviceDateTo = rs2.getString(6);
-							serviceDemanderOrSupplier = rs2.getString(7);
-							serviceApplierQuota = rs2.getString(8);	
-						}
-						ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
-						serviceTags="";
-						while (rs3.next()) {
-							serviceTags += rs3.getString(1)+ ",";
-						}
-						serviceTags = serviceTags.substring(0,serviceTags.length()-1);
-				%>
-						<tr>
-							<td><%=serviceTitle%></td>
-							<td><%=serviceDescription%></td>
-							<td><%=serviceDateFrom%></td>
-							<td><%=serviceDateTo%></td>
-							<td><%=serviceTags%></td>
-							<td><%=serviceDemanderOrSupplier%></td>
-							<td><%=serviceApplierQuota%></td>
-							<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
-							<td>
-								<form action="ApplyForService.jsp" method="post">
-								<input type="submit" value="Apply">
-								<input type="hidden" name="processId" value=<%=serviceId %>>	
-								</form>
-	
-							</td>
-
-						</tr>
-				<%
+						distanceArray[i][0]=serviceId;
+						distanceArray[i][1]=distance;
+						i++;
 					}
+				}
+				insertionSort(distanceArray, i);
+				for(int j=0; j<i; j++){
+					serviceId = (int)distanceArray[j][0];
+					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
+					while(rs2.next()){
+						serviceEmail = rs2.getString(1);
+						serviceTitle = rs2.getString(2);
+						serviceDescription = rs2.getString(3);
+						serviceDateFrom = rs2.getString(5);
+						serviceDateTo = rs2.getString(6);
+						serviceDemanderOrSupplier = rs2.getString(7);
+						serviceApplierQuota = rs2.getString(8);	
+					}
+					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
+					serviceTags="";
+					while (rs3.next()) {
+						serviceTags += rs3.getString(1)+ ",";
+					}
+					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
+			%>
+					<tr>
+						<td><%=serviceTitle%></td>
+						<td><%=serviceDescription%></td>
+						<td><%=serviceDateFrom%></td>
+						<td><%=serviceDateTo%></td>
+						<td><%=serviceTags%></td>
+						<td><%=serviceDemanderOrSupplier%></td>
+						<td><%=serviceApplierQuota%></td>
+						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form action="ApplyForService.jsp" method="post">
+							<input type="submit" value="Apply">
+							<input type="hidden" name="processId" value=<%=serviceId %>>	
+							</form>
 
+						</td>
+
+					</tr>
+			<%
 				}
 			}
 			//tags and location parameters entered
@@ -365,10 +395,12 @@
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
 				ResultSet rs = st.executeQuery("SELECT serviceId FROM `Tags` WHERE tag REGEXP '"+tags+"' GROUP BY serviceId ");
-
+				rs.last();
+				distanceArray = new double[rs.getRow()][2];
+				rs.beforeFirst();
+				int i=0;
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
-					boolean flag=false;
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `Place` WHERE (serviceId='" + serviceId + "')");
 					while(rs2.next()){
 						double R = 6371; // km
@@ -388,49 +420,53 @@
 						double distance = R * c;
 						
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
-							ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
-							while(rs4.next()){
-								serviceEmail = rs4.getString(1);
-								serviceTitle = rs4.getString(2);
-								serviceDescription = rs4.getString(3);
-								serviceDateFrom = rs4.getString(5);
-								serviceDateTo = rs4.getString(6);
-								serviceDemanderOrSupplier = rs4.getString(7);
-								serviceApplierQuota = rs4.getString(8);
-							}
-							flag = true;
+							serviceId = rs.getInt(1);
+							distanceArray[i][0]=serviceId;
+							distanceArray[i][1]=distance;
+							i++;
 							break;
 						}
 					}
-					
+				}
+				insertionSort(distanceArray,i);
+				for(int j=0; j<i; j++){
+					serviceId = (int)distanceArray[j][0];
+					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
+					while(rs4.next()){
+						serviceEmail = rs4.getString(1);
+						serviceTitle = rs4.getString(2);
+						serviceDescription = rs4.getString(3);
+						serviceDateFrom = rs4.getString(5);
+						serviceDateTo = rs4.getString(6);
+						serviceDemanderOrSupplier = rs4.getString(7);
+						serviceApplierQuota = rs4.getString(8);
+					}
 					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
 					serviceTags="";
 					while (rs3.next()) {
 						serviceTags += rs3.getString(1)+ ",";
 					}
 					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
-					if(flag){
-			%>
-				<tr>
-					<td><%=serviceTitle%></td>
-					<td><%=serviceDescription%></td>
-					<td><%=serviceDateFrom%></td>
-					<td><%=serviceDateTo%></td>
-					<td><%=serviceTags%></td>
-					<td><%=serviceDemanderOrSupplier%></td>
-					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
-					<td>
-						<form action="ApplyForService.jsp" method="post">
-						<input type="submit" value="Apply">
-						<input type="hidden" name="processId" value=<%=serviceId %>>	
-						</form>
-	
-					</td>
+					%>
+					<tr>
+						<td><%=serviceTitle%></td>
+						<td><%=serviceDescription%></td>
+						<td><%=serviceDateFrom%></td>
+						<td><%=serviceDateTo%></td>
+						<td><%=serviceTags%></td>
+						<td><%=serviceDemanderOrSupplier%></td>
+						<td><%=serviceApplierQuota%></td>
+						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form action="ApplyForService.jsp" method="post">
+							<input type="submit" value="Apply">
+							<input type="hidden" name="processId" value=<%=serviceId %>>	
+							</form>
+		
+						</td>
 
-				</tr>
-			<%
-					}
+					</tr>
+				<%
 				}
 				%>
 				<tr>
@@ -451,12 +487,15 @@
 				Statement st = con.createStatement();
 				Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
+				Statement st4 = con.createStatement();
 				
 				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom ) ");
-
+				rs.last();
+				distanceArray = new double[rs.getRow()][2];
+				rs.beforeFirst();
+				int i=0;
 				while (rs.next()) {
 					serviceId = rs.getInt(4);
-					boolean flag=false;
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `Place` WHERE (serviceId='" + serviceId + "')");
 					while(rs2.next()){
 						double R = 6371; // km
@@ -476,46 +515,53 @@
 						double distance = R * c;
 						
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
-							serviceEmail = rs.getString(1);
-							serviceTitle = rs.getString(2);
-							serviceDescription = rs.getString(3);
-							serviceDateFrom = rs.getString(5);
-							serviceDateTo = rs.getString(6);
-							serviceDemanderOrSupplier = rs.getString(7);
-							serviceApplierQuota = rs.getString(8);
-							flag = true;
+							serviceId = rs.getInt(4);
+							distanceArray[i][0]=serviceId;
+							distanceArray[i][1]=distance;
+							i++;
 							break;
 						}
 					}
-					
+				}
+				insertionSort(distanceArray,i);
+				for(int j=0; j<i; j++){
+					serviceId = (int)distanceArray[j][0];
+					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
+					while(rs4.next()){
+						serviceEmail = rs4.getString(1);
+						serviceTitle = rs4.getString(2);
+						serviceDescription = rs4.getString(3);
+						serviceDateFrom = rs4.getString(5);
+						serviceDateTo = rs4.getString(6);
+						serviceDemanderOrSupplier = rs4.getString(7);
+						serviceApplierQuota = rs4.getString(8);
+					}
 					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
 					serviceTags="";
 					while (rs3.next()) {
 						serviceTags += rs3.getString(1)+ ",";
 					}
 					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
-					if(flag){
-			%>
-				<tr>
-					
-					<td><%=serviceTitle%></td>
-					<td><%=serviceDescription%></td>
-					<td><%=serviceDateFrom%></td>
-					<td><%=serviceDateTo%></td>
-					<td><%=serviceTags%></td>
-					<td><%=serviceDemanderOrSupplier%></td>
-					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>	
-					<td>
-						<form action="ApplyForService.jsp" method="post">
-						<input type="submit" value="Apply">
-						<input type="hidden" name="processId" value=<%=serviceId %>>	
-						</form>
-	
-					</td>
-				</tr>
-			<%
-					}
+					%>
+					<tr>
+						<td><%=serviceTitle%></td>
+						<td><%=serviceDescription%></td>
+						<td><%=serviceDateFrom%></td>
+						<td><%=serviceDateTo%></td>
+						<td><%=serviceTags%></td>
+						<td><%=serviceDemanderOrSupplier%></td>
+						<td><%=serviceApplierQuota%></td>
+						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form action="ApplyForService.jsp" method="post">
+							<input type="submit" value="Apply">
+							<input type="hidden" name="processId" value=<%=serviceId %>>	
+							</form>
+		
+						</td>
+
+					</tr>
+				<%
 				}
 			}
 			//tags, date and location parameters entered
@@ -526,8 +572,11 @@
 				Statement st4 = con.createStatement();
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
-
+				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.serviceId = OpenServices.serviceId AND Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom) GROUP BY serviceId ");
+				rs.last();
+				distanceArray = new double[rs.getRow()][2];
+				rs.beforeFirst();
+				int i=0;
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
 					boolean flag=false;
@@ -550,48 +599,53 @@
 						double distance = R * c;
 						
 						if(distance < rs2.getInt(4)+Integer.parseInt(radius)){
-							ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
-							while(rs4.next()){
-								serviceEmail = rs4.getString(1);
-								serviceTitle = rs4.getString(2);
-								serviceDescription = rs4.getString(3);
-								serviceDateFrom = rs4.getString(5);
-								serviceDateTo = rs4.getString(6);
-								serviceDemanderOrSupplier = rs4.getString(7);
-								serviceApplierQuota = rs4.getString(8);
-							}
-							flag = true;
+							serviceId = rs.getInt(1);
+							distanceArray[i][0]=serviceId;
+							distanceArray[i][1]=distance;
+							i++;
 							break;
 						}
 					}
-					
+				}
+				insertionSort(distanceArray,i);
+				for(int j=0; j<i; j++){
+					serviceId = (int)distanceArray[j][0];
+					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
+					while(rs4.next()){
+						serviceEmail = rs4.getString(1);
+						serviceTitle = rs4.getString(2);
+						serviceDescription = rs4.getString(3);
+						serviceDateFrom = rs4.getString(5);
+						serviceDateTo = rs4.getString(6);
+						serviceDemanderOrSupplier = rs4.getString(7);
+						serviceApplierQuota = rs4.getString(8);
+					}
 					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
 					serviceTags="";
 					while (rs3.next()) {
 						serviceTags += rs3.getString(1)+ ",";
 					}
 					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
-					if(flag){
-			%>
-				<tr>
-					<td><%=serviceTitle%></td>
-					<td><%=serviceDescription%></td>
-					<td><%=serviceDateFrom%></td>
-					<td><%=serviceDateTo%></td>
-					<td><%=serviceTags%></td>
-					<td><%=serviceDemanderOrSupplier%></td>
-					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
-					<td>
-						<form action="ApplyForService.jsp" method="post">
-						<input type="submit" value="Apply">
-						<input type="hidden" name="processId" value=<%=serviceId %>>	
-						</form>
-							
-					</td>
-				</tr>
-			<%
-					}
+					%>
+					<tr>
+						<td><%=serviceTitle%></td>
+						<td><%=serviceDescription%></td>
+						<td><%=serviceDateFrom%></td>
+						<td><%=serviceDateTo%></td>
+						<td><%=serviceTags%></td>
+						<td><%=serviceDemanderOrSupplier%></td>
+						<td><%=serviceApplierQuota%></td>
+						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form action="ApplyForService.jsp" method="post">
+							<input type="submit" value="Apply">
+							<input type="hidden" name="processId" value=<%=serviceId %>>	
+							</form>
+		
+						</td>
+
+					</tr>
+				<%
 				}
 				%>
 				<tr>
