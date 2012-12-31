@@ -38,14 +38,20 @@
  String gpsLocation = request.getParameter("gpsLocation");
  String applierQuota = request.getParameter("applierQuota");
  
+ if(title == null || description == null || tags == null || date_start == null || date_end == null || gpsLocation == null
+	|| title == "" || description == "" || tags == "" || date_start == "" || date_end == "" || gpsLocation == ""	 ){
+	 out.println("Please fill all the fields to create a service");
+ }
+ else{
+ 
  String[] tagArray = tags.split(",");
  String[] locations = gpsLocation.split(";");
  
  
  try{
 	 DBConnection db = new DBConnection();
- db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','supplier','"+applierQuota+"')  ");
- ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
+ db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title.substring(0, 29)+"','"+description+"','"+date_start+"','"+date_end+"','supplier','"+applierQuota+"')  ");
+ ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title.substring(0, 29)+"')");
  boolean check = rs.next();
  if(check){
 	 out.println("Service has been created");
@@ -63,9 +69,10 @@
  db.closeConnection();
  }
  catch (Exception e){
- out.println(e.getMessage());
+ System.out.println(e.getMessage());
+ out.println("There has been error while creating your service. Please try again later.");
  }
- 
+ }
  %>
 </body>
 </html>
