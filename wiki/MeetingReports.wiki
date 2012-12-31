@@ -1,3 +1,22 @@
+=*Report of Meeting #20*=
+
+*Meeting Date: 30.12.2012*
+
+*Meeting Duration: 3 hour*
+
+*Meeting Location: CMPE Lounge*
+
+*Participants: Hakan Demir, Samet Serpil, Beste Başçiftçi, Sinan Narmanlı, Sarper Sertoğlu*
+
+*Activities:*
+
+  # Project plan, requirements and previous work are reviewed.
+  # System is examined and our incomplete or deficient parts are found out.
+  # How to implement these parts are discussed.
+  # How to write our final document is also discussed.
+  # Work distribution is done. Please refer to issues. 
+
+
 =*Report of Meeting #19*=
 
 *Meeting Date: 13.12.2012*
