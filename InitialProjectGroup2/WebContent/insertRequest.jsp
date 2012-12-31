@@ -44,7 +44,7 @@
  
  try{
 	 DBConnection db = new DBConnection();
- db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','demander')  ");
+ db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','demander','1')  ");
  ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
  boolean check = rs.next();
  if(check){
