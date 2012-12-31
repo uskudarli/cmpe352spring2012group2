@@ -37,23 +37,39 @@
  String date_end = request.getParameter("date_end");
  String gpsLocation = request.getParameter("gpsLocation");
  
+ boolean creationAllowed = true;
+ 
+ 
  if(title == null || description == null || tags == null || date_start == null || date_end == null || gpsLocation == null
 	|| title == "" || description == "" || tags == "" || date_start == "" || date_end == "" || gpsLocation == ""	 ){
 	 out.println("Please fill all the fields to request a service");
  }
  else{
+	 try{
+		 DBConnection db = new DBConnection();
+		 ResultSet rs = db.executeQuery("select socialCredit from User where email = '"+email+"'");
+		 rs.next();
+		 int credit = rs.getInt(1);
+		 if(credit == 0){
+			 out.println("You can not request a service  because you have 0 social credits");
+			 creationAllowed = false;
+		 }
+	 }catch(Exception e){
+		 System.out.println(e.getMessage());
+		 out.println("There has been error while creating your service. Please try again later.");
+	 }	 
 	 
-
-
- 
+ if(creationAllowed){ 
  String[] tagArray = tags.split(",");
  String[] locations = gpsLocation.split(";");
  
- 
+ if(title.length()>30){
+	 title = title.substring(0,29);
+ }
  try{
 	 DBConnection db = new DBConnection();
- db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title.substring(0,29)+"','"+description+"','"+date_start+"','"+date_end+"','demander','1')  ");
- ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title.substring(0,29)+"')");
+ db.executeUpdate("insert into OpenServices(email,title,description,dateFrom,dateTo,demanderOrSupplier,applierQuota) values('"+email+"','"+title+"','"+description+"','"+date_start+"','"+date_end+"','demander','1')  ");
+ ResultSet rs=db.executeQuery("select serviceId from OpenServices where (email = '"+email+"' and title = '"+title+"')");
  boolean check = rs.next();
  if(check){
 	 out.println("Service has been requested.");
@@ -75,7 +91,7 @@
  out.println("There has been error while requesting your service. Please try again later.");
  }
  }
- 
+ }
  %>
 </body>
 </html>
