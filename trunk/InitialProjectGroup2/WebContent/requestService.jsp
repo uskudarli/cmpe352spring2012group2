@@ -133,6 +133,7 @@
 			var endDateTextBox = $('#date_end');
 
 			startDateTextBox.datetimepicker({
+				minDate: new Date(),
 				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (endDateTextBox.val() != '') {
