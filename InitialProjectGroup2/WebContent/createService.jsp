@@ -130,7 +130,7 @@
 		<br><hr> Time Interval: <hr> <input type="text" id="date_start" name="date_start" size="19">
 		<input type="text" id="date_end" name="date_end" size="19">
 		<div id="applier" class="searchTd">
-		<hr> Applier Quota: <hr><input type="number"  min="1" max="10" value="1" id="applierQuota" name="applierQuota" size="42"><br>
+		<hr> Applier Quota: <hr><input type="number"  min="1" max="6" value="1" id="applierQuota" name="applierQuota" size="42"><br>
 		</div></div>
 		
 		<script type="text/javascript">
