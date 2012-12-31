@@ -14,6 +14,7 @@
   # System is examined and our incomplete or deficient parts are found out.
   # How to implement these parts are discussed.
   # How to write our final document is also discussed.
+  # We finally decided to our project name: E-mece.
   # Work distribution is done. Please refer to issues. 
 
 
