@@ -119,24 +119,7 @@
 					</table>
 					
 				</div>
-			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services by Me</a></b>
-			<script language="javascript">
-				function toggle2() {
-					var ele2 = document.getElementById("toggleText2");
-					var text2 = document.getElementById("displayText2");
-					if (ele2.style.display == "block") {
-						ele2.style.display = "none";
-						text2.innerHTML = "Show Services by Me";
-					} else {
-						ele2.style.display = "block";
-						text2.innerHTML = "Hide Services by Me";
-					}
-				}
-			</script>
-			 
-				<div id="toggleText2" style="display: none">
-					
-				</div>
+			
 		</ul>
 </div>
 </div>
