@@ -74,9 +74,10 @@
 				 
 				 DBConnection db2 = new DBConnection();
 				 ResultSet rs2 = db2.executeQuery("select comment from CompletedServices where email = '"+username+"'");
-				 
 				 DBConnection db3 = new DBConnection();
 				 ResultSet rs3 = db3.executeQuery("select CompletedServices.partnerComment from CompletedServices where CompletedServices.serviceId IN (select OpenServices.serviceId from OpenServices where OpenServices.email = '"+username+"')");
+				 DBConnection db4 = new DBConnection();
+				 ResultSet rs4 = db4.executeQuery("select * from OpenServices where email = '"+username+"'");
 	%>
 
 	<h1><%=name + " " + surname%></h1>
@@ -124,7 +125,7 @@
 					</table>
 					
 				</div>
-			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services by Me</a></b>
+			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services Offered by Me</a></b>
 			<script language="javascript">
 				function toggle2() {
 					var ele2 = document.getElementById("toggleText2");
@@ -139,7 +140,38 @@
 				}
 			</script>
 			 
-				<div id="toggleText2" style="display: none">
+				<div id="toggleText2" style="display: none" class="TableFormat">
+				<table>
+				<tr>
+					<td>Service Title</td>
+					<td>Service Description</td>
+					<td>Service Start Date</td>
+					<td>Service End Date</td>
+					<td>Service Type</td>
+					<td>Service Quota</td>
+					<td>Apply for Service</td>
+				</tr>
+				<%
+				while(rs4.next()){
+						out.println("<tr><td>"+rs4.getString(2)+"</td>");
+						out.println("<td>"+rs4.getString(3)+"</td>");
+						out.println("<td>"+rs4.getString(5)+"</td>");
+						out.println("<td>"+rs4.getString(6)+"</td>");
+						out.println("<td>"+rs4.getString(7)+"</td>");
+						out.println("<td>"+rs4.getString(8)+"</td>");
+						%>
+						<td>
+						<form action="ApplyForService.jsp" method="post">
+						<input type="submit" value="Apply">
+						<input type="hidden" name="processId" value=<%=rs4.getString(4) %>>	
+						</form>
+	
+					</td>
+					</tr>
+					<% 
+					}
+				%>
+				</table>
 					
 				</div>
 		</ul>
