@@ -19,11 +19,11 @@
 	<%
 		String username=request.getParameter("username");
 		if(username==null)
-			username=(String)request.getSession().getAttribute("email");
+			username=request.getSession().getAttribute("email").toString();
 	
 		String password = request.getParameter("password");
 		if(password==null)
-			password=(String)request.getSession().getAttribute("password");
+			password=request.getSession().getAttribute("password").toString();
 		
 		try{
 			DBConnection db = new DBConnection();
@@ -50,7 +50,12 @@
 				
 				if(name.equals("NULL"))
 					request.getRequestDispatcher("completeRegistration.jsp").forward(request, response);
-				%>
+				DBConnection db2 = new DBConnection();
+				 ResultSet rs2 = db2.executeQuery("select comment from CompletedServices where email = '"+username+"'");
+				 
+				 DBConnection db3 = new DBConnection();
+				 ResultSet rs3 = db3.executeQuery("select CompletedServices.partnerComment from CompletedServices where CompletedServices.serviceId IN (select OpenServices.serviceId from OpenServices where OpenServices.email = '"+username+"')");
+	%>
 						
 <!-- <div id="header"><h1>Header</h1></div> -->
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -78,10 +83,61 @@
 						<!-- <li> <b><%=name+" "+surname %></b> -->
 						<!--  <li> <b>Social Credit: </b><%=credit %> -->
 						<!-- <li> <b>Rating: </b><%=rating %> -->
-						<li> <b>Mobile Phone:</b><%=phone %>
+						<!--  <li> <b>Mobile Phone:</b><%=phone %> -->
 						<li> <b>Personal Information:</b><%=about%>
+					<li><b><a id="displayText" href="javascript:toggle();">Show Comments</a></b>
+			<script language="javascript">
+				function toggle() {
+					var ele = document.getElementById("toggleText");
+					var text = document.getElementById("displayText");
+					if (ele.style.display == "block") {
+						ele.style.display = "none";
+						text.innerHTML = "Show Comments";
+					} else {
+						ele.style.display = "block";
+						text.innerHTML = "Hide Comments";
+					}
+				}
+			</script>
+			 
+				<div id="toggleText" style="display: none" class="TableFormat">
+				<table >
+					<%
+					out.println("<tr><td>Comments From Appliers </td></tr>");
+					while(rs3.next()){
+						if(rs3.getString(1)!=null)
+						out.println("<tr><td>"+rs3.getString(1)+"</td></tr>");
+					}
+					out.println("</table>");
+					out.println("<table>");
+					out.println("<tr><td>Comments From Service Owners </td></tr>");
+					while(rs2.next()){
+						if(rs2.getString(1)!=null)
+						out.println("<tr><td>"+rs2.getString(1)+"</td></tr>");
+					}
+					%>
+					</table>
 					
-					</ul>
+				</div>
+			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services by Me</a></b>
+			<script language="javascript">
+				function toggle2() {
+					var ele2 = document.getElementById("toggleText2");
+					var text2 = document.getElementById("displayText2");
+					if (ele2.style.display == "block") {
+						ele2.style.display = "none";
+						text2.innerHTML = "Show Services by Me";
+					} else {
+						ele2.style.display = "block";
+						text2.innerHTML = "Hide Services by Me";
+					}
+				}
+			</script>
+			 
+				<div id="toggleText2" style="display: none">
+					
+				</div>
+		</ul>
 </div>
 </div>
 
