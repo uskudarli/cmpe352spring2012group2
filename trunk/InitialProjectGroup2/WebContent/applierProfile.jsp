@@ -57,6 +57,7 @@
 				String rating = rs.getString(6);
 				String phone = rs.getString(7);
 				String about = rs.getString(8);
+				String ratingCount = rs.getString(9);
 				about = URLDecoder.decode(about, "UTF-8");
 				/*session.setAttribute( "email", mail );
 				session.setAttribute( "password", pass );
@@ -180,7 +181,7 @@
 
 	<div id="extra">
 		<p style="font-size: 21px;">
-			<b>Social Credit: <i><%=credit%></i><br>Rating: <i><%=rating%></i></b>
+			<b>Social Credit: <i><%=credit%></i><br>Rating: <i><%=rating%></i>(<%=ratingCount%> times rated)</b>
 		</p>
 	</div>
 	<br>
