@@ -166,7 +166,12 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form id="emailSender1" action="applierProfile.jsp" method="post">
+							<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+						</form>
+						<a onclick="document.getElementById('emailSender1').submit()">Owner</a>
+					</td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -224,7 +229,12 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form id="emailSender2" action="applierProfile.jsp" method="post">
+							<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+						</form>
+						<a onclick="document.getElementById('emailSender2').submit()">Owner</a>
+					</td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -276,7 +286,12 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td>
+						<form id="emailSender3" action="applierProfile.jsp" method="post">
+							<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+						</form>
+						<a onclick="document.getElementById('emailSender3').submit()">Owner</a>
+					</td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -373,7 +388,12 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form id="emailSender4" action="applierProfile.jsp" method="post">
+								<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+							</form>
+							<a onclick="document.getElementById('emailSender4').submit()">Owner</a>
+						</td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -456,7 +476,12 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form id="emailSender5" action="applierProfile.jsp" method="post">
+								<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+							</form>
+							<a onclick="document.getElementById('emailSender5').submit()">Owner</a>
+						</td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -551,7 +576,12 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form id="emailSender6" action="applierProfile.jsp" method="post">
+								<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+							</form>
+							<a onclick="document.getElementById('emailSender6').submit()">Owner</a>
+						</td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -635,7 +665,12 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td>
+							<form id="emailSender7" action="applierProfile.jsp" method="post">
+								<input type="hidden" name="applierId" value=<%=serviceEmail%>>
+							</form>
+							<a onclick="document.getElementById('emailSender7').submit()">Owner</a>
+						</td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
