@@ -9,7 +9,12 @@
 </head>
 <body style="background-color:#EEEEEE;">
 <div id="header" style="background-color:#333;">
-	<h1 style="padding: 10px;color:#FFF;">Welcome to the Social Service Exchange Platform</h1></div><br><br>
+	<h1 style="padding: 10px;color:#FFF;">Welcome to the Social Service Exchange Platform: E-mece!</h1></div>
+	<a href="Emece.jsp" style="font-family:Tahoma, Geneva, sans-serif;
+	font-size:14px;
+	font-style:italic;
+	line-height:24px;
+	font-weight:bold;">Would you like to learn what is E-mece?</a><br><br>
 	<table border = "0">
 	<tr>
 	<td width="60%">
