@@ -168,6 +168,9 @@ div#content p{line-height:1.4}
 div#content{margin: 0 33% 0 250px}
 div#wrapper{float:left;width:100%}
 
+div#content2 p{line-height:1.4}
+div#content2{margin: 0 33% 0 3%}
+
 div#extra{background:#B9CAFF}
 div#extra{float:left;width:33%;margin-left:-33%}
 
@@ -178,6 +181,9 @@ div#footer p{margin-left:-100%;font-size: 11px;}
 /*div#footer_top{background: #333;color: #FFF}
 div#footer_top p{margin:0;padding:5px 10px;color: #FFF;font-size: 12px;}
 div#footer_top{clear:left;width:100%;}*/
+
+.rating_class{margin: 0 0 0 3%}
+
 
 /*Header Part*/
 .darkmenu {
