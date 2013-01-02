@@ -38,10 +38,7 @@
 	<br>
 	<br>
 	<%
-		String username = "";
-		if (request.getParameter("qid") != null)
-			username = (request.getParameter("qid"));
-
+		String username = request.getParameter("applierId");
 		try {
 			DBConnection db = new DBConnection();
 			ResultSet rs = db
