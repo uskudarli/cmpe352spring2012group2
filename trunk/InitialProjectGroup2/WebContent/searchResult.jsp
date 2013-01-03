@@ -1,6 +1,7 @@
 <%@page import="com.sun.xml.internal.fastinfoset.util.StringArray"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
+	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" import="java.util.Date" 
+	import = "java.text.DateFormat" import= "java.text.SimpleDateFormat"%>
 
 	
 
@@ -101,6 +102,9 @@
 			int serviceRadius;
 			double[][] distanceArray;
 			String myEmail = session.getAttribute("email").toString();
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			Date date = new Date();
+			String currentDate = dateFormat.format(date);
 			%>
 			<%!
 			void insertionSort(double[][] arr, int length) {
@@ -152,7 +156,7 @@
 						serviceDateTo = rs2.getString(6);
 						serviceDemanderOrSupplier = rs2.getString(7);
 						serviceApplierQuota = rs2.getString(8);
-						if(Integer.parseInt(serviceApplierQuota) < 1 || serviceEmail.equals(myEmail))
+						if(Integer.parseInt(serviceApplierQuota) < 1 || serviceEmail.equals(myEmail) || currentDate.compareTo(serviceDateTo) > 0 )
 							flag=0;
 					}
 					
@@ -357,7 +361,7 @@
 				for(int j=0; j<i; j++){
 					serviceId = (int)distanceArray[j][0];
 					flag=0;
-					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' ");
+					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' AND dateTo > '"+currentDate+"' ");
 					while(rs2.next()){
 						flag=1;
 						serviceEmail = rs2.getString(1);
@@ -445,7 +449,7 @@
 				for(int j=0; j<i; j++){
 					serviceId = (int)distanceArray[j][0];
 					flag=0;
-					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' ");
+					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' AND dateTo > '"+currentDate+"' ");
 					while(rs4.next()){
 						flag=1;
 						serviceEmail = rs4.getString(1);

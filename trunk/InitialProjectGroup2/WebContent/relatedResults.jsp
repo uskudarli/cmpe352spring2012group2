@@ -1,6 +1,7 @@
 <%@page import="com.sun.xml.internal.fastinfoset.util.StringArray"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*"%>
+	pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" import="java.util.Date" 
+	import = "java.text.DateFormat" import= "java.text.SimpleDateFormat"%>
 <%@ page import="net.jeremybrooks.knicker.AccountApi" %>	
 <%@ page import="net.jeremybrooks.knicker.WordApi" %>	
 <%@ page import="net.jeremybrooks.knicker.dto.Related" %>	
@@ -92,6 +93,9 @@
 			int serviceRadius;
 			int flag;
 			String myEmail = session.getAttribute("email").toString();
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			Date date = new Date();
+			String currentDate = dateFormat.format(date);
 			//none of the parameters entered
 			
 				Statement st = con.createStatement();
@@ -131,7 +135,7 @@
 						serviceDateTo = rs2.getString(6);
 						serviceDemanderOrSupplier = rs2.getString(7);
 						serviceApplierQuota = rs2.getString(8);
-						if(Integer.parseInt(serviceApplierQuota)<1 || serviceEmail.equals(myEmail))
+						if(Integer.parseInt(serviceApplierQuota)<1 || serviceEmail.equals(myEmail) || currentDate.compareTo(serviceDateTo) > 0)
 							flag=0;
 					}
 					
