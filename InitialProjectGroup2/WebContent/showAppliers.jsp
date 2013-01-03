@@ -29,6 +29,18 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
       </div>
     </div>
 <br><br><br>
+			<%!
+	        int decryptString(String str){
+	        	StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){
+			         sb.setCharAt(i, (char)(str.charAt(i) -23)); 
+			      }
+			      int result = Integer.parseInt(sb.toString());
+			      return result/23;
+	   		}
+			%>
 
 
 		<div class="TableFormat">
@@ -42,7 +54,8 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			Class.forName(driver);
 			con = DriverManager.getConnection(url + db, userName, password);
 			String userEmail = session.getAttribute("email").toString();
-			int serviceId = Integer.parseInt(request.getParameter("value"));
+			String initialServiceId = request.getParameter("value");
+			int serviceId = decryptString(initialServiceId);
 			String applierName = "";
 			String applierSurname = "";
 			String applierEmail = "";

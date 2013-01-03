@@ -39,6 +39,19 @@
       </div>
     </div>
 <br><br><br><h1>Offered Services</h1><hr>
+			<%!
+			String encryptInteger(int number) {
+				number *= 23;
+				String str = Integer.toString(number);
+				StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){ 
+			         sb.setCharAt(i, (char)(str.charAt(i) +23)); 
+			      }
+			      return sb.toString();
+			}
+			%>
 
 	<form action="OfferedServices.jsp" method="post"><div class="TableFormat" >
 
@@ -61,6 +74,7 @@
 					String dateTo = "";
 					String latitude = "";
 					String longitude = "";
+					String encryptedServiceId = "";
 					int radius = 0;
 					
 					int i = 0;
@@ -95,6 +109,7 @@
 							title = rs.getString(2);
 							description = rs.getString(3);
 							serviceId = rs.getInt(4);
+							encryptedServiceId = encryptInteger(serviceId);
 							dateFrom = rs.getString(5);
 							dateTo = rs.getString(6);
 
@@ -115,7 +130,7 @@
 				<td><%=dateFrom%></td>
 				<td><%=dateTo%></td>
 				<td><%=tag%></td>
-				<td><a href="showAppliers.jsp?value=<%=serviceId%>">Appliers</a>
+				<td><a href="showAppliers.jsp?value=<%=encryptedServiceId%>">Appliers</a>
 				</td>
 				<td><div><input type="submit" class="btn btn-inverse" name="deleteTitle<%=i%>"
 					value="Delete"></div>
