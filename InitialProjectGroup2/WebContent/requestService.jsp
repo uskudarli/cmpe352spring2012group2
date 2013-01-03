@@ -154,6 +154,7 @@
 				}
 			});
 			endDateTextBox.datetimepicker({
+				minDate: new Date(),
 				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (startDateTextBox.val() != '') {
