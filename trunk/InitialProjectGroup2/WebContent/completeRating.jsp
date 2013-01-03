@@ -7,8 +7,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vote Result</title>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/MyStyleProfile.css">
 </head>
 <body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class=""><a href="profile.jsp">Home</a></li>
+              <li class=""><a href="profile.jsp">Profile</a></li>
+              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                  <li><a href="Logout.jsp">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<br><br><br><br><br>
+
 <%
 DBConnection db = new DBConnection();
 String query1 = request.getParameter("query1");
@@ -41,8 +62,10 @@ db.closeConnection();
 
 
 %>
-You have successfully voted this service.<br>
+You have successfully voted this service.<br><br>
 <a href="profile.jsp"><strong>&#8249;-- Return to Home </strong></a>
+
+<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 
 </body>
 </html>
