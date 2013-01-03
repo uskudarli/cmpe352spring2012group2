@@ -100,6 +100,7 @@
 			String serviceLongitude = "";
 			int serviceRadius;
 			double[][] distanceArray;
+			String myEmail = session.getAttribute("email").toString();
 			%>
 			<%!
 			void insertionSort(double[][] arr, int length) {
@@ -151,7 +152,7 @@
 						serviceDateTo = rs2.getString(6);
 						serviceDemanderOrSupplier = rs2.getString(7);
 						serviceApplierQuota = rs2.getString(8);
-						if(Integer.parseInt(serviceApplierQuota) < 1)
+						if(Integer.parseInt(serviceApplierQuota) < 1 || serviceEmail.equals(myEmail))
 							flag=0;
 					}
 					
@@ -203,7 +204,7 @@
 				//Statement st2 = con.createStatement();
 				Statement st3 = con.createStatement();
 				
-				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0') ");
+				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0' AND email != '"+myEmail+"') ");
 
 				while (rs.next()) {
 					serviceEmail = rs.getString(1);
@@ -254,7 +255,7 @@
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
 					boolean flag=false;
-					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE (serviceId='" + serviceId + "' AND '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0')");
+					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE (serviceId='" + serviceId + "' AND '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0' AND email != '"+myEmail+"')");
 					while(rs2.next()){
 						flag=true;
 						serviceEmail = rs2.getString(1);
@@ -356,7 +357,7 @@
 				for(int j=0; j<i; j++){
 					serviceId = (int)distanceArray[j][0];
 					flag=0;
-					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0'");
+					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' ");
 					while(rs2.next()){
 						flag=1;
 						serviceEmail = rs2.getString(1);
@@ -444,7 +445,7 @@
 				for(int j=0; j<i; j++){
 					serviceId = (int)distanceArray[j][0];
 					flag=0;
-					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0'");
+					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "' AND applierQuota > '0' AND email != '"+myEmail+"' ");
 					while(rs4.next()){
 						flag=1;
 						serviceEmail = rs4.getString(1);
@@ -505,7 +506,7 @@
 				Statement st3 = con.createStatement();
 				Statement st4 = con.createStatement();
 				
-				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0') ");
+				ResultSet rs = st.executeQuery("SELECT * FROM `OpenServices` WHERE ( '"+date_start+"' < dateTo AND '"+date_end+"' > dateFrom AND applierQuota > '0' AND email != '"+myEmail+"') ");
 				rs.last();
 				distanceArray = new double[rs.getRow()][2];
 				rs.beforeFirst();
@@ -588,7 +589,7 @@
 				Statement st4 = con.createStatement();
 				tags = tags.replaceAll("','","|");
 				tags = tags.replaceAll("'","");
-				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.serviceId = OpenServices.serviceId AND Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom AND applierQuota > '0') GROUP BY serviceId ");
+				ResultSet rs = st.executeQuery("SELECT Tags.serviceId FROM `Tags`,`OpenServices` WHERE (Tags.serviceId = OpenServices.serviceId AND Tags.tag REGEXP '" +tags+"' AND '"+date_start+"' < OpenServices.dateTo AND '"+date_end+"' > OpenServices.dateFrom AND applierQuota > '0' AND email != '"+myEmail+"') GROUP BY serviceId ");
 				rs.last();
 				distanceArray = new double[rs.getRow()][2];
 				rs.beforeFirst();

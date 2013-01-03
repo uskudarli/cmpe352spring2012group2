@@ -91,6 +91,7 @@
 			String serviceLongitude = "";
 			int serviceRadius;
 			int flag;
+			String myEmail = session.getAttribute("email").toString();
 			//none of the parameters entered
 			
 				Statement st = con.createStatement();
@@ -130,7 +131,7 @@
 						serviceDateTo = rs2.getString(6);
 						serviceDemanderOrSupplier = rs2.getString(7);
 						serviceApplierQuota = rs2.getString(8);
-						if(Integer.parseInt(serviceApplierQuota)<1)
+						if(Integer.parseInt(serviceApplierQuota)<1 || serviceEmail.equals(myEmail))
 							flag=0;
 					}
 					
