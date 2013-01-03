@@ -182,10 +182,13 @@
 				</tr>
 			<% 							
 			//rs = null;// st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
-			rs = st.executeQuery(" SELECT serviceId FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
+			String myRating;
+			rs = st.executeQuery(" SELECT serviceId, partnerRating FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
 
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
+				myRating = rs.getString(2);
+				myRating += " ";
 				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 				while(rs2.next()){
 					 serviceOwnerId = rs2.getString(1);
@@ -198,6 +201,7 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
+				<%	if(myRating.equalsIgnoreCase("null ")){ %>
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
@@ -206,6 +210,10 @@
 							<input type ="submit" value="Rate">
 						</form>
 					</td>
+				<%   } 
+					else{%>
+					<td>Your rating is: <%=myRating%></td>
+			<%		} %>
 				</tr>
 			<% 
 			}
