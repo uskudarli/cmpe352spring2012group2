@@ -90,6 +90,7 @@
 			String serviceLatitude = "";
 			String serviceLongitude = "";
 			int serviceRadius;
+			int flag;
 			//none of the parameters entered
 			
 				Statement st = con.createStatement();
@@ -118,6 +119,7 @@
 
 				while (rs.next()) {
 					serviceId = rs.getInt(1);
+					flag=1;
 
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs2.next()){
@@ -127,7 +129,9 @@
 						serviceDateFrom = rs2.getString(5);
 						serviceDateTo = rs2.getString(6);
 						serviceDemanderOrSupplier = rs2.getString(7);
-						serviceApplierQuota = rs2.getString(8);	
+						serviceApplierQuota = rs2.getString(8);
+						if(Integer.parseInt(serviceApplierQuota)<1)
+							flag=0;
 					}
 					
 					ResultSet rs3 = st3.executeQuery("SELECT tag FROM `Tags` WHERE serviceId='" + serviceId + "'");
@@ -136,6 +140,7 @@
 						serviceTags += rs3.getString(1)+ ",";
 					}
 					serviceTags = serviceTags.substring(0,serviceTags.length()-1);
+					if(flag==1){
 			%>
 				<tr>
 					<td><%=serviceTitle%></td>
@@ -151,9 +156,10 @@
 						<input type="submit" value="Apply">
 						<input type="hidden" name="processId" value=<%=serviceId %>>	
 						</form>
-		</td>
-			</tr>
+					</td>
+				</tr>
 			<%
+					}
 			}
 			
 			%>
