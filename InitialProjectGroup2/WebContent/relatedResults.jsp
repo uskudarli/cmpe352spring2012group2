@@ -171,7 +171,7 @@
 					<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
-						<input type="submit" value="Apply">
+						<input type="submit" value="Apply" class="btn btn-primary">
 						<input type="hidden" name="processId" value=<%=serviceId %>>	
 						</form>
 					</td>
