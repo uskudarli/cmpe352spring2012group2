@@ -43,6 +43,8 @@
 			String serviceDescription = "";
 			int serviceId=0;
 			String serviceDemanderOrSupplier = "";
+			String ownersEmail = "";
+			String ownersPhone = "";
 			%>
 			<table border="1">
 				
@@ -56,6 +58,7 @@
 			<% 				
 			Statement st = con.createStatement();
 			Statement st2 = con.createStatement();
+			Statement st3 = con.createStatement();
 			
 			ResultSet rs = st.executeQuery(" SELECT serviceId FROM `Appliers` WHERE email='"+ userEmail +"' ");
 
@@ -86,6 +89,8 @@
 					<td>Service Title</td>
 					<td>Service Description</td>
 					<td>Service Type</td>
+					<td>Owner's Email</td>
+					<td>Owner's Phone</td>
 				</tr>
 			<%
 			int applierApproved = 0;
@@ -101,6 +106,11 @@
 					serviceTitle = rs2.getString(2);
 					serviceDescription = rs2.getString(3);
 					serviceDemanderOrSupplier = rs2.getString(7);
+					ownersEmail = rs2.getString(1);
+				}
+				ResultSet rs3 = st3.executeQuery("SELECT phone FROM `User` WHERE email='" + ownersEmail + "'");
+				while(rs3.next()){
+					ownersPhone = rs3.getString(1);
 				}
 				
 			%>
@@ -108,6 +118,8 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
+					<td><%=ownersEmail%></td>
+					<td><%=ownersPhone%></td>
 					<td><%if(applierApproved==0){
 						serviceProviderApprovedString=""+serviceProviderApproved;%>
 						<form action="serviceCompleted.jsp" method="post">
