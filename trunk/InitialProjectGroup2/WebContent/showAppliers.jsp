@@ -48,6 +48,18 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			String applierEmail = "";
 			String applierPhone = "";
 			String ownersRating = "";
+			String encryptedEmail = "";
+			%>
+			<%!
+			String encryptString(String str) {
+				StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){ 
+			         sb.setCharAt(i, (char)(str.charAt(i) -23)); 
+			      }
+			      return sb.toString();
+			}
 			%>
 			<table border="1">
 				
@@ -68,10 +80,11 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			while (rs.next()) {
 				applierName = rs.getString(1);
 				applierSurname = rs.getString(2);
-				applierEmail = rs.getString(3);			
+				applierEmail = rs.getString(3);
+				encryptedEmail = encryptString(applierEmail);
 			%>
 				<tr>
-					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 					<td>
 						<form action="accept.jsp" method="post">
@@ -115,9 +128,10 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierApproved = rs.getInt(4);
 				serviceProviderApproved = rs.getInt(5);
 				applierPhone = rs.getString(6);
+				encryptedEmail = encryptString(applierEmail);
 			%>
 				<tr>
-					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 					<td><%=applierEmail%></td>
 					<td><%=applierPhone%></td>
@@ -155,10 +169,10 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierName = rs.getString(1);
 				applierSurname = rs.getString(2);
 				applierEmail = rs.getString(3);
-				
+				encryptedEmail = encryptString(applierEmail);				
 			%>
 				<tr>
-					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 				</tr>
 			<%
@@ -182,9 +196,10 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierEmail = rs.getString(3);
 				ownersRating = rs.getString(4);
 				ownersRating += " ";
+				encryptedEmail = encryptString(applierEmail);
 			%>
 				<tr>
-					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 			<%		if(ownersRating.equalsIgnoreCase("null ")){ %>
 					<td>
