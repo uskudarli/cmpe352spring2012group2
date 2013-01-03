@@ -46,6 +46,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			String applierName = "";
 			String applierSurname = "";
 			String applierEmail = "";
+			String applierPhone = "";
 			%>
 			<table border="1">
 				
@@ -97,10 +98,12 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				<tr>
 					<td>Applier Name</td>
 					<td>Applier Surname</td>
+					<td>Applier Email</td>
+					<td>Applier Phone</td>
 					<td>Complete</td>
 				</tr>
 			<% 							
-			rs = st.executeQuery("SELECT User.name, User.surname, User.email, AcceptedServices.applierApproved, AcceptedServices.serviceProviderApproved FROM User INNER JOIN AcceptedServices ON User.email=AcceptedServices.email WHERE AcceptedServices.serviceId='"+serviceId+"'");
+			rs = st.executeQuery("SELECT User.name, User.surname, User.email, AcceptedServices.applierApproved, AcceptedServices.serviceProviderApproved, User.phone FROM User INNER JOIN AcceptedServices ON User.email=AcceptedServices.email WHERE AcceptedServices.serviceId='"+serviceId+"'");
 			int applierApproved;
 			int serviceProviderApproved;
 			String applierApprovedString="";
@@ -110,10 +113,13 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierEmail = rs.getString(3);	
 				applierApproved = rs.getInt(4);
 				serviceProviderApproved = rs.getInt(5);
+				applierPhone = rs.getString(6);
 			%>
 				<tr>
 					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
+					<td><%=applierEmail%></td>
+					<td><%=applierPhone%></td>
 					<td><%if(serviceProviderApproved==0){
 						applierApprovedString=""+applierApproved;%>
 						
