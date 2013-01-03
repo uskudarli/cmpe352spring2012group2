@@ -47,6 +47,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			String applierSurname = "";
 			String applierEmail = "";
 			String applierPhone = "";
+			String ownersRating = "";
 			%>
 			<table border="1">
 				
@@ -174,15 +175,18 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 					<td>Rate</td>
 				</tr>
 			<% 							
-			rs = st.executeQuery("SELECT User.name, User.surname, User.email FROM User INNER JOIN CompletedServices ON User.email=CompletedServices.email WHERE CompletedServices.serviceId='"+serviceId+"'");
+			rs = st.executeQuery("SELECT User.name, User.surname, User.email, CompletedServices.rating FROM User INNER JOIN CompletedServices ON User.email=CompletedServices.email WHERE CompletedServices.serviceId='"+serviceId+"'");
 			while (rs.next()) {
 				applierName = rs.getString(1);
 				applierSurname = rs.getString(2);
-				applierEmail = rs.getString(3);				
+				applierEmail = rs.getString(3);
+				ownersRating = rs.getString(4);
+				ownersRating += " ";
 			%>
 				<tr>
 					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
+			<%		if(ownersRating.equalsIgnoreCase("null ")){ %>
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="applierId" value=<%=applierEmail %>>
@@ -191,6 +195,10 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 							<input type ="submit" value="Rate">
 						</form>
 					</td>
+			<%       } 
+					else{%>
+					<td>Your rating is: <%=ownersRating%></td>
+			<%		} %>
 				</tr>
 			<%
 			}
