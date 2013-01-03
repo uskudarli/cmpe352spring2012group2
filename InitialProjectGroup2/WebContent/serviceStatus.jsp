@@ -28,7 +28,10 @@
       </div>
     </div>
     <br><br><br><br>
-		<div class="TableFormat">
+    
+    <p><b>Below you can see the status of the services that you applied.</b></p>
+    
+		<div class="TableFormat" style="border:'0'">
 			<% Connection con = null;
 			String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
 			String db = "database2";
@@ -43,8 +46,6 @@
 			String serviceDescription = "";
 			int serviceId=0;
 			String serviceDemanderOrSupplier = "";
-			String ownersEmail = "";
-			String ownersPhone = "";
 			%>
 			<table border="1">
 				
@@ -58,7 +59,6 @@
 			<% 				
 			Statement st = con.createStatement();
 			Statement st2 = con.createStatement();
-			Statement st3 = con.createStatement();
 			
 			ResultSet rs = st.executeQuery(" SELECT serviceId FROM `Appliers` WHERE email='"+ userEmail +"' ");
 
@@ -89,8 +89,6 @@
 					<td>Service Title</td>
 					<td>Service Description</td>
 					<td>Service Type</td>
-					<td>Owner's Email</td>
-					<td>Owner's Phone</td>
 				</tr>
 			<%
 			int applierApproved = 0;
@@ -106,11 +104,6 @@
 					serviceTitle = rs2.getString(2);
 					serviceDescription = rs2.getString(3);
 					serviceDemanderOrSupplier = rs2.getString(7);
-					ownersEmail = rs2.getString(1);
-				}
-				ResultSet rs3 = st3.executeQuery("SELECT phone FROM `User` WHERE email='" + ownersEmail + "'");
-				while(rs3.next()){
-					ownersPhone = rs3.getString(1);
 				}
 				
 			%>
@@ -118,8 +111,6 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
-					<td><%=ownersEmail%></td>
-					<td><%=ownersPhone%></td>
 					<td><%if(applierApproved==0){
 						serviceProviderApprovedString=""+serviceProviderApproved;%>
 						<form action="serviceCompleted.jsp" method="post">
@@ -182,13 +173,10 @@
 				</tr>
 			<% 							
 			//rs = null;// st.executeQuery(" SELECT serviceId, title, description, demanderOrSupplier FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
-			String myRating;
-			rs = st.executeQuery(" SELECT serviceId, partnerRating FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
+			rs = st.executeQuery(" SELECT serviceId FROM `CompletedServices` WHERE email='"+ userEmail +"' ");
 
 			while (rs.next()) {
 				serviceId = rs.getInt(1);
-				myRating = rs.getString(2);
-				myRating += " ";
 				ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 				while(rs2.next()){
 					 serviceOwnerId = rs2.getString(1);
@@ -201,19 +189,14 @@
 					<td><%=serviceTitle%></td>
 					<td><%=serviceDescription%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
-				<%	if(myRating.equalsIgnoreCase("null ")){ %>
 					<td>
 						<form action="rateService.jsp" method="post">
 							<input type="hidden" name="serviceId" value=<%=serviceId %>>
 							<input type="hidden" name="applierId" value=<%=serviceOwnerId %>>
 							<input type="hidden" name="pageName" value=<%="serviceStatus" %>>	
-							<input type ="submit" value="Rate">
+							<input type ="submit" class="btn btn-info" value="Rate">
 						</form>
 					</td>
-				<%   } 
-					else{%>
-					<td>Your rating is: <%=myRating%></td>
-			<%		} %>
 				</tr>
 			<% 
 			}
