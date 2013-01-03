@@ -33,6 +33,17 @@
       </div>
     </div>
 	<br><br><br>
+			<%!
+			String encryptString(String str) {
+				StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){ 
+			         sb.setCharAt(i, (char)(str.charAt(i) -23)); 
+			      }
+			      return sb.toString();
+			}
+			%>
 		<div class="TableFormat">
 			<table border="1">
 				
@@ -96,6 +107,7 @@
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date date = new Date();
 			String currentDate = dateFormat.format(date);
+			String encryptedServiceEmail = "";
 			//none of the parameters entered
 			
 				Statement st = con.createStatement();
@@ -129,6 +141,7 @@
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs2.next()){
 						serviceEmail = rs2.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -155,7 +168,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">

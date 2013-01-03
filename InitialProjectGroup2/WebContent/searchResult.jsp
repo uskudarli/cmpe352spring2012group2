@@ -34,6 +34,17 @@
       </div>
     </div>
 	<br><br><br>
+			<%!
+			String encryptString(String str) {
+				StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){ 
+			         sb.setCharAt(i, (char)(str.charAt(i) -23)); 
+			      }
+			      return sb.toString();
+			}
+			%>
 		<div class="TableFormat">
 			<table border="1">
 				
@@ -105,6 +116,7 @@
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date date = new Date();
 			String currentDate = dateFormat.format(date);
+			String encryptedServiceEmail = "";
 			%>
 			<%!
 			void insertionSort(double[][] arr, int length) {
@@ -150,6 +162,7 @@
 					ResultSet rs2 = st2.executeQuery("SELECT * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs2.next()){
 						serviceEmail = rs2.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -176,7 +189,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -212,6 +225,7 @@
 
 				while (rs.next()) {
 					serviceEmail = rs.getString(1);
+					encryptedServiceEmail = encryptString(serviceEmail);
 					serviceId = rs.getInt(4);
 					serviceTitle = rs.getString(2);
 					serviceDescription = rs.getString(3);
@@ -235,7 +249,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -263,6 +277,7 @@
 					while(rs2.next()){
 						flag=true;
 						serviceEmail = rs2.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -287,7 +302,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+					<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
@@ -365,6 +380,7 @@
 					while(rs2.next()){
 						flag=1;
 						serviceEmail = rs2.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs2.getString(2);
 						serviceDescription = rs2.getString(3);
 						serviceDateFrom = rs2.getString(5);
@@ -388,7 +404,7 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -453,6 +469,7 @@
 					while(rs4.next()){
 						flag=1;
 						serviceEmail = rs4.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs4.getString(2);
 						serviceDescription = rs4.getString(3);
 						serviceDateFrom = rs4.getString(5);
@@ -476,7 +493,7 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -550,6 +567,7 @@
 					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs4.next()){
 						serviceEmail = rs4.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs4.getString(2);
 						serviceDescription = rs4.getString(3);
 						serviceDateFrom = rs4.getString(5);
@@ -572,7 +590,7 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">
@@ -634,6 +652,7 @@
 					ResultSet rs4 = st4.executeQuery("Select * FROM `OpenServices` WHERE serviceId='" + serviceId + "'");
 					while(rs4.next()){
 						serviceEmail = rs4.getString(1);
+						encryptedServiceEmail = encryptString(serviceEmail);
 						serviceTitle = rs4.getString(2);
 						serviceDescription = rs4.getString(3);
 						serviceDateFrom = rs4.getString(5);
@@ -656,7 +675,7 @@
 						<td><%=serviceTags%></td>
 						<td><%=serviceDemanderOrSupplier%></td>
 						<td><%=serviceApplierQuota%></td>
-						<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
+						<td><a href="applierProfile.jsp?qid=<%=encryptedServiceEmail%>">Owner</a></td>
 						<td>
 							<form action="ApplyForService.jsp" method="post">
 							<input type="submit" value="Apply">

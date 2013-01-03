@@ -37,10 +37,21 @@
 	<br>
 	<br>
 	<br>
+	<%!
+	        String decryptString(String str){
+	        	StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){
+			         sb.setCharAt(i, (char)(str.charAt(i) +23)); 
+			      }
+			      return sb.toString();
+	   		}
+	%>
 	<%
 		String username = "";
-		if (request.getParameter("qid") != null)
-			username = (request.getParameter("qid"));
+		username = (String)(request.getParameter("qid"));
+		username = decryptString(username);
 
 		try {
 			DBConnection db = new DBConnection();
