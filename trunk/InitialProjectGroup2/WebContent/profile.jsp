@@ -101,17 +101,18 @@
 				}
 			</script>
 			 
-				<div id="toggleText" style="display: none" class="TableFormat">
-				<table >
+				<div id="toggleText" style="display: none" class="table table-hover">
+					<table>
 					<%
-					out.println("<tr><td>Comments From Appliers </td></tr>");
+					out.println("<tr><td><b>Comments From Appliers</b></td></tr>");
 					while(rs3.next()){
 						if(rs3.getString(1)!=null)
 						out.println("<tr><td>"+rs3.getString(1)+"</td></tr>");
 					}
 					out.println("</table>");
+					%><br><%
 					out.println("<table>");
-					out.println("<tr><td>Comments From Service Owners </td></tr>");
+					out.println("<tr><td><b>Comments From Service Owners</b></td></tr>");
 					while(rs2.next()){
 						if(rs2.getString(1)!=null)
 						out.println("<tr><td>"+rs2.getString(1)+"</td></tr>");
@@ -137,7 +138,9 @@
 
 
 <div id="extra">
-<p style="font-size:21px;"><b>Social Credit:    <i><%=credit %></i><br>Rating:    <i><%=rating %></i> (<%=ratingCount%> times rated)</b></p>
+<p style="font-size:21px;">
+	<b>Social Credit: <i><%=credit%></i><br>Rating: <i><%=rating%></i></b> (<%=ratingCount%> times rated)
+</p>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
 					

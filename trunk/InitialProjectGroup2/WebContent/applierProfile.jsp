@@ -92,8 +92,9 @@
 				 ResultSet rs4 = db4.executeQuery("select * from OpenServices where email = '"+username+"'");
 	%>
 
-	<h1><%=name + " " + surname%></h1>
 	<div id="wrapper">
+	<div id="content2">
+	<h1><%=name + " " + surname%></h1>
 
 		<!--  <p style="font-size:24px;"><b><%=name + " " + surname%></b></p> -->
 		<ul>
@@ -102,7 +103,7 @@
 			<!-- <li> <b>Rating: </b><%=rating%> -->
 			<!-- <li> <b>Mobile Phone:</b><%=phone%> -->
 			
-			<li><b>Personal Information:</b><%=about%> 
+			<li><b>  Personal Information:  </b><%=about%> 
 			<li><b><a id="displayText" href="javascript:toggle();">Show Comments</a></b>
 			<script language="javascript">
 				function toggle() {
@@ -118,17 +119,18 @@
 				}
 			</script>
 			 
-				<div id="toggleText" style="display: none" class="TableFormat">
-				<table >
+				<div id="toggleText" style="display: none" class="table table-hover">
+				<table>
 					<%
-					out.println("<tr><td>Comments From Appliers </td></tr>");
+					out.println("<tr><td><b>Comments From Appliers</b></td></tr>");
 					while(rs3.next()){
 						if(rs3.getString(1)!=null)
 						out.println("<tr><td>"+rs3.getString(1)+"</td></tr>");
 					}
 					out.println("</table>");
+					%><br><%
 					out.println("<table>");
-					out.println("<tr><td>Comments From Service Owners </td></tr>");
+					out.println("<tr><td><b>Comments From Service Owners<b></td></tr>");
 					while(rs2.next()){
 						if(rs2.getString(1)!=null)
 						out.println("<tr><td>"+rs2.getString(1)+"</td></tr>");
@@ -137,32 +139,34 @@
 					</table>
 					
 				</div>
-			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services Offered by Me</a></b>
+			<li><b><a id="displayText2" href="javascript:toggle2();">Show Services Offered & Requested</a></b>
 			<script language="javascript">
 				function toggle2() {
 					var ele2 = document.getElementById("toggleText2");
 					var text2 = document.getElementById("displayText2");
 					if (ele2.style.display == "block") {
 						ele2.style.display = "none";
-						text2.innerHTML = "Show Services by Me";
+						text2.innerHTML = "Show Services Offered & Requested";
 					} else {
 						ele2.style.display = "block";
-						text2.innerHTML = "Hide Services by Me";
+						text2.innerHTML = "Hide Services Offered & Requested";
 					}
 				}
 			</script>
 			 
-				<div id="toggleText2" style="display: none" class="TableFormat">
+				<div id="toggleText2" style="display: none" class="table table-bordered">
 				<table>
+				<thead>
 				<tr>
-					<td>Service Title</td>
-					<td>Service Description</td>
-					<td>Service Start Date</td>
-					<td>Service End Date</td>
-					<td>Service Type</td>
-					<td>Service Quota</td>
-					<td>Apply for Service</td>
+					<th>Service Title</th>
+					<th>Service Description</th>
+					<th>Service Start Date</th>
+					<th>Service End Date</th>
+					<th>Service Type</th>
+					<th>Service Quota</th>
+					<th>Apply for Service</th>
 				</tr>
+				</thead>
 				<%
 				while(rs4.next()){
 						out.println("<tr><td>"+rs4.getString(2)+"</td>");
@@ -174,7 +178,7 @@
 						%>
 						<td>
 						<form action="ApplyForService.jsp" method="post">
-						<input type="submit" value="Apply">
+						<input type="submit" value="Apply" class="btn btn-primary">
 						<input type="hidden" name="processId" value=<%=rs4.getString(4) %>>	
 						</form>
 	
@@ -189,10 +193,13 @@
 		</ul>
 
 	</div>
+	</div>
+
+	<br><br><br>
 
 	<div id="extra">
 		<p style="font-size: 21px;">
-			<b>Social Credit: <i><%=credit%></i><br>Rating: <i><%=rating%></i>(<%=ratingCount%> times rated)</b>
+			<b>Social Credit: <i><%=credit%></i><br>Rating: <i><%=rating%></i></b> (<%=ratingCount%> times rated)
 		</p>
 	</div>
 	<br>
