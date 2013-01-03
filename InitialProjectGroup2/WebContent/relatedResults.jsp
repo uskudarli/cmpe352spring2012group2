@@ -145,12 +145,7 @@
 					<td><%=serviceTags%></td>
 					<td><%=serviceDemanderOrSupplier%></td>
 					<td><%=serviceApplierQuota%></td>
-					<td>
-						<form id="emailSender1" action="applierProfile.jsp" method="post">
-							<input type="hidden" name="applierId" value=<%=serviceEmail%>>
-						</form>
-						<a onclick="document.getElementById('emailSender1').submit()">Owner</a>
-					</td>
+					<td><a href="applierProfile.jsp?qid=<%=serviceEmail%>">Owner</a></td>
 					<td>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply">
