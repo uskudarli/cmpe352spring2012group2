@@ -146,6 +146,7 @@ function addMarker(location) {
 			var endDateTextBox = $('#date_end');
 
 			startDateTextBox.datetimepicker({
+				minDate: new Date(),
 				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (endDateTextBox.val() != '') {
@@ -166,6 +167,7 @@ function addMarker(location) {
 				}
 			});
 			endDateTextBox.datetimepicker({
+				minDate: new Date(),
 				dateFormat: "yy-mm-dd",
 				onClose : function(dateText, inst) {
 					if (startDateTextBox.val() != '') {
