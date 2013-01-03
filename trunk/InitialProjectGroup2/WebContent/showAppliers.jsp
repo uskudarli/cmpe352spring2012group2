@@ -30,7 +30,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
     </div>
 <br><br><br>
 
-		
+
 		<div class="TableFormat">
 			<% Connection con = null;
 			String url = "jdbc:mysql://titan.cmpe.boun.edu.tr:3306/";
@@ -68,14 +68,8 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierSurname = rs.getString(2);
 				applierEmail = rs.getString(3);			
 			%>
-				
 				<tr>
-					<td>
-						<form id="emailSender1" action="applierProfile.jsp" method="post">
-							<input type="hidden" name="applierId" value=<%=applierEmail %>>
-						</form>
-						<a onclick="document.getElementById('emailSender1').submit()"><%=applierName %></a>
-					</td>
+					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 					<td>
 						<form action="accept.jsp" method="post">
@@ -118,12 +112,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				serviceProviderApproved = rs.getInt(5);
 			%>
 				<tr>
-					<td>
-						<form id="emailSender2" action="applierProfile.jsp" method="post">
-							<input type="hidden" name="applierId" value=<%=applierEmail %>>
-						</form>
-						<a onclick="document.getElementById('emailSender2').submit()"><%=applierName %></a>
-					</td>
+					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 					<td><%if(serviceProviderApproved==0){
 						applierApprovedString=""+applierApproved;%>
@@ -162,12 +151,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				
 			%>
 				<tr>
-					<td>
-						<form id="emailSender3" action="applierProfile.jsp" method="post">
-							<input type="hidden" name="applierId" value=<%=applierEmail %>>
-						</form>
-						<a onclick="document.getElementById('emailSender3').submit()"><%=applierName %></a>
-					</td>
+					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 				</tr>
 			<%
@@ -191,12 +175,7 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 				applierEmail = rs.getString(3);				
 			%>
 				<tr>
-					<td>
-						<form id="emailSender4" action="applierProfile.jsp" method="post">
-							<input type="hidden" name="applierId" value=<%=applierEmail %>>
-						</form>
-						<a onclick="document.getElementById('emailSender4').submit()"><%=applierName %></a>
-					</td>
+					<td><a href="applierProfile.jsp?qid=<%=applierEmail%>"><%=applierName %></a></td>
 					<td><%=applierSurname%></td>
 					<td>
 						<form action="rateService.jsp" method="post">
@@ -214,6 +193,6 @@ pageEncoding="ISO-8859-1" import="java.sql.*" import="java.util.*" %>
 			
 			<br><a href="OfferedServices.jsp"><strong>&#8249;-- Return to Offered Services</strong></a>
 		
-		<hr><br><br><hr><div id="footer"><p>Copyright © Boun Cmpe451 - Group 2</p></div>
+		<hr><br><br><hr><div id="footer"><p>Copyright Â© Boun Cmpe451 - Group 2</p></div>
 	</body>
 </html>
