@@ -107,8 +107,9 @@ function addMarker(location) {
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class=""><a href="profile.jsp">Home</a></li>
-              <li class=""><a href="profile.jsp">Profile</a></li>
-              <li class="active"><a href="searchPage.jsp">Search For a Service</a></li>
+              <li class=""><a href="createService.jsp">Offer a Service</a></li>
+              <li class=""><a href="requestService.jsp">Request a Service</a></li>
+              <li class="active"><a href="searchPage.jsp">Search for a Service</a></li>
             </ul>
             <ul class="nav pull-right">
                   <li><a href="Logout.jsp">Logout</a></li>
@@ -118,7 +119,7 @@ function addMarker(location) {
       </div>
     </div>
 <br><br><br>
-<div class="container"><h1>Search For A Service</h1><hr> 
+<div class="container"><h1>Search for A Service</h1><hr> 
 	<form name="searchPage" action="searchResult.jsp" method="post">
 	
 	<div id="elementtags" class="searchPage">

@@ -28,8 +28,9 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class=""><a href="profile.jsp">Home</a></li>
-              <li class=""><a href="profile.jsp">Profile</a></li>
-              <li class=""><a href="searchPage.jsp">Search For a Service</a></li>
+              <li class=""><a href="createService.jsp">Offer a Service</a></li>
+              <li class=""><a href="requestService.jsp">Request a Service</a></li>
+              <li class=""><a href="searchPage.jsp">Search for a Service</a></li>
             </ul>
             <ul class="nav pull-right">
                   <li><a href="Logout.jsp">Logout</a></li>
