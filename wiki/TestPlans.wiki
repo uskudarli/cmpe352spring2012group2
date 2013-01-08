@@ -4,5 +4,4 @@
 
   * [http://code.google.com/p/cmpe352spring2012group2/downloads/detail?name=REQUEST%20SERVICE%20TEST%20PLAN.docx&can=2&q=#makechanges Request a Service Test Plan]
 
- * [http://code.google.com/p/cmpe352spring2012group2/downloads/detail?name=SERV%C4%B0CE%20STATUS.docx&can=2&q=#makechanges  
-Service Status Test Plan]
+  * [http://code.google.com/p/cmpe352spring2012group2/downloads/detail?name=SERV%C4%B0CE%20STATUS.docx&can=2&q=#makechanges Service Status Test Plan]
