@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.net.URLDecoder"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
@@ -49,6 +51,9 @@
 	   		}
 	%>
 	<%
+		Date now = new Date();
+	
+	
 		String username = "";
 		username = (String)(request.getParameter("qid"));
 		username = decryptString(username);
@@ -175,13 +180,33 @@
 						out.println("<td>"+rs4.getString(6)+"</td>");
 						out.println("<td>"+rs4.getString(7)+"</td>");
 						out.println("<td>"+rs4.getString(8)+"</td>");
+						String pattern = "yyyy-MM-dd HH:mm:ss.S";
+						SimpleDateFormat format = new SimpleDateFormat(pattern);
+						Date date = null;
+						try {
+						   date = format.parse(rs4.getString(6));
+						} catch (Exception e) {
+						  e.printStackTrace();
+						}
+						
 						%>
 						<td>
+						<%
+						if(now.compareTo(date)<=0){
+						%>
 						<form action="ApplyForService.jsp" method="post">
 						<input type="submit" value="Apply" class="btn btn-primary">
 						<input type="hidden" name="processId" value=<%=rs4.getString(4) %>>	
 						</form>
-	
+						<%
+						}
+						else
+						{
+						%>
+						Obsolete
+						<%
+						}
+						%>
 					</td>
 					</tr>
 					<% 
