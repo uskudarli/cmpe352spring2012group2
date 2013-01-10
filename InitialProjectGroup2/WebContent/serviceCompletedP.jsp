@@ -47,7 +47,9 @@
 		System.out.println(update);
 		db.closeConnection();
 		db = new DBConnection();
-		update = "SELECT (demanderOrSupplier,email) from OpenServices where serviceId='"+serviceId+"'";
+		
+		update = "SELECT demanderOrSupplier, email from OpenServices where serviceId='"+serviceId+"'";
+		System.out.println(update);
 		ResultSet rs = db.executeQuery(update);
 		String type = null;
 		String ownerName = null;
