@@ -79,10 +79,12 @@
 		db.closeConnection();
 		rs.close();
 		
-		
+
+		System.out.println("before:"+ownerCredit+" "+applierCredit);
 		if(type.equals("supplier")){
 			ownerCredit+=10;
 			applierCredit-=10;
+			System.out.println(ownerCredit+" "+applierCredit);
 		}
 		else if(type.equals("demander")){
 			ownerCredit-=10;
@@ -90,9 +92,11 @@
 		}
 		db = new DBConnection();
 		update = "Update User Set socialCredit="+ownerCredit+" Where email='"+ownerName+"'";
+		db.executeUpdate(update);
 		db.closeConnection();
 		db = new DBConnection();
 		update = "Update User Set socialCredit="+applierCredit+" Where email='"+applierCredit+"'";
+		db.executeUpdate(update);
 		db.closeConnection();
 			
 	}
