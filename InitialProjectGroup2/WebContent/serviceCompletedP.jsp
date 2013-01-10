@@ -62,7 +62,7 @@
 		System.out.println(type);
 		//
 		db = new DBConnection();
-		update = "SELECT socialCredit from User where userId='"+ownerName+"'";
+		update = "SELECT socialCredit from User where email='"+ownerName+"'";
 		rs = db.executeQuery(update);
 		int ownerCredit = -100;
 		if(rs.next())
@@ -71,7 +71,7 @@
 		rs.close();
 		//
 		db = new DBConnection();
-		update = "SELECT socialCredit from User where userId='"+applierId+"'";
+		update = "SELECT socialCredit from User where email='"+applierId+"'";
 		rs = db.executeQuery(update);
 		int applierCredit = -100;
 		if(rs.next())
@@ -89,10 +89,10 @@
 			applierCredit+=10;
 		}
 		db = new DBConnection();
-		update = "Update User Set socialCredit="+ownerCredit+" Where userId='"+ownerName+"'";
+		update = "Update User Set socialCredit="+ownerCredit+" Where email='"+ownerName+"'";
 		db.closeConnection();
 		db = new DBConnection();
-		update = "Update User Set socialCredit="+applierCredit+" Where userId='"+applierCredit+"'";
+		update = "Update User Set socialCredit="+applierCredit+" Where email='"+applierCredit+"'";
 		db.closeConnection();
 			
 	}
