@@ -93,9 +93,11 @@
 		}
 		db = new DBConnection();
 		update = "Update User Set socialCredit="+ownerCredit+" Where email='"+ownerName+"'";
+		db.executeUpdate(update);
 		db.closeConnection();
 		db = new DBConnection();
 		update = "Update User Set socialCredit="+applierCredit+" Where email='"+applierCredit+"'";
+		db.executeUpdate(update);
 		db.closeConnection();
 		
 	}
