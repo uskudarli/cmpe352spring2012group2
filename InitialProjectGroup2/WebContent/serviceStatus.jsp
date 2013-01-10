@@ -95,6 +95,7 @@
 					<td>Service Type</td>
 					<td>Owner's Email</td>
 					<td>Owner's Phone</td>
+					<td></td>
 				</tr>
 			<%
 			int applierApproved = 0;

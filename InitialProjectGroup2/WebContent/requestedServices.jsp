@@ -6,7 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Requested Services</title>
-
+<%!
+			String encryptInteger(int number) {
+				number *= 23;
+				String str = Integer.toString(number);
+				StringBuffer sb = new StringBuffer (str);
+			      int lenStr = str.length();
+			      // For each character in our string, encrypt it...
+			      for ( int i = 0; i < lenStr; i++ ){ 
+			         sb.setCharAt(i, (char)(str.charAt(i) +23)); 
+			      }
+			      return sb.toString();
+			}
+			%>
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/MyStyleProfile.css">
 </head>
@@ -62,6 +74,7 @@
 					String dateTo = "";
 					String latitude = "";
 					String longitude = "";
+					String encryptedServiceId = "";
 					int radius = 0;
 					
 					int i = 0;
@@ -85,6 +98,8 @@
 							<td>Service Start Date</td>
 							<td>Service End Date</td>
 							<td>Service Tags</td>
+							<td>Appliers</td>
+							<td></td>
 							</tr><% }
 						else{ %>
 							<p>You don't have any requested services yet.</p>
@@ -93,6 +108,7 @@
 							title = rs.getString(2);
 							description = rs.getString(3);
 							serviceId = rs.getInt(4);
+							encryptedServiceId = encryptInteger(serviceId);
 							dateFrom = rs.getString(5);
 							dateTo = rs.getString(6);
 
@@ -113,6 +129,9 @@
 				<td><%=dateFrom%></td>
 				<td><%=dateTo%></td>
 				<td><%=tag%></td>
+				<td><a href="showAppliers.jsp?value=<%=encryptedServiceId%>">Appliers</a>
+				</td>
+				
 				<td><div><input type="submit" name="deleteTitle<%=i%>"
 					value="Delete" class="btn btn-inverse"></div>
 				</td>
