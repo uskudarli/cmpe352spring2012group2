@@ -45,6 +45,7 @@ if(t>0){
 	db.executeUpdate(ins);
 	db.executeUpdate(decrease);
 	db.executeUpdate(delete);
+	db.closeConnection();
 %>
 Request Accepted
 <%}
