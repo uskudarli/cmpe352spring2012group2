@@ -51,6 +51,53 @@
 		db.executeUpdate(update);
 		System.out.println(update);
 		db.closeConnection();
+		db = new DBConnection();
+		update = "SELECT (demanderOrSupplier,email) from OpenServices where serviceId='"+serviceId+"'";
+		ResultSet rs = db.executeQuery(update);
+		String type = null;
+		String ownerName = null;
+		if(rs.next()){
+			type = rs.getString(1);
+			ownerName = rs.getString(2);	
+		}
+		db.closeConnection();
+		rs.close();
+		System.out.println(type);
+		//
+		db = new DBConnection();
+		update = "SELECT socialCredit from User where userId='"+ownerName+"'";
+		rs = db.executeQuery(update);
+		int ownerCredit = -100;
+		if(rs.next())
+		 ownerCredit = rs.getInt(1);
+		db.closeConnection();
+		rs.close();
+		//
+		db = new DBConnection();
+		update = "SELECT socialCredit from User where userId='"+applierId+"'";
+		rs = db.executeQuery(update);
+		int applierCredit = -100;
+		if(rs.next())
+		 applierCredit = rs.getInt(1);
+		db.closeConnection();
+		rs.close();
+		
+		
+		if(type.equals("supplier")){
+			ownerCredit+=10;
+			applierCredit-=10;
+		}
+		else if(type.equals("demander")){
+			ownerCredit-=10;
+			applierCredit+=10;
+		}
+		db = new DBConnection();
+		update = "Update User Set socialCredit="+ownerCredit+" Where userId='"+ownerName+"'";
+		db.closeConnection();
+		db = new DBConnection();
+		update = "Update User Set socialCredit="+applierCredit+" Where userId='"+applierCredit+"'";
+		db.closeConnection();
+		
 	}
 	response.sendRedirect("serviceStatus.jsp");
 	//request.getRequestDispatcher("serviceCompleted.jsp").forward(request, response);

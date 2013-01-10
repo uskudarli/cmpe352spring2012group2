@@ -101,6 +101,7 @@
 							<td>Service End Date</td>
 							<td>Service Tags</td>
 							<td>Appliers</td>
+							<td></td>
 							</tr>
 						<% }
 						else{ %>
