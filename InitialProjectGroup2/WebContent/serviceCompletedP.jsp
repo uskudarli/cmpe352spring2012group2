@@ -95,7 +95,7 @@
 		db.executeUpdate(update);
 		db.closeConnection();
 		db = new DBConnection();
-		update = "Update User Set socialCredit="+applierCredit+" Where email='"+applierCredit+"'";
+		update = "Update User Set socialCredit="+applierCredit+" Where email='"+applierId+"'";
 		db.executeUpdate(update);
 		db.closeConnection();
 			
