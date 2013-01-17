@@ -33,6 +33,8 @@
 
  String title = request.getParameter("title");
  String description = request.getParameter("description");
+ title=title.replaceAll("'", "''");
+ description=description.replaceAll("'", "''");
  String tags = request.getParameter("tags");
  String date_start = request.getParameter("date_start");
  String date_end = request.getParameter("date_end");

@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@page import="com.group2.DBConnection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="java.sql.*" import="java.util.*" %>
@@ -33,6 +34,8 @@
 
  String title = request.getParameter("title");
  String description = request.getParameter("description");
+ title=title.replaceAll("'", "''");
+ description=description.replaceAll("'", "''");
  String tags = request.getParameter("tags");
  String date_start = request.getParameter("date_start");
  String date_end = request.getParameter("date_end");
