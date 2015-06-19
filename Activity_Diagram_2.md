@@ -1,0 +1,1 @@
+![http://cmpe352spring2012group2.googlecode.com/files/ece_activity_diagram_v1.png](http://cmpe352spring2012group2.googlecode.com/files/ece_activity_diagram_v1.png)
